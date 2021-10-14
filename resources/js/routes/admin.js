@@ -22,7 +22,16 @@ export default [
     path: '/admin/pdf/add-pdf',
     component: () => import('../views/admin/admin-pdf/AddPDF.vue'),
     meta: {
-      title: 'Add PDF Resource -RSRCS',
+      title: 'Add PDF Resource - RSRCS',
+      layout: 'AppAdminLayout'
+    }
+  },
+  {
+    name: 'edit-pdf',
+    path: '/admin/pdf/edit-pdf',
+    component: () => import('../views/admin/admin-pdf/EditPDF.vue'),
+    meta: {
+      title: 'Edit PDF Resource - RSCRS',
       layout: 'AppAdminLayout'
     }
   }

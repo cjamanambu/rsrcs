@@ -33,7 +33,7 @@
               <div class="dropdown">
                 <ion-icon name="ellipsis-horizontal-outline" class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer" />
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="javascript:void(0)">
+                  <a class="dropdown-item" href="javascript:void(0)" @click="editPDF(pdf)">
                     <ion-icon name="create-outline" size="small" class="mr-1" />
                     Edit PDF
                   </a>
@@ -73,6 +73,12 @@ export default {
     })
     .catch(error => console.log(error))
     .finally(() => this.loading = false)
+  },
+  methods: {
+    editPDF(pdf) {
+      localStorage.setItem('pdfID', pdf.id)
+      this.$router.push({ name: 'edit-pdf', params: { id: pdf.id } })
+    }
   }
 }
 </script>

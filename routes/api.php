@@ -22,6 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix' => 'admin'], function () {
-	Route::get('pdf', [ManagementController::class, 'pdfs'])->name('admin_pdf');
+	Route::get('pdf', [ManagementController::class, 'pdfs'])->name('admin_pdfs');
+	Route::get('pdf/{id}', [ManagementController::class, 'pdf'])->name('admin_pdf');
 	Route::post('pdf/add', [ManagementController::class, 'addPdf'])->name('admin_add_pdf');
+	Route::post('pdf/update', [ManagementController::class, 'updatePdf'])->name('admin_update_pdf');
 });
