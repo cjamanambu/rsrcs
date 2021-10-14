@@ -75,4 +75,18 @@ class ManagementController extends Controller
 		$htmls = Html::all()->toArray();
 		return array_reverse($htmls);
 	}
+
+	public function addHtml(Request $request) {
+		$request->validate([
+			'title' => 'required',
+			'snippet' => 'required',
+		]);
+		$new_html = new Html([
+			'title' => $request->input('title'),
+			'description' => $request->input('description'),
+			'snippet' => $request->input('snippet')
+		]);
+		$new_html->save();
+		return response()->json('The html snippet was successfully added.');
+	}
 }

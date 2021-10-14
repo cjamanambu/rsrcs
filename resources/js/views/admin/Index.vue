@@ -26,8 +26,8 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">HTML Resources</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <p class="card-text">There are currently {{ htmls }} HTML Resources in RSRCS.</p>
+              <router-link to="/admin/html" class="card-link">View more</router-link>
             </div>
           </div>
         </div>
@@ -55,6 +55,7 @@ export default {
     return {
       loading: true,
       pdfs: 0,
+      htmls: 0,
       crumbs: [
         { id: 1, name: 'Dashboard', active: true, path: '' }
       ]
@@ -65,7 +66,13 @@ export default {
       this.pdfs = response.data.length
     })
     .catch(error => console.log(error))
-    .finally(() => this.loading = false)
+    .finally(() => {
+      this.axios.get('http://localhost:8000/api/admin/html').then(response => {
+        this.htmls = response.data.length
+      })
+      .catch(error => console.log(error))
+      .finally(() => this.loading = false)
+    })
   }
 }
 </script>

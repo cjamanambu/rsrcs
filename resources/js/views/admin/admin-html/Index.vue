@@ -16,13 +16,38 @@
           <th style="width: 5%">#</th>
           <th>Title</th>
           <th>Description</th>
-          <th>Added</th>
+          <th style="width: 20%;">Added</th>
           <th style="width: 10%" class="text-center">Actions</th>
         </tr>
         </thead>
         <tbody>
         <tr v-if="this.htmls.length === 0">
           <td colspan="5" class="font-weight-bolder text-center">No HTML Resource exists</td>
+        </tr>
+        <tr
+          v-else
+          v-for="(html, key) in htmls"
+          :key="html.id"
+        >
+          <td class="text-center">{{ ++key }}</td>
+          <td>{{ html.title }}</td>
+          <td>{{ html.description }}</td>
+          <td>{{ new Date(html.created_at).toDateString() }}</td>
+          <td class="text-center">
+            <div class="dropdown">
+              <ion-icon name="ellipsis-horizontal-outline" class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer" />
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="javascript:void(0)">
+                  <ion-icon name="create-outline" size="small" class="mr-1" />
+                  Edit HTML
+                </a>
+                <a class="dropdown-item text-danger" href="javascript:void(0)">
+                  <ion-icon name="trash-outline" size="small" class="mr-1" />
+                  Delete HTML
+                </a>
+              </div>
+            </div>
+          </td>
         </tr>
         </tbody>
       </table>

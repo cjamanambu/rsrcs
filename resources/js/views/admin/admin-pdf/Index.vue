@@ -16,7 +16,7 @@
           <th style="width: 5%">#</th>
           <th>Title</th>
           <th>File Name</th>
-          <th>Added</th>
+          <th style="width: 20%;">Added</th>
           <th style="width: 10%" class="text-center">Actions</th>
         </tr>
         </thead>
@@ -36,7 +36,7 @@
             <td class="text-center">
               <div class="dropdown">
                 <ion-icon name="ellipsis-horizontal-outline" class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer" />
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <div class="dropdown-menu">
                   <a class="dropdown-item" href="javascript:void(0)" @click="editPDF(pdf)">
                     <ion-icon name="create-outline" size="small" class="mr-1" />
                     Edit PDF

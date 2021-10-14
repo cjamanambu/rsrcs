@@ -456,69 +456,60 @@ var render = function() {
                                     }
                                   }),
                                   _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass: "dropdown-menu",
-                                      attrs: {
-                                        "aria-labelledby": "dropdownMenuLink"
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "dropdown-item",
-                                          attrs: { href: "javascript:void(0)" },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.editPDF(pdf)
-                                            }
+                                  _c("div", { staticClass: "dropdown-menu" }, [
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: { href: "javascript:void(0)" },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.editPDF(pdf)
                                           }
-                                        },
-                                        [
-                                          _c("ion-icon", {
-                                            staticClass: "mr-1",
-                                            attrs: {
-                                              name: "create-outline",
-                                              size: "small"
-                                            }
-                                          }),
-                                          _vm._v(
-                                            "\n                  Edit PDF\n                "
-                                          )
-                                        ],
-                                        1
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass:
-                                            "dropdown-item text-danger",
-                                          attrs: { href: "javascript:void(0)" },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.deletePDF(pdf)
-                                            }
+                                        }
+                                      },
+                                      [
+                                        _c("ion-icon", {
+                                          staticClass: "mr-1",
+                                          attrs: {
+                                            name: "create-outline",
+                                            size: "small"
                                           }
-                                        },
-                                        [
-                                          _c("ion-icon", {
-                                            staticClass: "mr-1",
-                                            attrs: {
-                                              name: "trash-outline",
-                                              size: "small"
-                                            }
-                                          }),
-                                          _vm._v(
-                                            "\n                  Delete PDF\n                "
-                                          )
-                                        ],
-                                        1
-                                      )
-                                    ]
-                                  )
+                                        }),
+                                        _vm._v(
+                                          "\n                  Edit PDF\n                "
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass:
+                                          "dropdown-item text-danger",
+                                        attrs: { href: "javascript:void(0)" },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.deletePDF(pdf)
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c("ion-icon", {
+                                          staticClass: "mr-1",
+                                          attrs: {
+                                            name: "trash-outline",
+                                            size: "small"
+                                          }
+                                        }),
+                                        _vm._v(
+                                          "\n                  Delete PDF\n                "
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ])
                                 ],
                                 1
                               )
@@ -549,7 +540,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("File Name")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Added")]),
+        _c("th", { staticStyle: { width: "20%" } }, [_vm._v("Added")]),
         _vm._v(" "),
         _c(
           "th",

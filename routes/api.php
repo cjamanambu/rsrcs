@@ -30,4 +30,5 @@ Route::group(['prefix' => 'admin'], function () {
 	Route::post('pdf/delete', [ManagementController::class, 'deletePdf'])->name('admin_delete_pdf');
 	// html routes
 	Route::get('html', [ManagementController::class, 'htmls'])->name('admin_htmls');
+	Route::post('html/add', [ManagementController::class, 'addHtml'])->name('admin_add_html');
 });
