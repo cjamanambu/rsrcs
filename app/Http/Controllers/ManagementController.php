@@ -76,6 +76,11 @@ class ManagementController extends Controller
 		return array_reverse($htmls);
 	}
 
+	public function html($id) {
+		$html = Html::findOrFail($id);
+		return response()->json($html);
+	}
+
 	public function addHtml(Request $request) {
 		$request->validate([
 			'title' => 'required',

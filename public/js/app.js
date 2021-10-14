@@ -2332,6 +2332,16 @@ __webpack_require__.r(__webpack_exports__);
     title: 'Add HTML Resource - RSCRS',
     layout: 'AppAdminLayout'
   }
+}, {
+  name: 'edit-html',
+  path: '/admin/html/edit-html',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_views_admin_admin-html_EditHTML_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/admin/admin-html/EditHTML.vue */ "./resources/js/views/admin/admin-html/EditHTML.vue"));
+  },
+  meta: {
+    title: 'Edit HTML Resource - RSCRS',
+    layout: 'AppAdminLayout'
+  }
 }]);
 
 /***/ }),
@@ -45123,7 +45133,12 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(_vm.layout, { tag: "component" }, [_vm._t("default")], 2)
+  return _c(
+    _vm.layout,
+    { tag: "component", staticClass: "mb-5" },
+    [_vm._t("default")],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -73039,7 +73054,7 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_layouts_AppAdminLayout_vue":1,"resources_js_layouts_AppDefaultLayout_vue":1,"resources_js_views_Index_vue":1,"resources_js_views_admin_Index_vue":1,"resources_js_views_admin_admin-pdf_Index_vue":1,"resources_js_views_admin_admin-pdf_AddPDF_vue":1,"resources_js_views_admin_admin-pdf_EditPDF_vue":1,"resources_js_views_admin_admin-html_Index_vue":1,"resources_js_views_admin_admin-html_AddHTML_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_layouts_AppAdminLayout_vue":1,"resources_js_layouts_AppDefaultLayout_vue":1,"resources_js_views_Index_vue":1,"resources_js_views_admin_Index_vue":1,"resources_js_views_admin_admin-pdf_Index_vue":1,"resources_js_views_admin_admin-pdf_AddPDF_vue":1,"resources_js_views_admin_admin-pdf_EditPDF_vue":1,"resources_js_views_admin_admin-html_Index_vue":1,"resources_js_views_admin_admin-html_AddHTML_vue":1,"resources_js_views_admin_admin-html_EditHTML_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

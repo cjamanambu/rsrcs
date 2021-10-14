@@ -52,5 +52,14 @@ export default [
       title: 'Add HTML Resource - RSCRS',
       layout: 'AppAdminLayout'
     }
+  },
+  {
+    name: 'edit-html',
+    path: '/admin/html/edit-html',
+    component: () => import('../views/admin/admin-html/EditHTML.vue'),
+    meta: {
+      title: 'Edit HTML Resource - RSCRS',
+      layout: 'AppAdminLayout'
+    }
   }
 ]

@@ -37,7 +37,7 @@
             <div class="dropdown">
               <ion-icon name="ellipsis-horizontal-outline" class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer" />
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="javascript:void(0)">
+                <a class="dropdown-item" href="javascript:void(0)" @click="editHTML(html)">
                   <ion-icon name="create-outline" size="small" class="mr-1" />
                   Edit HTML
                 </a>
@@ -77,5 +77,11 @@ export default {
     .catch(error => console.log(error))
     .finally(() => this.loading = false)
   },
+  methods: {
+    editHTML(html) {
+      localStorage.setItem('htmlID', html.id)
+      this.$router.push({ name: 'edit-html', params: { id: html.id } })
+    },
+  }
 }
 </script>
