@@ -89,6 +89,54 @@ __webpack_require__.r(__webpack_exports__);
     })["finally"](function () {
       return _this.loading = false;
     });
+  },
+  methods: {
+    editHTML: function editHTML() {
+      var _this2 = this;
+
+      this.$swal({
+        title: 'Are you sure?',
+        text: "This will update the html resource",
+        type: 'warning',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, update it!'
+      }).then(function (result) {
+        if (result.value) {
+          _this2.loading = true;
+          var formData = new FormData();
+          formData.append('id', _this2.htmlID);
+          formData.append('title', _this2.html.title);
+          formData.append('description', _this2.html.description);
+          formData.append('snippet', _this2.html.snippet);
+
+          _this2.axios.post('http://localhost:8000/api/admin/html/update', formData).then(function (response) {
+            _this2.$router.push({
+              name: 'admin-html'
+            }).then(function () {
+              _this2.$swal({
+                title: 'Success',
+                text: response.data,
+                icon: 'success'
+              });
+            });
+          })["catch"](function (error) {
+            _this2.$swal({
+              title: 'Error',
+              text: error.response.data.message,
+              icon: 'error'
+            });
+          })["finally"](function () {
+            return _this2.loading = false;
+          });
+        }
+      });
+    }
+  },
+  beforeDestroy: function beforeDestroy() {
+    localStorage.removeItem('htmlID');
   }
 });
 
@@ -345,6 +393,7 @@ var render = function() {
                   on: {
                     submit: function($event) {
                       $event.preventDefault()
+                      return _vm.editHTML.apply(null, arguments)
                     }
                   }
                 },

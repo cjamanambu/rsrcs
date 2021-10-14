@@ -11,7 +11,7 @@
         <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
       </div>
       <div v-if="!loading" class="card">
-        <form @submit.prevent="">
+        <form @submit.prevent="editHTML">
           <div class="card-body">
             <h5 class="card-title mb-4">Edit HTML Form</h5>
             <div class="form-group mb-4">
@@ -60,5 +60,46 @@ export default {
     .catch(error => console.log(error))
     .finally(() => this.loading = false)
   },
+  methods: {
+    editHTML() {
+      this.$swal({
+        title: 'Are you sure?',
+        text: `This will update the html resource`,
+        type: 'warning',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, update it!'
+      }).then(result => {
+        if (result.value) {
+          this.loading = true
+          const formData = new FormData()
+          formData.append('id', this.htmlID)
+          formData.append('title', this.html.title)
+          formData.append('description', this.html.description)
+          formData.append('snippet', this.html.snippet)
+          this.axios.post('http://localhost:8000/api/admin/html/update', formData).then(response => {
+            this.$router.push({ name: 'admin-html'}).then(() => {
+              this.$swal({
+                title: 'Success',
+                text: response.data,
+                icon: 'success'
+              })
+            })
+          }).catch(error => {
+            this.$swal({
+              title: 'Error',
+              text: error.response.data.message,
+              icon: 'error'
+            })
+          }).finally(() => this.loading = false)
+        }
+      })
+    }
+  },
+  beforeDestroy() {
+    localStorage.removeItem('htmlID')
+  }
 }
 </script>

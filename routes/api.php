@@ -32,4 +32,6 @@ Route::group(['prefix' => 'admin'], function () {
 	Route::get('html', [ManagementController::class, 'htmls']);
 	Route::get('html/{id}', [ManagementController::class, 'html']);
 	Route::post('html/add', [ManagementController::class, 'addHtml']);
+	Route::post('html/update', [ManagementController::class, 'updateHtml']);
+	Route::post('html/delete', [ManagementController::class, 'deleteHtml']);
 });

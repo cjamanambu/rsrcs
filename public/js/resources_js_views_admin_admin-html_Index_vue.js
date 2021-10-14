@@ -112,6 +112,48 @@ __webpack_require__.r(__webpack_exports__);
           id: html.id
         }
       });
+    },
+    deleteHTML: function deleteHTML(html) {
+      var _this2 = this;
+
+      this.$swal({
+        title: 'Are you sure?',
+        text: "This will delete the pdf resource: ".concat(html.title, ". This action is irreversible."),
+        type: 'warning',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then(function (result) {
+        if (result.value) {
+          _this2.loading = true;
+          var formData = new FormData();
+          formData.append('id', html.id);
+
+          _this2.axios.post('http://localhost:8000/api/admin/html/delete', formData).then(function (response) {
+            _this2.$swal({
+              title: 'Success',
+              text: response.data,
+              icon: 'success'
+            });
+          })["catch"](function (error) {
+            _this2.$swal({
+              title: 'Error',
+              text: error.response.data.message,
+              icon: 'error'
+            });
+          })["finally"](function () {
+            _this2.axios.get('http://localhost:8000/api/admin/html').then(function (response) {
+              _this2.htmls = response.data;
+            })["catch"](function (error) {
+              return console.log(error);
+            })["finally"](function () {
+              return _this2.loading = false;
+            });
+          });
+        }
+      });
     }
   }
 });
@@ -447,7 +489,12 @@ var render = function() {
                                       {
                                         staticClass:
                                           "dropdown-item text-danger",
-                                        attrs: { href: "javascript:void(0)" }
+                                        attrs: { href: "javascript:void(0)" },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.deleteHTML(html)
+                                          }
+                                        }
                                       },
                                       [
                                         _c("ion-icon", {

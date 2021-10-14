@@ -94,4 +94,27 @@ class ManagementController extends Controller
 		$new_html->save();
 		return response()->json('The html snippet was successfully added.');
 	}
+
+	public function updateHtml(Request $request) {
+		$request->validate([
+			'id' => 'required',
+			'title' => 'required',
+			'snippet' => 'required',
+		]);
+		$html = Html::findOrFail($request->input('id'));
+		$html->title = $request->input('title');
+		$html->description = $request->input('description');
+		$html->snippet = $request->input('snippet');
+		$html->save();
+		return response()->json('The html snippet was successfully updated');
+	}
+
+	public function deleteHtml(Request $request) {
+		$request->validate([
+			'id' => 'required'
+		]);
+		$html = Html::findOrFail($request->input('id'));
+		$html->delete();
+		return response()->json('The html snippet was successfully deleted.');
+	}
 }

@@ -41,7 +41,7 @@
                   <ion-icon name="create-outline" size="small" class="mr-1" />
                   Edit HTML
                 </a>
-                <a class="dropdown-item text-danger" href="javascript:void(0)">
+                <a class="dropdown-item text-danger" href="javascript:void(0)" @click="deleteHTML(html)">
                   <ion-icon name="trash-outline" size="small" class="mr-1" />
                   Delete HTML
                 </a>
@@ -82,6 +82,43 @@ export default {
       localStorage.setItem('htmlID', html.id)
       this.$router.push({ name: 'edit-html', params: { id: html.id } })
     },
+    deleteHTML(html) {
+      this.$swal({
+        title: 'Are you sure?',
+        text: `This will delete the pdf resource: ${html.title}. This action is irreversible.`,
+        type: 'warning',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then(result => {
+        if (result.value) {
+          this.loading = true
+          const formData = new FormData()
+          formData.append('id', html.id)
+          this.axios.post('http://localhost:8000/api/admin/html/delete', formData).then(response => {
+            this.$swal({
+              title: 'Success',
+              text: response.data,
+              icon: 'success'
+            })
+          }).catch(error => {
+            this.$swal({
+              title: 'Error',
+              text: error.response.data.message,
+              icon: 'error'
+            })
+          }).finally(() => {
+            this.axios.get('http://localhost:8000/api/admin/html').then(response => {
+              this.htmls = response.data
+            })
+            .catch(error => console.log(error))
+            .finally(() => this.loading = false)
+          })
+        }
+      })
+    }
   }
 }
 </script>
