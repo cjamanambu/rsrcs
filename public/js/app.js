@@ -2299,7 +2299,17 @@ __webpack_require__.r(__webpack_exports__);
     return __webpack_require__.e(/*! import() */ "resources_js_views_admin_admin-pdf_AddPDF_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/admin/admin-pdf/AddPDF.vue */ "./resources/js/views/admin/admin-pdf/AddPDF.vue"));
   },
   meta: {
-    title: 'Add PDF Resource -RSRCS',
+    title: 'Add PDF Resource - RSRCS',
+    layout: 'AppAdminLayout'
+  }
+}, {
+  name: 'edit-pdf',
+  path: '/admin/pdf/edit-pdf',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_views_admin_admin-pdf_EditPDF_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/admin/admin-pdf/EditPDF.vue */ "./resources/js/views/admin/admin-pdf/EditPDF.vue"));
+  },
+  meta: {
+    title: 'Edit PDF Resource - RSCRS',
     layout: 'AppAdminLayout'
   }
 }]);
@@ -73009,7 +73019,7 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_layouts_AppAdminLayout_vue":1,"resources_js_layouts_AppDefaultLayout_vue":1,"resources_js_views_Index_vue":1,"resources_js_views_admin_Index_vue":1,"resources_js_views_admin_admin-pdf_Index_vue":1,"resources_js_views_admin_admin-pdf_AddPDF_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_layouts_AppAdminLayout_vue":1,"resources_js_layouts_AppDefaultLayout_vue":1,"resources_js_views_Index_vue":1,"resources_js_views_admin_Index_vue":1,"resources_js_views_admin_admin-pdf_Index_vue":1,"resources_js_views_admin_admin-pdf_AddPDF_vue":1,"resources_js_views_admin_admin-pdf_EditPDF_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

@@ -21,7 +21,11 @@
         </tr>
         </thead>
         <tbody>
+          <tr v-if="this.pdfs.length === 0">
+            <td colspan="5" class="font-weight-bolder text-center">No PDF Resource exists</td>
+          </tr>
           <tr
+            v-else
             v-for="(pdf, key) in pdfs"
             :key="pdf.id"
           >
@@ -33,11 +37,11 @@
               <div class="dropdown">
                 <ion-icon name="ellipsis-horizontal-outline" class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer" />
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="javascript:void(0)">
+                  <a class="dropdown-item" href="javascript:void(0)" @click="editPDF(pdf)">
                     <ion-icon name="create-outline" size="small" class="mr-1" />
                     Edit PDF
                   </a>
-                  <a class="dropdown-item text-danger" href="javascript:void(0)">
+                  <a class="dropdown-item text-danger" href="javascript:void(0)" @click="deletePDF(pdf)">
                     <ion-icon name="trash-outline" size="small" class="mr-1" />
                     Delete PDF
                   </a>
@@ -73,6 +77,49 @@ export default {
     })
     .catch(error => console.log(error))
     .finally(() => this.loading = false)
+  },
+  methods: {
+    editPDF(pdf) {
+      localStorage.setItem('pdfID', pdf.id)
+      this.$router.push({ name: 'edit-pdf', params: { id: pdf.id } })
+    },
+    deletePDF(pdf) {
+      this.$swal({
+        title: 'Are you sure?',
+        text: `This will delete the pdf resource: ${pdf.title}. This action is irreversible.`,
+        type: 'warning',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then(result => {
+        if (result.value) {
+          this.loading = true
+          const formData = new FormData()
+          formData.append('id', pdf.id)
+          this.axios.post('http://localhost:8000/api/admin/pdf/delete', formData).then(response => {
+            this.$swal({
+              title: 'Success',
+              text: response.data,
+              icon: 'success'
+            })
+          }).catch(error => {
+            this.$swal({
+              title: 'Error',
+              text: error.response.data.message,
+              icon: 'error'
+            })
+          }).finally(() => {
+            this.axios.get('http://localhost:8000/api/admin/pdf').then(response => {
+              this.pdfs = response.data
+            })
+            .catch(error => console.log(error))
+            .finally(() => this.loading = false)
+          })
+        }
+      })
+    }
   }
 }
 </script>

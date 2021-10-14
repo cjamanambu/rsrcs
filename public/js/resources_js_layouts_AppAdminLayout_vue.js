@@ -54,6 +54,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'AppAdminLayout'
 });
@@ -192,7 +196,8 @@ var render = function() {
                           class: {
                             "text-dark":
                               _vm.$route.name === "admin-pdf" ||
-                              _vm.$route.name === "add-pdf"
+                              _vm.$route.name === "add-pdf" ||
+                              _vm.$route.name === "edit-pdf"
                           },
                           attrs: { to: "/admin/pdf" }
                         },
