@@ -22,9 +22,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix' => 'admin'], function () {
-	Route::get('pdf', [ManagementController::class, 'pdfs'])->name('admin_pdfs');
-	Route::get('pdf/{id}', [ManagementController::class, 'pdf'])->name('admin_pdf');
-	Route::post('pdf/add', [ManagementController::class, 'addPdf'])->name('admin_add_pdf');
-	Route::post('pdf/update', [ManagementController::class, 'updatePdf'])->name('admin_update_pdf');
-	Route::post('pdf/delete', [ManagementController::class, 'deletePdf'])->name('admin_delete_pdf');
+	// pdf routes
+	Route::get('pdf', [ManagementController::class, 'pdfs']);
+	Route::get('pdf/{id}', [ManagementController::class, 'pdf']);
+	Route::post('pdf/add', [ManagementController::class, 'addPdf']);
+	Route::post('pdf/update', [ManagementController::class, 'updatePdf']);
+	Route::post('pdf/delete', [ManagementController::class, 'deletePdf']);
+	// html routes
+	Route::get('html', [ManagementController::class, 'htmls']);
+	Route::get('html/{id}', [ManagementController::class, 'html']);
+	Route::post('html/add', [ManagementController::class, 'addHtml']);
+	Route::post('html/update', [ManagementController::class, 'updateHtml']);
+	Route::post('html/delete', [ManagementController::class, 'deleteHtml']);
 });

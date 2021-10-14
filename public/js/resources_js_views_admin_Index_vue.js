@@ -68,6 +68,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       loading: true,
       pdfs: 0,
+      htmls: 0,
       crumbs: [{
         id: 1,
         name: 'Dashboard',
@@ -84,7 +85,13 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (error) {
       return console.log(error);
     })["finally"](function () {
-      return _this.loading = false;
+      _this.axios.get('http://localhost:8000/api/admin/html').then(function (response) {
+        _this.htmls = response.data.length;
+      })["catch"](function (error) {
+        return console.log(error);
+      })["finally"](function () {
+        return _this.loading = false;
+      });
     });
   }
 });
@@ -341,9 +348,39 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(1),
+              _c("div", { staticClass: "col-lg-4" }, [
+                _c("div", { staticClass: "card" }, [
+                  _c(
+                    "div",
+                    { staticClass: "card-body" },
+                    [
+                      _c("h5", { staticClass: "card-title" }, [
+                        _vm._v("HTML Resources")
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "card-text" }, [
+                        _vm._v(
+                          "There are currently " +
+                            _vm._s(_vm.htmls) +
+                            " HTML Resources in RSRCS."
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "card-link",
+                          attrs: { to: "/admin/html" }
+                        },
+                        [_vm._v("View more")]
+                      )
+                    ],
+                    1
+                  )
+                ])
+              ]),
               _vm._v(" "),
-              _vm._m(2)
+              _vm._m(1)
             ])
       ],
       1
@@ -363,28 +400,6 @@ var staticRenderFns = [
           _vm._v(
             "Welcome! You can add, edit and delete PDF, HTML & Link resources here."
           )
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-4" }, [
-      _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("h5", { staticClass: "card-title" }, [_vm._v("HTML Resources")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-text" }, [
-            _vm._v(
-              "With supporting text below as a natural lead-in to additional content."
-            )
-          ]),
-          _vm._v(" "),
-          _c("a", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
-            _vm._v("Go somewhere")
-          ])
         ])
       ])
     ])

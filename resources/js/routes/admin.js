@@ -34,5 +34,32 @@ export default [
       title: 'Edit PDF Resource - RSCRS',
       layout: 'AppAdminLayout'
     }
+  },
+  {
+    name: 'admin-html',
+    path: '/admin/html',
+    component: () => import('../views/admin/admin-html/Index.vue'),
+    meta: {
+      title: 'HTML Resource - RSCRS',
+      layout: 'AppAdminLayout'
+    }
+  },
+  {
+    name: 'add-html',
+    path: '/admin/html/add-html',
+    component: () => import('../views/admin/admin-html/AddHTML.vue'),
+    meta: {
+      title: 'Add HTML Resource - RSCRS',
+      layout: 'AppAdminLayout'
+    }
+  },
+  {
+    name: 'edit-html',
+    path: '/admin/html/edit-html',
+    component: () => import('../views/admin/admin-html/EditHTML.vue'),
+    meta: {
+      title: 'Edit HTML Resource - RSCRS',
+      layout: 'AppAdminLayout'
+    }
   }
 ]

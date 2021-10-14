@@ -16,14 +16,18 @@
                 <router-link
                   class="nav-link"
                   to="/admin/pdf"
-                  :class="{'text-dark': $route.name === 'admin-pdf' || $route.name === 'add-pdf' || $route.name === 'edit-pdf'}"
+                  :class="{'text-dark': $route.name === 'admin-pdf' || $route.name === 'add-pdf' || $route.name === 'edit-pdf' }"
                 >
                   <ion-icon name="document-outline" size="small" class="mr-1"></ion-icon>
                   PDF Resource
                 </router-link>
               </li>
               <li class="nav-item">
-                <router-link class="nav-link" to="/admin/html" :class="{'text-dark': $route.name === 'admin-html'}">
+                <router-link
+                  class="nav-link"
+                  to="/admin/html"
+                  :class="{'text-dark': $route.name === 'admin-html' || $route.name === 'add-html' || $route.name === 'edit-html' }"
+                >
                   <ion-icon name="code-slash-outline" size="small" class="mr-1"></ion-icon>
                   HTML Resource
                 </router-link>
