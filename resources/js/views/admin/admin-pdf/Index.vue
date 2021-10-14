@@ -58,9 +58,7 @@
 <script>
 import PageHeader from "../components/PageHeader";
 export default {
-  components: {
-    PageHeader
-  },
+  components: { PageHeader },
   data() {
     return {
       loading: true,

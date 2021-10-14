@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Pdf;
+use App\Models\Html;
 use Illuminate\Support\Facades\Storage;
 
 class ManagementController extends Controller
 {
-	public function pdfs(): array {
-		$pdfFiles = Pdf::all()->toArray();
-		return array_reverse($pdfFiles);
+	public function pdfs() {
+		$pdfs = Pdf::all()->toArray();
+		return array_reverse($pdfs);
 	}
 
 	public function pdf($id) {
@@ -27,12 +28,12 @@ class ManagementController extends Controller
 		if ($request->file('file')) {
 			$file_name = $request->file('file')->getClientOriginalName();
 			$file_path = $request->file('file')->store('public/pdf-files');
-			$newPDF = new Pdf([
+			$new_pdf = new Pdf([
 				'title' => $request->input('title'),
 				'file_name' => $file_name,
 				'file_path' => $file_path
 			]);
-			$newPDF->save();
+			$new_pdf->save();
 		}
 		return response()->json('The pdf file was successfully added.');
 	}
@@ -68,5 +69,10 @@ class ManagementController extends Controller
 		}
 		$pdf->delete();
 		return response()->json('The pdf file was successfully deleted.');
+	}
+
+	public function htmls() {
+		$htmls = Html::all()->toArray();
+		return array_reverse($htmls);
 	}
 }

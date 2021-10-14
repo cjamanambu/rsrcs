@@ -23,7 +23,11 @@
                 </router-link>
               </li>
               <li class="nav-item">
-                <router-link class="nav-link" to="/admin/html" :class="{'text-dark': $route.name === 'admin-html'}">
+                <router-link
+                  class="nav-link"
+                  to="/admin/html"
+                  :class="{'text-dark': $route.name === 'admin-html'}"
+                >
                   <ion-icon name="code-slash-outline" size="small" class="mr-1"></ion-icon>
                   HTML Resource
                 </router-link>
