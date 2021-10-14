@@ -55,6 +55,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -62,6 +66,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      loading: true,
       pdfs: 0,
       crumbs: [{
         id: 1,
@@ -70,6 +75,17 @@ __webpack_require__.r(__webpack_exports__);
         path: ''
       }]
     };
+  },
+  created: function created() {
+    var _this = this;
+
+    this.axios.get('http://localhost:8000/api/admin/pdf').then(function (response) {
+      _this.pdfs = response.data.length;
+    })["catch"](function (error) {
+      return console.log(error);
+    })["finally"](function () {
+      return _this.loading = false;
+    });
   }
 });
 
@@ -283,40 +299,52 @@ var render = function() {
         _vm._v(" "),
         _vm._m(0),
         _vm._v(" "),
-        _c("div", { staticClass: "row mt-3" }, [
-          _c("div", { staticClass: "col-lg-4" }, [
-            _c("div", { staticClass: "card" }, [
-              _c(
-                "div",
-                { staticClass: "card-body" },
-                [
-                  _c("h5", { staticClass: "card-title" }, [
-                    _vm._v("PDF Resources")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-text" }, [
-                    _vm._v(
-                      "There are currently " +
-                        _vm._s(_vm.pdfs) +
-                        " pdfs in RSRCS."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    { staticClass: "card-link", attrs: { to: "/admin/pdf" } },
-                    [_vm._v("View more")]
-                  )
-                ],
-                1
-              )
+        _vm.loading
+          ? _c("div", { staticClass: "d-flex align-items-center mt-3" }, [
+              _c("strong", [_vm._v("Loading...")]),
+              _vm._v(" "),
+              _c("div", {
+                staticClass: "spinner-border ml-auto",
+                attrs: { role: "status", "aria-hidden": "true" }
+              })
             ])
-          ]),
-          _vm._v(" "),
-          _vm._m(1),
-          _vm._v(" "),
-          _vm._m(2)
-        ])
+          : _c("div", { staticClass: "row mt-3" }, [
+              _c("div", { staticClass: "col-lg-4" }, [
+                _c("div", { staticClass: "card" }, [
+                  _c(
+                    "div",
+                    { staticClass: "card-body" },
+                    [
+                      _c("h5", { staticClass: "card-title" }, [
+                        _vm._v("PDF Resources")
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "card-text" }, [
+                        _vm._v(
+                          "There are currently " +
+                            _vm._s(_vm.pdfs) +
+                            " PDF Resources in RSRCS."
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "card-link",
+                          attrs: { to: "/admin/pdf" }
+                        },
+                        [_vm._v("View more")]
+                      )
+                    ],
+                    1
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(1),
+              _vm._v(" "),
+              _vm._m(2)
+            ])
       ],
       1
     )

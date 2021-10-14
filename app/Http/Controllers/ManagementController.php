@@ -27,7 +27,6 @@ class ManagementController extends Controller
 		if ($request->file('file')) {
 			$file_name = $request->file('file')->getClientOriginalName();
 			$file_path = $request->file('file')->store('public/pdf-files');
-
 			$newPDF = new Pdf([
 				'title' => $request->input('title'),
 				'file_name' => $file_name,
@@ -35,7 +34,7 @@ class ManagementController extends Controller
 			]);
 			$newPDF->save();
 		}
-		return response()->json('The pdf file successfully added.');
+		return response()->json('The pdf file was successfully added.');
 	}
 
 	public function updatePdf(Request $request) {
@@ -56,6 +55,18 @@ class ManagementController extends Controller
 			$pdf->file_path = $file_path;
 			$pdf->save();
 		}
-		return response()->json('The pdf file successfully updated');
+		return response()->json('The pdf file was successfully updated.');
+	}
+
+	public function deletePdf(Request $request) {
+		$request->validate([
+			'id' => 'required',
+		]);
+		$pdf = Pdf::findOrFail($request->input('id'));
+		if (Storage::exists($pdf->file_path)) {
+			Storage::delete($pdf->file_path);
+		}
+		$pdf->delete();
+		return response()->json('The pdf file was successfully deleted.');
 	}
 }

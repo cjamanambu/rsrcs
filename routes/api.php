@@ -26,4 +26,5 @@ Route::group(['prefix' => 'admin'], function () {
 	Route::get('pdf/{id}', [ManagementController::class, 'pdf'])->name('admin_pdf');
 	Route::post('pdf/add', [ManagementController::class, 'addPdf'])->name('admin_add_pdf');
 	Route::post('pdf/update', [ManagementController::class, 'updatePdf'])->name('admin_update_pdf');
+	Route::post('pdf/delete', [ManagementController::class, 'deletePdf'])->name('admin_delete_pdf');
 });
