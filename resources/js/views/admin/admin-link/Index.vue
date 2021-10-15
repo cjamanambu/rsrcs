@@ -78,7 +78,8 @@ export default {
   },
   methods: {
     editLink(link) {
-
+      localStorage.setItem('linkID', link.id)
+      this.$router.push({ name: 'edit-link', params: { id: link.id } })
     },
     deleteLink(link) {
 

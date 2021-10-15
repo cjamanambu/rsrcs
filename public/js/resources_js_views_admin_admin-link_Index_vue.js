@@ -103,7 +103,15 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    editLink: function editLink(link) {},
+    editLink: function editLink(link) {
+      localStorage.setItem('linkID', link.id);
+      this.$router.push({
+        name: 'edit-link',
+        params: {
+          id: link.id
+        }
+      });
+    },
     deleteLink: function deleteLink(link) {}
   }
 });
