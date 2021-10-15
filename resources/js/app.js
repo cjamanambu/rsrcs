@@ -12,7 +12,8 @@ import VueSweetalert2 from 'vue-sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css'
 
 import { routes } from './routes'
-import Header from "./components/Header";
+import Header from './components/Header.vue'
+import Footer from './components/Footer.vue'
 
 Vue.use(VueRouter)
 Vue.use(VueAxios, axios)
@@ -20,6 +21,7 @@ Vue.use(VTooltip)
 Vue.use(VueSweetalert2)
 
 Vue.component('Header', Header)
+Vue.component('Footer', Footer)
 
 const router = new VueRouter({
   mode: 'history',

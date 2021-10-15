@@ -84,7 +84,7 @@ export default {
     deleteHTML(html) {
       this.$swal({
         title: 'Are you sure?',
-        text: `This will delete the pdf resource: ${html.title}. This action is irreversible.`,
+        text: `This will delete the html resource: ${html.title}. This action is irreversible.`,
         type: 'warning',
         icon: 'warning',
         showCancelButton: true,

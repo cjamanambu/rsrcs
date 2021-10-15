@@ -18,6 +18,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'AppDefaultLayout'
 });
@@ -113,7 +114,9 @@ var render = function() {
     [
       _c("Header", { attrs: { title: "RSCRS" } }),
       _vm._v(" "),
-      _vm._t("default")
+      _vm._t("default"),
+      _vm._v(" "),
+      _c("Footer", { staticStyle: { "margin-top": "30vh" } })
     ],
     2
   )

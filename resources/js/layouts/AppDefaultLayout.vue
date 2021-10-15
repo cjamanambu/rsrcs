@@ -2,6 +2,7 @@
   <div>
     <Header title="RSCRS" />
     <slot />
+    <Footer style="margin-top: 30vh"/>
   </div>
 </template>
 

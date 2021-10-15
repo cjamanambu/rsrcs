@@ -82,7 +82,41 @@ export default {
       this.$router.push({ name: 'edit-link', params: { id: link.id } })
     },
     deleteLink(link) {
-
+      this.$swal({
+        title: 'Are you sure?',
+        text: `This will delete the link resource: ${link.title}. This action is irreversible.`,
+        type: 'warning',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then(result => {
+        if (result.value) {
+          this.loading = true
+          const formData = new FormData()
+          formData.append('id', link.id)
+          this.axios.post('http://localhost:8000/api/admin/link/delete', formData).then(response => {
+            this.$swal({
+              title: 'Success',
+              text: response.data,
+              icon: 'success'
+            })
+          }).catch(error => {
+            this.$swal({
+              title: 'Error',
+              text: error.response.data.message,
+              icon: 'error'
+            })
+          }).finally(() => {
+            this.axios.get('http://localhost:8000/api/admin/link').then(response => {
+              this.links = response.data
+            })
+            .catch(error => console.log(error))
+            .finally(() => this.loading = false)
+          })
+        }
+      })
     }
   }
 }
