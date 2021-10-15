@@ -91,7 +91,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    this.axios.get('http://localhost:8000/api/visitor/pdf').then(function (response) {
+    this.axios.get("".concat(this.$api, "visitor/pdf")).then(function (response) {
       _this.pdfs = response.data;
       _this.numPdf = response.data.length;
       if (_this.numPdf > 3) _this.pdfs.splice(3, _this.numPdf);
@@ -100,6 +100,35 @@ __webpack_require__.r(__webpack_exports__);
     })["finally"](function () {
       return _this.loading = false;
     });
+  },
+  methods: {
+    downloadPDF: function downloadPDF(pdf) {
+      this.axios.get("".concat(this.$api, "visitor/pdf/").concat(pdf.id), {
+        responseType: 'arraybuffer'
+      }).then(function (response) {
+        var newBlob = new Blob([response.data], {
+          type: 'application/pdf'
+        }); // IE
+
+        if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+          window.navigator.msSaveOrOpenBlob(newBlob);
+          return;
+        } // For other browsers:
+
+
+        var data = window.URL.createObjectURL(newBlob);
+        var link = document.createElement('a');
+        link.href = data;
+        link.download = pdf.file_name;
+        link.click();
+        setTimeout(function () {
+          // Firefox
+          window.URL.revokeObjectURL(data);
+        }, 100);
+      })["catch"](function (error) {
+        return console.log(error);
+      });
+    }
   }
 });
 
@@ -277,8 +306,14 @@ var render = function() {
                                                 {
                                                   staticClass: "dropdown-item",
                                                   attrs: {
-                                                    href: pdf.file_path,
-                                                    download: pdf.file_name
+                                                    href: "javascript:void(0)"
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      return _vm.downloadPDF(
+                                                        pdf
+                                                      )
+                                                    }
                                                   }
                                                 },
                                                 [

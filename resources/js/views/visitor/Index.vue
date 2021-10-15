@@ -40,7 +40,7 @@
                     <div class="dropdown">
                       <ion-icon name="ellipsis-horizontal-outline" class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer" />
                       <div class="dropdown-menu">
-                        <a class="dropdown-item" :href="pdf.file_path" :download="pdf.file_name">
+                        <a class="dropdown-item" href="javascript:void(0)" @click="downloadPDF(pdf)">
                           <ion-icon name="download-outline" size="small" class="mr-1"></ion-icon>
                           Download PDF
                         </a>
@@ -74,7 +74,7 @@ export default {
     }
   },
   created() {
-    this.axios.get('http://localhost:8000/api/visitor/pdf').then(response => {
+    this.axios.get(`${this.$api}visitor/pdf`).then(response => {
       this.pdfs = response.data
       this.numPdf = response.data.length
       if (this.numPdf > 3)
@@ -82,6 +82,29 @@ export default {
     })
     .catch(error => console.log(error))
     .finally(() => this.loading = false)
+  },
+  methods: {
+    downloadPDF(pdf) {
+      this.axios.get(`${this.$api}visitor/pdf/${pdf.id}`, { responseType: 'arraybuffer' }).then(response => {
+        let newBlob = new Blob([response.data], { type: 'application/pdf' })
+        // IE
+        if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+          window.navigator.msSaveOrOpenBlob(newBlob)
+          return
+        }
+        // For other browsers:
+        const data = window.URL.createObjectURL(newBlob)
+        let link = document.createElement('a')
+        link.href = data
+        link.download = pdf.file_name
+        link.click()
+        setTimeout(function () {
+          // Firefox
+          window.URL.revokeObjectURL(data)
+        }, 100)
+      })
+      .catch(error => console.log(error))
+    },
   }
 }
 </script>

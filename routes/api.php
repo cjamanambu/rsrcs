@@ -46,4 +46,5 @@ Route::group(['prefix' => 'admin'], function () {
 Route::group(['prefix' => 'visitor'], function () {
 	// pdf routes
 	Route::get('pdf', [VisitorController::class, 'pdfs']);
+	Route::get('pdf/{id}', [VisitorController::class, 'pdf']);
 });

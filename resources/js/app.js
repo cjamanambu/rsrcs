@@ -8,6 +8,7 @@ import VueAxios from 'vue-axios'
 import axios from 'axios'
 import VTooltip from 'v-tooltip'
 import VueSweetalert2 from 'vue-sweetalert2'
+import api from './api'
 
 import 'sweetalert2/dist/sweetalert2.min.css'
 
@@ -18,6 +19,7 @@ import PageHeader from './components/PageHeader.vue'
 
 Vue.use(VueRouter)
 Vue.use(VueAxios, axios)
+Vue.prototype.$api = api
 Vue.use(VTooltip)
 Vue.use(VueSweetalert2)
 
