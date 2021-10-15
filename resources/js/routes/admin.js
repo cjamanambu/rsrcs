@@ -61,5 +61,32 @@ export default [
       title: 'Edit HTML Resource - RSCRS',
       layout: 'AppAdminLayout'
     }
+  },
+  {
+    name: 'admin-link',
+    path: '/admin/link',
+    component: () => import('../views/admin/admin-link/Index.vue'),
+    meta: {
+      title: 'Link Resource - RSCRS',
+      layout: 'AppAdminLayout'
+    }
+  },
+  {
+    name: 'add-link',
+    path: '/admin/link/add-link',
+    component: () => import('../views/admin/admin-link/AddLink.vue'),
+    meta: {
+      title: 'Add Link Resource - RSCRS',
+      layout: 'AppAdminLayout'
+    }
+  },
+  {
+    name: 'edit-link',
+    path: '/admin/link/edit-link',
+    component: () => import('../views/admin/admin-link/EditLink.vue'),
+    meta: {
+      title: 'Edit Link Resource - RSCRS',
+      layout: 'AppAdminLayout'
+    }
   }
 ]

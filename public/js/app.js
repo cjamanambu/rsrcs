@@ -2342,6 +2342,36 @@ __webpack_require__.r(__webpack_exports__);
     title: 'Edit HTML Resource - RSCRS',
     layout: 'AppAdminLayout'
   }
+}, {
+  name: 'admin-link',
+  path: '/admin/link',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_views_admin_admin-link_Index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/admin/admin-link/Index.vue */ "./resources/js/views/admin/admin-link/Index.vue"));
+  },
+  meta: {
+    title: 'Link Resource - RSCRS',
+    layout: 'AppAdminLayout'
+  }
+}, {
+  name: 'add-link',
+  path: '/admin/link/add-link',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_views_admin_admin-link_AddLink_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/admin/admin-link/AddLink.vue */ "./resources/js/views/admin/admin-link/AddLink.vue"));
+  },
+  meta: {
+    title: 'Add Link Resource - RSCRS',
+    layout: 'AppAdminLayout'
+  }
+}, {
+  name: 'edit-link',
+  path: '/admin/link/edit-link',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_views_admin_admin-link_EditLink_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/admin/admin-link/EditLink.vue */ "./resources/js/views/admin/admin-link/EditLink.vue"));
+  },
+  meta: {
+    title: 'Edit Link Resource - RSCRS',
+    layout: 'AppAdminLayout'
+  }
 }]);
 
 /***/ }),
@@ -73054,7 +73084,7 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_layouts_AppAdminLayout_vue":1,"resources_js_layouts_AppDefaultLayout_vue":1,"resources_js_views_Index_vue":1,"resources_js_views_admin_Index_vue":1,"resources_js_views_admin_admin-pdf_Index_vue":1,"resources_js_views_admin_admin-pdf_AddPDF_vue":1,"resources_js_views_admin_admin-pdf_EditPDF_vue":1,"resources_js_views_admin_admin-html_Index_vue":1,"resources_js_views_admin_admin-html_AddHTML_vue":1,"resources_js_views_admin_admin-html_EditHTML_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_layouts_AppAdminLayout_vue":1,"resources_js_layouts_AppDefaultLayout_vue":1,"resources_js_views_Index_vue":1,"resources_js_views_admin_Index_vue":1,"resources_js_views_admin_admin-pdf_Index_vue":1,"resources_js_views_admin_admin-pdf_AddPDF_vue":1,"resources_js_views_admin_admin-pdf_EditPDF_vue":1,"resources_js_views_admin_admin-html_Index_vue":1,"resources_js_views_admin_admin-html_AddHTML_vue":1,"resources_js_views_admin_admin-html_EditHTML_vue":1,"resources_js_views_admin_admin-link_Index_vue":1,"resources_js_views_admin_admin-link_AddLink_vue":1,"resources_js_views_admin_admin-link_EditLink_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

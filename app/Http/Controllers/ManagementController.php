@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Pdf;
 use App\Models\Html;
+use App\Models\Link;
 use Illuminate\Support\Facades\Storage;
 
 class ManagementController extends Controller
@@ -116,5 +117,50 @@ class ManagementController extends Controller
 		$html = Html::findOrFail($request->input('id'));
 		$html->delete();
 		return response()->json('The html snippet was successfully deleted.');
+	}
+
+	public function links() {
+		$links = Link::all()->toArray();
+		return array_reverse($links);
+	}
+
+	public function link($id) {
+		$link = Link::findOrFail($id);
+		return response()->json($link);
+	}
+
+	public function addLink(Request $request) {
+		$request->validate([
+			'title' => 'required',
+			'link' => 'required',
+		]);
+		$new_link = new Link([
+			'title' => $request->input('title'),
+			'link' => $request->input('link')
+		]);
+		$new_link->save();
+		return response()->json('The link was successfully added.');
+	}
+
+	public function updateLink(Request $request) {
+		$request->validate([
+			'id' => 'required',
+			'title' => 'required',
+			'link' => 'required',
+		]);
+		$link = Link::findOrFail($request->input('id'));
+		$link->title = $request->input('title');
+		$link->link = $request->input('link');
+		$link->save();
+		return response()->json('The link was successfully updated');
+	}
+
+	public function deleteLink(Request $request) {
+		$request->validate([
+			'id' => 'required'
+		]);
+		$link = Link::findOrFail($request->input('id'));
+		$link->delete();
+		return response()->json('The link was successfully deleted.');
 	}
 }

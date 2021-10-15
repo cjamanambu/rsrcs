@@ -1,9 +1,9 @@
 "use strict";
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_views_admin_admin-html_Index_vue"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_views_admin_admin-link_Index_vue"],{
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/admin/admin-html/Index.vue?vue&type=script&lang=js&":
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/admin/admin-link/Index.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/admin/admin-html/Index.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/admin/admin-link/Index.vue?vue&type=script&lang=js& ***!
   \************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -84,18 +84,18 @@ __webpack_require__.r(__webpack_exports__);
         path: '/admin'
       }, {
         id: 2,
-        name: 'HTML Resource',
+        name: 'Link Resource',
         active: true,
         path: ''
       }],
-      htmls: []
+      links: []
     };
   },
   created: function created() {
     var _this = this;
 
-    this.axios.get('http://localhost:8000/api/admin/html').then(function (response) {
-      _this.htmls = response.data;
+    this.axios.get('http://localhost:8000/api/admin/link').then(function (response) {
+      _this.links = response.data;
     })["catch"](function (error) {
       return console.log(error);
     })["finally"](function () {
@@ -103,57 +103,8 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    editHTML: function editHTML(html) {
-      localStorage.setItem('htmlID', html.id);
-      this.$router.push({
-        name: 'edit-html',
-        params: {
-          id: html.id
-        }
-      });
-    },
-    deleteHTML: function deleteHTML(html) {
-      var _this2 = this;
-
-      this.$swal({
-        title: 'Are you sure?',
-        text: "This will delete the pdf resource: ".concat(html.title, ". This action is irreversible."),
-        type: 'warning',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-      }).then(function (result) {
-        if (result.value) {
-          _this2.loading = true;
-          var formData = new FormData();
-          formData.append('id', html.id);
-
-          _this2.axios.post('http://localhost:8000/api/admin/html/delete', formData).then(function (response) {
-            _this2.$swal({
-              title: 'Success',
-              text: response.data,
-              icon: 'success'
-            });
-          })["catch"](function (error) {
-            _this2.$swal({
-              title: 'Error',
-              text: error.response.data.message,
-              icon: 'error'
-            });
-          })["finally"](function () {
-            _this2.axios.get('http://localhost:8000/api/admin/html').then(function (response) {
-              _this2.htmls = response.data;
-            })["catch"](function (error) {
-              return console.log(error);
-            })["finally"](function () {
-              return _this2.loading = false;
-            });
-          });
-        }
-      });
-    }
+    editLink: function editLink(link) {},
+    deleteLink: function deleteLink(link) {}
   }
 });
 
@@ -203,9 +154,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/views/admin/admin-html/Index.vue":
+/***/ "./resources/js/views/admin/admin-link/Index.vue":
 /*!*******************************************************!*\
-  !*** ./resources/js/views/admin/admin-html/Index.vue ***!
+  !*** ./resources/js/views/admin/admin-link/Index.vue ***!
   \*******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -213,8 +164,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Index_vue_vue_type_template_id_1e3409ea___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Index.vue?vue&type=template&id=1e3409ea& */ "./resources/js/views/admin/admin-html/Index.vue?vue&type=template&id=1e3409ea&");
-/* harmony import */ var _Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Index.vue?vue&type=script&lang=js& */ "./resources/js/views/admin/admin-html/Index.vue?vue&type=script&lang=js&");
+/* harmony import */ var _Index_vue_vue_type_template_id_a8ee66cc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Index.vue?vue&type=template&id=a8ee66cc& */ "./resources/js/views/admin/admin-link/Index.vue?vue&type=template&id=a8ee66cc&");
+/* harmony import */ var _Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Index.vue?vue&type=script&lang=js& */ "./resources/js/views/admin/admin-link/Index.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -225,8 +176,8 @@ __webpack_require__.r(__webpack_exports__);
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Index_vue_vue_type_template_id_1e3409ea___WEBPACK_IMPORTED_MODULE_0__.render,
-  _Index_vue_vue_type_template_id_1e3409ea___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _Index_vue_vue_type_template_id_a8ee66cc___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Index_vue_vue_type_template_id_a8ee66cc___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -236,7 +187,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/views/admin/admin-html/Index.vue"
+component.options.__file = "resources/js/views/admin/admin-link/Index.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -279,9 +230,9 @@ component.options.__file = "resources/js/views/admin/components/PageHeader.vue"
 
 /***/ }),
 
-/***/ "./resources/js/views/admin/admin-html/Index.vue?vue&type=script&lang=js&":
+/***/ "./resources/js/views/admin/admin-link/Index.vue?vue&type=script&lang=js&":
 /*!********************************************************************************!*\
-  !*** ./resources/js/views/admin/admin-html/Index.vue?vue&type=script&lang=js& ***!
+  !*** ./resources/js/views/admin/admin-link/Index.vue?vue&type=script&lang=js& ***!
   \********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -289,7 +240,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/admin/admin-html/Index.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/admin/admin-link/Index.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
@@ -309,18 +260,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/views/admin/admin-html/Index.vue?vue&type=template&id=1e3409ea&":
+/***/ "./resources/js/views/admin/admin-link/Index.vue?vue&type=template&id=a8ee66cc&":
 /*!**************************************************************************************!*\
-  !*** ./resources/js/views/admin/admin-html/Index.vue?vue&type=template&id=1e3409ea& ***!
+  !*** ./resources/js/views/admin/admin-link/Index.vue?vue&type=template&id=a8ee66cc& ***!
   \**************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_1e3409ea___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_1e3409ea___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_a8ee66cc___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_a8ee66cc___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_1e3409ea___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Index.vue?vue&type=template&id=1e3409ea& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/admin/admin-html/Index.vue?vue&type=template&id=1e3409ea&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_a8ee66cc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Index.vue?vue&type=template&id=a8ee66cc& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/admin/admin-link/Index.vue?vue&type=template&id=a8ee66cc&");
 
 
 /***/ }),
@@ -341,9 +292,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/admin/admin-html/Index.vue?vue&type=template&id=1e3409ea&":
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/admin/admin-link/Index.vue?vue&type=template&id=a8ee66cc&":
 /*!*****************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/admin/admin-html/Index.vue?vue&type=template&id=1e3409ea& ***!
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/admin/admin-link/Index.vue?vue&type=template&id=a8ee66cc& ***!
   \*****************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -362,7 +313,7 @@ var render = function() {
       { attrs: { role: "main" } },
       [
         _c("PageHeader", {
-          attrs: { "page-title": "HTML Resource", crumbs: _vm.crumbs }
+          attrs: { "page-title": "Link Resource", crumbs: _vm.crumbs }
         }),
         _vm._v(" "),
         _c(
@@ -373,7 +324,7 @@ var render = function() {
           },
           [
             _c("p", { staticClass: "text-muted" }, [
-              _vm._v("Here is the list of all your HTML resources to manage")
+              _vm._v("Here is the list of all your Link resources to manage")
             ]),
             _vm._v(" "),
             _c(
@@ -382,11 +333,11 @@ var render = function() {
                 staticClass: "btn btn-primary btn-sm",
                 on: {
                   click: function($event) {
-                    return _vm.$router.push({ name: "add-html" })
+                    return _vm.$router.push({ name: "add-link" })
                   }
                 }
               },
-              [_vm._v("Add HTML Resource")]
+              [_vm._v("Add Link Resource")]
             )
           ]
         ),
@@ -415,7 +366,7 @@ var render = function() {
                 _c(
                   "tbody",
                   [
-                    this.htmls.length === 0
+                    this.links.length === 0
                       ? _c("tr", [
                           _c(
                             "td",
@@ -423,22 +374,22 @@ var render = function() {
                               staticClass: "font-weight-bolder text-center",
                               attrs: { colspan: "5" }
                             },
-                            [_vm._v("No HTML Resource exists")]
+                            [_vm._v("No Link Resource exists")]
                           )
                         ])
-                      : _vm._l(_vm.htmls, function(html, key) {
-                          return _c("tr", { key: html.id }, [
+                      : _vm._l(_vm.links, function(link, key) {
+                          return _c("tr", { key: link.id }, [
                             _c("td", { staticClass: "text-center" }, [
                               _vm._v(_vm._s(++key))
                             ]),
                             _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(html.title))]),
+                            _c("td", [_vm._v(_vm._s(link.title))]),
                             _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(html.description))]),
+                            _c("td", [_vm._v(_vm._s(link.link))]),
                             _vm._v(" "),
                             _c("td", [
                               _vm._v(
-                                _vm._s(new Date(html.created_at).toDateString())
+                                _vm._s(new Date(link.created_at).toDateString())
                               )
                             ]),
                             _vm._v(" "),
@@ -464,7 +415,7 @@ var render = function() {
                                         attrs: { href: "javascript:void(0)" },
                                         on: {
                                           click: function($event) {
-                                            return _vm.editHTML(html)
+                                            return _vm.editLink(link)
                                           }
                                         }
                                       },
@@ -477,7 +428,7 @@ var render = function() {
                                           }
                                         }),
                                         _vm._v(
-                                          "\n                Edit HTML\n              "
+                                          "\n                Edit Link\n              "
                                         )
                                       ],
                                       1
@@ -491,7 +442,7 @@ var render = function() {
                                         attrs: { href: "javascript:void(0)" },
                                         on: {
                                           click: function($event) {
-                                            return _vm.deleteHTML(html)
+                                            return _vm.deleteLink(link)
                                           }
                                         }
                                       },
@@ -504,7 +455,7 @@ var render = function() {
                                           }
                                         }),
                                         _vm._v(
-                                          "\n                Delete HTML\n              "
+                                          "\n                Delete Link\n              "
                                         )
                                       ],
                                       1
@@ -538,7 +489,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Title")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Description")]),
+        _c("th", [_vm._v("Link")]),
         _vm._v(" "),
         _c("th", { staticStyle: { width: "20%" } }, [_vm._v("Added")]),
         _vm._v(" "),

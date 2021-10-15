@@ -34,4 +34,10 @@ Route::group(['prefix' => 'admin'], function () {
 	Route::post('html/add', [ManagementController::class, 'addHtml']);
 	Route::post('html/update', [ManagementController::class, 'updateHtml']);
 	Route::post('html/delete', [ManagementController::class, 'deleteHtml']);
+	// link routes
+	Route::get('link', [ManagementController::class, 'links']);
+	Route::get('link/{id}', [ManagementController::class, 'link']);
+	Route::post('link/add', [ManagementController::class, 'addLink']);
+	Route::post('link/update', [ManagementController::class, 'updateLink']);
+	Route::post('link/delete', [ManagementController::class, 'deleteLink']);
 });

@@ -33,7 +33,10 @@
                 </router-link>
               </li>
               <li class="nav-item">
-                <router-link class="nav-link" to="/admin/link" :class="{'text-dark': $route.name === 'admin-link'}">
+                <router-link
+                  class="nav-link"
+                  to="/admin/link"
+                  :class="{'text-dark': $route.name === 'admin-link' || $route.name === 'add-link' || $route.name === 'edit-link' }">
                   <ion-icon name="link-outline" size="small" class="mr-1"></ion-icon>
                   Link Resource
                 </router-link>
