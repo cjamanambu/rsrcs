@@ -133,10 +133,12 @@ class ManagementController extends Controller
 		$request->validate([
 			'title' => 'required',
 			'link' => 'required',
+			'new_tab' => 'required',
 		]);
 		$new_link = new Link([
 			'title' => $request->input('title'),
-			'link' => $request->input('link')
+			'link' => $request->input('link'),
+			'new_tab' => $request->input('new_tab')
 		]);
 		$new_link->save();
 		return response()->json('The link was successfully added.');
@@ -147,10 +149,12 @@ class ManagementController extends Controller
 			'id' => 'required',
 			'title' => 'required',
 			'link' => 'required',
+			'new_tab' => 'required',
 		]);
 		$link = Link::findOrFail($request->input('id'));
 		$link->title = $request->input('title');
 		$link->link = $request->input('link');
+		$link->new_tab = $request->input('new_tab');
 		$link->save();
 		return response()->json('The link was successfully updated');
 	}

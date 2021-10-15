@@ -9,6 +9,6 @@ class Link extends Model
 {
     use HasFactory;
     protected $fillable = [
-    	'title', 'link'
+    	'title', 'link', 'new_tab'
     ];
 }
