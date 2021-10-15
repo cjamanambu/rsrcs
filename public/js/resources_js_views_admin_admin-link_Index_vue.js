@@ -112,7 +112,48 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
-    deleteLink: function deleteLink(link) {}
+    deleteLink: function deleteLink(link) {
+      var _this2 = this;
+
+      this.$swal({
+        title: 'Are you sure?',
+        text: "This will delete the link resource: ".concat(link.title, ". This action is irreversible."),
+        type: 'warning',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then(function (result) {
+        if (result.value) {
+          _this2.loading = true;
+          var formData = new FormData();
+          formData.append('id', link.id);
+
+          _this2.axios.post('http://localhost:8000/api/admin/link/delete', formData).then(function (response) {
+            _this2.$swal({
+              title: 'Success',
+              text: response.data,
+              icon: 'success'
+            });
+          })["catch"](function (error) {
+            _this2.$swal({
+              title: 'Error',
+              text: error.response.data.message,
+              icon: 'error'
+            });
+          })["finally"](function () {
+            _this2.axios.get('http://localhost:8000/api/admin/link').then(function (response) {
+              _this2.links = response.data;
+            })["catch"](function (error) {
+              return console.log(error);
+            })["finally"](function () {
+              return _this2.loading = false;
+            });
+          });
+        }
+      });
+    }
   }
 });
 

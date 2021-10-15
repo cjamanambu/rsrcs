@@ -65,6 +65,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'AppAdminLayout'
 });
@@ -288,7 +289,16 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-lg-9" }, [_vm._t("default")], 2)
+            _c(
+              "div",
+              { staticClass: "col-lg-9" },
+              [
+                _vm._t("default"),
+                _vm._v(" "),
+                _c("Footer", { staticStyle: { "margin-top": "25vh" } })
+              ],
+              2
+            )
           ])
         ]
       )

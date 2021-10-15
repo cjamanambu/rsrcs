@@ -46,6 +46,7 @@
         </div>
         <div class="col-lg-9">
           <slot />
+          <Footer style="margin-top: 25vh"/>
         </div>
       </div>
     </div>
