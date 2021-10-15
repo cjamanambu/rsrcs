@@ -62,6 +62,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'AppAdminLayout'
 });
@@ -260,7 +263,10 @@ var render = function() {
                         {
                           staticClass: "nav-link",
                           class: {
-                            "text-dark": _vm.$route.name === "admin-link"
+                            "text-dark":
+                              _vm.$route.name === "admin-link" ||
+                              _vm.$route.name === "add-link" ||
+                              _vm.$route.name === "edit-link"
                           },
                           attrs: { to: "/admin/link" }
                         },
