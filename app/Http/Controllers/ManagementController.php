@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+
 use App\Models\Pdf;
 use App\Models\Html;
 use App\Models\Link;
-use Illuminate\Support\Facades\Storage;
 
 class ManagementController extends Controller
 {

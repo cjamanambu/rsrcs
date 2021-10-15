@@ -1,4 +1,5 @@
-import admin from "./admin"
+import admin from './admin'
+import visitor from './visitor'
 
 export const routes = [
   {
@@ -9,5 +10,6 @@ export const routes = [
       title: 'Home - RSRCS'
     }
   },
-  ...admin
+  ...admin,
+  ...visitor,
 ]
