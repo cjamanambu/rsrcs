@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ManagementController;
+use App\Http\Controllers\VisitorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,4 +41,9 @@ Route::group(['prefix' => 'admin'], function () {
 	Route::post('link/add', [ManagementController::class, 'addLink']);
 	Route::post('link/update', [ManagementController::class, 'updateLink']);
 	Route::post('link/delete', [ManagementController::class, 'deleteLink']);
+});
+
+Route::group(['prefix' => 'visitor'], function () {
+	// pdf routes
+	Route::get('pdf', [VisitorController::class, 'pdfs']);
 });
