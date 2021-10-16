@@ -108,18 +108,10 @@ __webpack_require__.r(__webpack_exports__);
             _this2.$router.push({
               name: 'admin-pdf'
             }).then(function () {
-              _this2.$swal({
-                title: 'Success',
-                text: response.data,
-                icon: 'success'
-              });
+              _this2.$toast.success(response.data);
             });
           })["catch"](function (error) {
-            _this2.$swal({
-              title: 'Error',
-              text: error.response.data.message,
-              icon: 'error'
-            });
+            _this2.$toast.error(error.response.data.message);
           })["finally"](function () {
             return _this2.loading = false;
           });

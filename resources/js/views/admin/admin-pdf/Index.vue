@@ -90,17 +90,9 @@ export default {
           const formData = new FormData()
           formData.append('id', pdf.id)
           this.axios.post('http://localhost:8000/api/admin/pdf/delete', formData).then(response => {
-            this.$swal({
-              title: 'Success',
-              text: response.data,
-              icon: 'success'
-            })
+            this.$toast.success(response.data)
           }).catch(error => {
-            this.$swal({
-              title: 'Error',
-              text: error.response.data.message,
-              icon: 'error'
-            })
+            this.$toast.error(error.response.data.message)
           }).finally(() => {
             this.axios.get('http://localhost:8000/api/admin/pdf').then(response => {
               this.pdfs = response.data

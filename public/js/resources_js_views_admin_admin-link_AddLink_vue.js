@@ -77,18 +77,10 @@ __webpack_require__.r(__webpack_exports__);
             _this.$router.push({
               name: 'admin-link'
             }).then(function () {
-              _this.$swal({
-                title: 'Success',
-                text: response.data,
-                icon: 'success'
-              });
+              _this.$toast.success(response.data);
             });
           })["catch"](function (error) {
-            _this.$swal({
-              title: 'Error',
-              text: error.response.data.message,
-              icon: 'error'
-            });
+            _this.$toast.error(error.response.data.message);
           })["finally"](function () {
             return _this.loading = false;
           });

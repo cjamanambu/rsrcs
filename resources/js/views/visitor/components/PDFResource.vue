@@ -62,6 +62,7 @@ export default {
           // Firefox
           window.URL.revokeObjectURL(data)
         }, 100)
+        this.$toast.success('File downloaded successfully')
       })
       .catch(error => console.log(error))
     },

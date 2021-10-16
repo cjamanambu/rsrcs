@@ -129,6 +129,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     downloadPDF: function downloadPDF(pdf) {
+      var _this = this;
+
       this.axios.get("".concat(this.$api, "visitor/pdf/").concat(pdf.id), {
         responseType: 'arraybuffer'
       }).then(function (response) {
@@ -151,6 +153,8 @@ __webpack_require__.r(__webpack_exports__);
           // Firefox
           window.URL.revokeObjectURL(data);
         }, 100);
+
+        _this.$toast.success('File downloaded successfully');
       })["catch"](function (error) {
         return console.log(error);
       });

@@ -114,17 +114,9 @@ __webpack_require__.r(__webpack_exports__);
           formData.append('id', pdf.id);
 
           _this2.axios.post('http://localhost:8000/api/admin/pdf/delete', formData).then(function (response) {
-            _this2.$swal({
-              title: 'Success',
-              text: response.data,
-              icon: 'success'
-            });
+            _this2.$toast.success(response.data);
           })["catch"](function (error) {
-            _this2.$swal({
-              title: 'Error',
-              text: error.response.data.message,
-              icon: 'error'
-            });
+            _this2.$toast.error(error.response.data.message);
           })["finally"](function () {
             _this2.axios.get('http://localhost:8000/api/admin/pdf').then(function (response) {
               _this2.pdfs = response.data;

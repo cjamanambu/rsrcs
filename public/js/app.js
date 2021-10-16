@@ -2735,6 +2735,28 @@ __webpack_require__.r(__webpack_exports__);
       path: ''
     }]
   }
+}, {
+  name: 'visitor-link',
+  path: '/visitor/link',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_views_visitor_VisitorLink_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/visitor/VisitorLink.vue */ "./resources/js/views/visitor/VisitorLink.vue"));
+  },
+  meta: {
+    title: 'Link Resource - RSRCS',
+    layout: 'AppVisitorLayout',
+    pageTitle: 'Link Resource',
+    crumbs: [{
+      id: 1,
+      name: 'Home',
+      active: false,
+      path: '/visitor'
+    }, {
+      id: 2,
+      name: 'Link Resource',
+      active: true,
+      path: ''
+    }]
+  }
 }]);
 
 /***/ }),
@@ -68744,7 +68766,7 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_layouts_AppAdminLayout_vue":1,"resources_js_layouts_AppDefaultLayout_vue":1,"resources_js_layouts_AppVisitorLayout_vue":1,"resources_js_views_Index_vue":1,"resources_js_views_admin_Index_vue":1,"resources_js_views_admin_admin-pdf_Index_vue":1,"resources_js_views_admin_admin-pdf_AddPDF_vue":1,"resources_js_views_admin_admin-pdf_EditPDF_vue":1,"resources_js_views_admin_admin-html_Index_vue":1,"resources_js_views_admin_admin-html_AddHTML_vue":1,"resources_js_views_admin_admin-html_EditHTML_vue":1,"resources_js_views_admin_admin-link_Index_vue":1,"resources_js_views_admin_admin-link_AddLink_vue":1,"resources_js_views_admin_admin-link_EditLink_vue":1,"resources_js_views_visitor_Index_vue":1,"resources_js_views_visitor_VisitorPDF_vue":1,"resources_js_views_visitor_VisitorHTML_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_layouts_AppAdminLayout_vue":1,"resources_js_layouts_AppDefaultLayout_vue":1,"resources_js_layouts_AppVisitorLayout_vue":1,"resources_js_views_Index_vue":1,"resources_js_views_admin_Index_vue":1,"resources_js_views_admin_admin-pdf_Index_vue":1,"resources_js_views_admin_admin-pdf_AddPDF_vue":1,"resources_js_views_admin_admin-pdf_EditPDF_vue":1,"resources_js_views_admin_admin-html_Index_vue":1,"resources_js_views_admin_admin-html_AddHTML_vue":1,"resources_js_views_admin_admin-html_EditHTML_vue":1,"resources_js_views_admin_admin-link_Index_vue":1,"resources_js_views_admin_admin-link_AddLink_vue":1,"resources_js_views_admin_admin-link_EditLink_vue":1,"resources_js_views_visitor_Index_vue":1,"resources_js_views_visitor_VisitorPDF_vue":1,"resources_js_views_visitor_VisitorHTML_vue":1,"resources_js_views_visitor_VisitorLink_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
