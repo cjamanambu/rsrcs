@@ -19,11 +19,9 @@
         </div>
         <hr>
         <div class="row">
-          <div v-if="pdfs.length === 0" class="col-lg-4">
-            <div class="card text-center">
-              <div class="card-body">
-                There are currently no PDF resources.
-              </div>
+          <div v-if="pdfs.length === 0" class="col-12">
+            <div class="alert alert-info text-center" role="alert">
+              There are currently no PDF resources.
             </div>
           </div>
           <div
@@ -32,26 +30,7 @@
             :key="pdf.id"
             class="col-lg-4"
           >
-            <div class="card">
-              <div class="card-body">
-                <div class="card-title">
-                  <div class="d-flex justify-content-between">
-                    <strong class="mb-1">{{ pdf.title }}</strong>
-                    <div class="dropdown">
-                      <ion-icon name="ellipsis-horizontal-outline" class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer" />
-                      <div class="dropdown-menu">
-                        <a class="dropdown-item" :href="pdf.file_path" :download="pdf.file_name">
-                          <ion-icon name="download-outline" size="small" class="mr-1"></ion-icon>
-                          Download PDF
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <p class="mb-1">{{ pdf.file_name }}</p>
-                <small>{{ new Date(pdf.created_at).toUTCString() }}</small>
-              </div>
-            </div>
+            <PDFResource :pdf="pdf" />
           </div>
         </div>
       </div>
@@ -60,7 +39,9 @@
 </template>
 
 <script>
+import PDFResource from './components/PDFResource'
 export default {
+  components: { PDFResource },
   data() {
     return {
       loading: true,
@@ -74,7 +55,7 @@ export default {
     }
   },
   created() {
-    this.axios.get('http://localhost:8000/api/visitor/pdf').then(response => {
+    this.axios.get(`${this.$api}visitor/pdf`).then(response => {
       this.pdfs = response.data
       this.numPdf = response.data.length
       if (this.numPdf > 3)
@@ -82,6 +63,8 @@ export default {
     })
     .catch(error => console.log(error))
     .finally(() => this.loading = false)
+  },
+  methods: {
   }
 }
 </script>
