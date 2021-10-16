@@ -1,10 +1,10 @@
 "use strict";
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_views_visitor_Index_vue"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_views_visitor_VisitorPDF_vue"],{
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/visitor/Index.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/visitor/Index.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/visitor/VisitorPDF.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/visitor/VisitorPDF.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -12,15 +12,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _components_PDFResource__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/PDFResource */ "./resources/js/views/visitor/components/PDFResource.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -61,12 +52,14 @@ __webpack_require__.r(__webpack_exports__);
     return {
       loading: true,
       pdfs: [],
-      numPdf: 0,
-      htmls: [],
-      links: [],
       crumbs: [{
         id: 1,
         name: 'Home',
+        active: false,
+        path: '/visitor'
+      }, {
+        id: 2,
+        name: 'PDF Resource',
         active: true,
         path: ''
       }]
@@ -77,15 +70,12 @@ __webpack_require__.r(__webpack_exports__);
 
     this.axios.get("".concat(this.$api, "visitor/pdf")).then(function (response) {
       _this.pdfs = response.data;
-      _this.numPdf = response.data.length;
-      if (_this.numPdf > 3) _this.pdfs.splice(3, _this.numPdf);
     })["catch"](function (error) {
       return console.log(error);
     })["finally"](function () {
       return _this.loading = false;
     });
-  },
-  methods: {}
+  }
 });
 
 /***/ }),
@@ -182,18 +172,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/views/visitor/Index.vue":
-/*!**********************************************!*\
-  !*** ./resources/js/views/visitor/Index.vue ***!
-  \**********************************************/
+/***/ "./resources/js/views/visitor/VisitorPDF.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/views/visitor/VisitorPDF.vue ***!
+  \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Index_vue_vue_type_template_id_073c54e2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Index.vue?vue&type=template&id=073c54e2& */ "./resources/js/views/visitor/Index.vue?vue&type=template&id=073c54e2&");
-/* harmony import */ var _Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Index.vue?vue&type=script&lang=js& */ "./resources/js/views/visitor/Index.vue?vue&type=script&lang=js&");
+/* harmony import */ var _VisitorPDF_vue_vue_type_template_id_2e814a78___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./VisitorPDF.vue?vue&type=template&id=2e814a78& */ "./resources/js/views/visitor/VisitorPDF.vue?vue&type=template&id=2e814a78&");
+/* harmony import */ var _VisitorPDF_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./VisitorPDF.vue?vue&type=script&lang=js& */ "./resources/js/views/visitor/VisitorPDF.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -203,9 +193,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Index_vue_vue_type_template_id_073c54e2___WEBPACK_IMPORTED_MODULE_0__.render,
-  _Index_vue_vue_type_template_id_073c54e2___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _VisitorPDF_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _VisitorPDF_vue_vue_type_template_id_2e814a78___WEBPACK_IMPORTED_MODULE_0__.render,
+  _VisitorPDF_vue_vue_type_template_id_2e814a78___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -215,7 +205,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/views/visitor/Index.vue"
+component.options.__file = "resources/js/views/visitor/VisitorPDF.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -258,18 +248,18 @@ component.options.__file = "resources/js/views/visitor/components/PDFResource.vu
 
 /***/ }),
 
-/***/ "./resources/js/views/visitor/Index.vue?vue&type=script&lang=js&":
-/*!***********************************************************************!*\
-  !*** ./resources/js/views/visitor/Index.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************/
+/***/ "./resources/js/views/visitor/VisitorPDF.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/views/visitor/VisitorPDF.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/visitor/Index.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_VisitorPDF_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./VisitorPDF.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/visitor/VisitorPDF.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_VisitorPDF_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -288,18 +278,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/views/visitor/Index.vue?vue&type=template&id=073c54e2&":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/views/visitor/Index.vue?vue&type=template&id=073c54e2& ***!
-  \*****************************************************************************/
+/***/ "./resources/js/views/visitor/VisitorPDF.vue?vue&type=template&id=2e814a78&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/views/visitor/VisitorPDF.vue?vue&type=template&id=2e814a78& ***!
+  \**********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_073c54e2___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_073c54e2___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VisitorPDF_vue_vue_type_template_id_2e814a78___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VisitorPDF_vue_vue_type_template_id_2e814a78___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_073c54e2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Index.vue?vue&type=template&id=073c54e2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/visitor/Index.vue?vue&type=template&id=073c54e2&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VisitorPDF_vue_vue_type_template_id_2e814a78___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./VisitorPDF.vue?vue&type=template&id=2e814a78& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/visitor/VisitorPDF.vue?vue&type=template&id=2e814a78&");
 
 
 /***/ }),
@@ -320,10 +310,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/visitor/Index.vue?vue&type=template&id=073c54e2&":
-/*!********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/visitor/Index.vue?vue&type=template&id=073c54e2& ***!
-  \********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/visitor/VisitorPDF.vue?vue&type=template&id=2e814a78&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/visitor/VisitorPDF.vue?vue&type=template&id=2e814a78& ***!
+  \*************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -341,10 +331,34 @@ var render = function() {
       { attrs: { role: "main" } },
       [
         _c("PageHeader", {
-          attrs: { "page-title": "Home", crumbs: _vm.crumbs }
+          attrs: { "page-title": "PDF Resource", crumbs: _vm.crumbs }
         }),
         _vm._v(" "),
-        _vm._m(0),
+        _c(
+          "div",
+          {
+            staticClass:
+              "d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2"
+          },
+          [
+            _c("p", { staticClass: "text-muted" }, [
+              _vm._v("Here is the list of all your PDF resources to download")
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-secondary btn-sm",
+                on: {
+                  click: function($event) {
+                    return _vm.$router.push({ name: "visitor" })
+                  }
+                }
+              },
+              [_vm._v("Go Back")]
+            )
+          ]
+        ),
         _vm._v(" "),
         _vm.loading
           ? _c("div", { staticClass: "d-flex align-items-center mt-3" }, [
@@ -355,80 +369,42 @@ var render = function() {
                 attrs: { role: "status", "aria-hidden": "true" }
               })
             ])
-          : _c("div", { staticClass: "mt-5" }, [
-              _c(
-                "div",
-                { staticClass: "d-flex justify-content-between" },
-                [
-                  _c("h5", { staticClass: "mb-1" }, [
-                    _vm._v("PDF Resources (" + _vm._s(_vm.numPdf) + " total)")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    { staticClass: "card-link", attrs: { to: "/visitor/pdf" } },
-                    [_vm._v("View all")]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("hr"),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "row" },
-                [
-                  _vm.pdfs.length === 0
-                    ? _c("div", { staticClass: "col-12" }, [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "alert alert-info text-center",
-                            attrs: { role: "alert" }
-                          },
-                          [
-                            _vm._v(
-                              "\n            There are currently no PDF resources.\n          "
-                            )
-                          ]
-                        )
-                      ])
-                    : _vm._l(_vm.pdfs, function(pdf) {
-                        return _c(
-                          "div",
-                          { key: pdf.id, staticClass: "col-lg-4" },
-                          [_c("PDFResource", { attrs: { pdf: pdf } })],
-                          1
-                        )
-                      })
-                ],
-                2
-              )
-            ])
+          : _c(
+              "div",
+              { staticClass: "row mt-2" },
+              [
+                _vm.pdfs.length === 0
+                  ? _c("div", { staticClass: "col-12" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "alert alert-info text-center",
+                          attrs: { role: "alert" }
+                        },
+                        [
+                          _vm._v(
+                            "\n          There are currently no PDF resources.\n        "
+                          )
+                        ]
+                      )
+                    ])
+                  : _vm._l(_vm.pdfs, function(pdf) {
+                      return _c(
+                        "div",
+                        { key: pdf.id, staticClass: "col-12" },
+                        [_c("PDFResource", { attrs: { pdf: pdf } })],
+                        1
+                      )
+                    })
+              ],
+              2
+            )
       ],
       1
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "jumbotron jumbotron-fluid mt-3" }, [
-      _c("div", { staticClass: "container px-5" }, [
-        _c("h5", { staticClass: "display-4" }, [_vm._v("Visitor End")]),
-        _vm._v(" "),
-        _c("p", { staticClass: "lead" }, [
-          _vm._v(
-            "Welcome! You can download PDF resources, copy HTML resources, and open Link resources here."
-          )
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

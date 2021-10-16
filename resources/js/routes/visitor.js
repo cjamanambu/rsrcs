@@ -7,5 +7,14 @@ export default [
       title: 'Admin - RSRCS',
       layout: 'AppVisitorLayout'
     }
+  },
+  {
+    name: 'visitor-pdf',
+    path: '/visitor/pdf',
+    component: () => import('../views/visitor/VisitorPDF.vue'),
+    meta: {
+      title: 'PDF Resource - RSRCS',
+      layout: 'AppVisitorLayout'
+    }
   }
 ]

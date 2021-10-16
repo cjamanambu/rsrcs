@@ -19,11 +19,9 @@
         </div>
         <hr>
         <div class="row">
-          <div v-if="pdfs.length === 0" class="col-lg-4">
-            <div class="card text-center">
-              <div class="card-body">
-                There are currently no PDF resources.
-              </div>
+          <div v-if="pdfs.length === 0" class="col-12">
+            <div class="alert alert-info text-center" role="alert">
+              There are currently no PDF resources.
             </div>
           </div>
           <div
@@ -32,26 +30,7 @@
             :key="pdf.id"
             class="col-lg-4"
           >
-            <div class="card">
-              <div class="card-body">
-                <div class="card-title">
-                  <div class="d-flex justify-content-between">
-                    <strong class="mb-1">{{ pdf.title }}</strong>
-                    <div class="dropdown">
-                      <ion-icon name="ellipsis-horizontal-outline" class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer" />
-                      <div class="dropdown-menu">
-                        <a class="dropdown-item" href="javascript:void(0)" @click="downloadPDF(pdf)">
-                          <ion-icon name="download-outline" size="small" class="mr-1"></ion-icon>
-                          Download PDF
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <p class="mb-1">{{ pdf.file_name }}</p>
-                <small>{{ new Date(pdf.created_at).toUTCString() }}</small>
-              </div>
-            </div>
+            <PDFResource :pdf="pdf" />
           </div>
         </div>
       </div>
@@ -60,7 +39,9 @@
 </template>
 
 <script>
+import PDFResource from './components/PDFResource'
 export default {
+  components: { PDFResource },
   data() {
     return {
       loading: true,
@@ -84,27 +65,6 @@ export default {
     .finally(() => this.loading = false)
   },
   methods: {
-    downloadPDF(pdf) {
-      this.axios.get(`${this.$api}visitor/pdf/${pdf.id}`, { responseType: 'arraybuffer' }).then(response => {
-        let newBlob = new Blob([response.data], { type: 'application/pdf' })
-        // IE
-        if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-          window.navigator.msSaveOrOpenBlob(newBlob)
-          return
-        }
-        // For other browsers:
-        const data = window.URL.createObjectURL(newBlob)
-        let link = document.createElement('a')
-        link.href = data
-        link.download = pdf.file_name
-        link.click()
-        setTimeout(function () {
-          // Firefox
-          window.URL.revokeObjectURL(data)
-        }, 100)
-      })
-      .catch(error => console.log(error))
-    },
   }
 }
 </script>
