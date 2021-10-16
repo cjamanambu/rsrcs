@@ -52,6 +52,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -63,6 +102,7 @@ __webpack_require__.r(__webpack_exports__);
       pdfs: [],
       numPdf: 0,
       htmls: [],
+      numHtml: 0,
       links: [],
       crumbs: [{
         id: 1,
@@ -82,10 +122,32 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (error) {
       return console.log(error);
     })["finally"](function () {
-      return _this.loading = false;
+      _this.axios.get("".concat(_this.$api, "visitor/html")).then(function (response) {
+        _this.htmls = response.data;
+        _this.numHtml = response.data.length;
+        if (_this.numHtml > 3) _this.htmls.splice(3, _this.numHtml);
+      })["catch"](function (error) {
+        return console.log(error);
+      })["finally"](function () {
+        return _this.loading = false;
+      });
     });
   },
-  methods: {}
+  methods: {
+    copyHtml: function copyHtml(html) {
+      var _this2 = this;
+
+      this.$copyText(html.snippet).then(function (e) {
+        _this2.$toast.info("Copied ".concat(html.title, "!"));
+
+        console.log(e);
+      })["catch"](function (e) {
+        _this2.$toast.error('Not Copied');
+
+        console.log(e);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -400,6 +462,140 @@ var render = function() {
                           { key: pdf.id, staticClass: "col-lg-4" },
                           [_c("PDFResource", { attrs: { pdf: pdf } })],
                           1
+                        )
+                      })
+                ],
+                2
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "d-flex justify-content-between mt-5" },
+                [
+                  _c("h5", { staticClass: "mb-1" }, [
+                    _vm._v("HTML Resources (" + _vm._s(_vm.numHtml) + " total)")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "card-link",
+                      attrs: { to: "/visitor/html" }
+                    },
+                    [_vm._v("View all")]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "row" },
+                [
+                  _vm.htmls.length === 0
+                    ? _c("div", { staticClass: "col-12" }, [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "alert alert-info text-center",
+                            attrs: { role: "alert" }
+                          },
+                          [
+                            _vm._v(
+                              "\n            There are currently no HTML resources.\n          "
+                            )
+                          ]
+                        )
+                      ])
+                    : _vm._l(_vm.htmls, function(html) {
+                        return _c(
+                          "div",
+                          { key: html.id, staticClass: "col-lg-4" },
+                          [
+                            _c("div", { staticClass: "card" }, [
+                              _c("div", { staticClass: "card-body" }, [
+                                _c("div", { staticClass: "card-title" }, [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "d-flex justify-content-between"
+                                    },
+                                    [
+                                      _c("strong", { staticClass: "mb-1" }, [
+                                        _vm._v(_vm._s(html.title))
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "dropdown" },
+                                        [
+                                          _c("ion-icon", {
+                                            staticClass: "dropdown-toggle",
+                                            staticStyle: { cursor: "pointer" },
+                                            attrs: {
+                                              name:
+                                                "ellipsis-horizontal-outline",
+                                              "data-toggle": "dropdown"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "dropdown-menu" },
+                                            [
+                                              _c(
+                                                "a",
+                                                {
+                                                  staticClass: "dropdown-item",
+                                                  attrs: {
+                                                    href: "javascript:void(0)"
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      return _vm.copyHtml(html)
+                                                    }
+                                                  }
+                                                },
+                                                [
+                                                  _c("ion-icon", {
+                                                    staticClass: "mr-1",
+                                                    attrs: {
+                                                      name: "copy-outline",
+                                                      size: "small"
+                                                    }
+                                                  }),
+                                                  _vm._v(
+                                                    "\n                        Copy HTML Snippet\n                      "
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            ]
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("p", { staticClass: "mb-1" }, [
+                                  _vm._v(_vm._s(html.description))
+                                ]),
+                                _vm._v(" "),
+                                _c("small", [
+                                  _vm._v(
+                                    _vm._s(
+                                      new Date(html.created_at).toUTCString()
+                                    )
+                                  )
+                                ])
+                              ])
+                            ])
+                          ]
                         )
                       })
                 ],

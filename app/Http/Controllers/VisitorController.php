@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 use App\Models\Pdf;
-use Illuminate\Support\Facades\Storage;
+use App\Models\Html;
 
 class VisitorController extends Controller
 {
@@ -21,5 +22,10 @@ class VisitorController extends Controller
 		}
 		$headers = ['Content-Type' => 'application/pdf'];
 		return Storage::download($pdf->file_path, $pdf->file_name, $headers);
+	}
+
+	public function htmls() {
+		$htmls = Html::all()->toArray();
+		return array_reverse($htmls);
 	}
 }

@@ -6,11 +6,14 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import VueAxios from 'vue-axios'
 import axios from 'axios'
-import VTooltip from 'v-tooltip'
 import VueSweetalert2 from 'vue-sweetalert2'
+import VueClipboard from 'vue-clipboard2'
+import VueToast from 'vue-toast-notification'
+
 import api from './api'
 
 import 'sweetalert2/dist/sweetalert2.min.css'
+import 'vue-toast-notification/dist/theme-default.css';
 
 import { routes } from './routes'
 import Header from './components/Header.vue'
@@ -20,8 +23,9 @@ import PageHeader from './components/PageHeader.vue'
 Vue.use(VueRouter)
 Vue.use(VueAxios, axios)
 Vue.prototype.$api = api
-Vue.use(VTooltip)
 Vue.use(VueSweetalert2)
+Vue.use(VueClipboard)
+Vue.use(VueToast)
 
 Vue.component('Header', Header)
 Vue.component('Footer', Footer)
