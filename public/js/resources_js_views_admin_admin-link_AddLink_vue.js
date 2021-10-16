@@ -45,28 +45,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       loading: false,
-      link: {},
-      crumbs: [{
-        id: 1,
-        name: 'Dashboard',
-        active: false,
-        path: '/admin'
-      }, {
-        id: 2,
-        name: 'Link Resource',
-        active: false,
-        path: '/admin/link'
-      }, {
-        id: 3,
-        name: 'Add Link Resource',
-        active: true,
-        path: ''
-      }]
+      link: {}
     };
   },
   methods: {
@@ -202,196 +185,184 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "main",
-      { attrs: { role: "main" } },
-      [
-        _c("PageHeader", {
-          attrs: { "page-title": "Add Link Resource", crumbs: _vm.crumbs }
-        }),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2"
-          },
-          [
-            _c("p", { staticClass: "text-muted" }, [
-              _vm._v("Here you can add a new Link resource")
-            ]),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-secondary btn-sm",
-                on: {
-                  click: function($event) {
-                    return _vm.$router.push({ name: "admin-link" })
-                  }
-                }
-              },
-              [_vm._v("Go Back")]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "card" }, [
+    _c("main", { attrs: { role: "main" } }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2"
+        },
+        [
+          _c("p", { staticClass: "text-muted" }, [
+            _vm._v("Here you can add a new Link resource")
+          ]),
+          _vm._v(" "),
           _c(
-            "form",
+            "button",
             {
+              staticClass: "btn btn-secondary btn-sm",
               on: {
-                submit: function($event) {
-                  $event.preventDefault()
-                  return _vm.addLink.apply(null, arguments)
+                click: function($event) {
+                  return _vm.$router.push({ name: "admin-link" })
                 }
               }
             },
-            [
-              _c("div", { staticClass: "card-body" }, [
-                _c("h5", { staticClass: "card-title mb-4" }, [
-                  _vm._v("Add Link Form")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group mb-4" }, [
-                  _c("label", { attrs: { for: "title" } }, [
-                    _vm._v("Link Title")
-                  ]),
-                  _c("span", { staticClass: "text-danger" }, [_vm._v(" *")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.link.title,
-                        expression: "link.title"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", id: "title", required: "" },
-                    domProps: { value: _vm.link.title },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.link, "title", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group mb-4" }, [
-                  _c("label", { attrs: { for: "url" } }, [_vm._v("Link URL")]),
-                  _c("span", { staticClass: "text-danger" }, [_vm._v(" *")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.link.url,
-                        expression: "link.url"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "url",
-                      id: "url",
-                      placeholder: "http://localhost.com",
-                      required: ""
-                    },
-                    domProps: { value: _vm.link.url },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.link, "url", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group mb-4" }, [
-                  _c("div", { staticClass: "custom-control custom-checkbox" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.link.newTab,
-                          expression: "link.newTab"
-                        }
-                      ],
-                      staticClass: "custom-control-input",
-                      attrs: { type: "checkbox", id: "new-tab" },
-                      domProps: {
-                        checked: Array.isArray(_vm.link.newTab)
-                          ? _vm._i(_vm.link.newTab, null) > -1
-                          : _vm.link.newTab
-                      },
-                      on: {
-                        change: function($event) {
-                          var $$a = _vm.link.newTab,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = null,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 &&
-                                _vm.$set(_vm.link, "newTab", $$a.concat([$$v]))
-                            } else {
-                              $$i > -1 &&
-                                _vm.$set(
-                                  _vm.link,
-                                  "newTab",
-                                  $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                                )
-                            }
-                          } else {
-                            _vm.$set(_vm.link, "newTab", $$c)
-                          }
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "custom-control-label",
-                        attrs: { for: "new-tab" }
-                      },
-                      [_vm._v("Check this to open this link in a new tab")]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                !_vm.loading
-                  ? _c("button", { staticClass: "btn btn-primary" }, [
-                      _vm._v("Add Link")
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.loading
-                  ? _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        attrs: { disabled: "" }
-                      },
-                      [_vm._v("Adding... ")]
-                    )
-                  : _vm._e()
-              ])
-            ]
+            [_vm._v("Go Back")]
           )
-        ])
-      ],
-      1
-    )
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "card" }, [
+        _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.addLink.apply(null, arguments)
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "card-body" }, [
+              _c("h5", { staticClass: "card-title mb-4" }, [
+                _vm._v("Add Link Form")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group mb-4" }, [
+                _c("label", { attrs: { for: "title" } }, [
+                  _vm._v("Link Title")
+                ]),
+                _c("span", { staticClass: "text-danger" }, [_vm._v(" *")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.link.title,
+                      expression: "link.title"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text", id: "title", required: "" },
+                  domProps: { value: _vm.link.title },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.link, "title", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group mb-4" }, [
+                _c("label", { attrs: { for: "url" } }, [_vm._v("Link URL")]),
+                _c("span", { staticClass: "text-danger" }, [_vm._v(" *")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.link.url,
+                      expression: "link.url"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "url",
+                    id: "url",
+                    placeholder: "http://localhost.com",
+                    required: ""
+                  },
+                  domProps: { value: _vm.link.url },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.link, "url", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group mb-4" }, [
+                _c("div", { staticClass: "custom-control custom-checkbox" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.link.newTab,
+                        expression: "link.newTab"
+                      }
+                    ],
+                    staticClass: "custom-control-input",
+                    attrs: { type: "checkbox", id: "new-tab" },
+                    domProps: {
+                      checked: Array.isArray(_vm.link.newTab)
+                        ? _vm._i(_vm.link.newTab, null) > -1
+                        : _vm.link.newTab
+                    },
+                    on: {
+                      change: function($event) {
+                        var $$a = _vm.link.newTab,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = null,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 &&
+                              _vm.$set(_vm.link, "newTab", $$a.concat([$$v]))
+                          } else {
+                            $$i > -1 &&
+                              _vm.$set(
+                                _vm.link,
+                                "newTab",
+                                $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                              )
+                          }
+                        } else {
+                          _vm.$set(_vm.link, "newTab", $$c)
+                        }
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    {
+                      staticClass: "custom-control-label",
+                      attrs: { for: "new-tab" }
+                    },
+                    [_vm._v("Check this to open this link in a new tab")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              !_vm.loading
+                ? _c("button", { staticClass: "btn btn-primary" }, [
+                    _vm._v("Add Link")
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.loading
+                ? _c(
+                    "button",
+                    { staticClass: "btn btn-primary", attrs: { disabled: "" } },
+                    [_vm._v("Adding... ")]
+                  )
+                : _vm._e()
+            ])
+          ]
+        )
+      ])
+    ])
   ])
 }
 var staticRenderFns = []

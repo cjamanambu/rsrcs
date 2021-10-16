@@ -90,7 +90,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -398,213 +397,200 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "main",
-      { attrs: { role: "main" } },
-      [
-        _c("PageHeader", {
-          attrs: { "page-title": "Home", crumbs: _vm.crumbs }
-        }),
-        _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
-        _vm.loading
-          ? _c("div", { staticClass: "d-flex align-items-center mt-3" }, [
-              _c("strong", [_vm._v("Loading...")]),
-              _vm._v(" "),
-              _c("div", {
-                staticClass: "spinner-border ml-auto",
-                attrs: { role: "status", "aria-hidden": "true" }
-              })
-            ])
-          : _c("div", { staticClass: "mt-5" }, [
-              _c(
-                "div",
-                { staticClass: "d-flex justify-content-between" },
-                [
-                  _c("h5", { staticClass: "mb-1" }, [
-                    _vm._v("PDF Resources (" + _vm._s(_vm.numPdf) + " total)")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    { staticClass: "card-link", attrs: { to: "/visitor/pdf" } },
-                    [_vm._v("View all")]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("hr"),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "row" },
-                [
-                  _vm.pdfs.length === 0
-                    ? _c("div", { staticClass: "col-12" }, [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "alert alert-info text-center",
-                            attrs: { role: "alert" }
-                          },
-                          [
-                            _vm._v(
-                              "\n            There are currently no PDF resources.\n          "
-                            )
-                          ]
-                        )
-                      ])
-                    : _vm._l(_vm.pdfs, function(pdf) {
-                        return _c(
-                          "div",
-                          { key: pdf.id, staticClass: "col-lg-4" },
-                          [_c("PDFResource", { attrs: { pdf: pdf } })],
-                          1
-                        )
-                      })
-                ],
-                2
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "d-flex justify-content-between mt-5" },
-                [
-                  _c("h5", { staticClass: "mb-1" }, [
-                    _vm._v("HTML Resources (" + _vm._s(_vm.numHtml) + " total)")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "card-link",
-                      attrs: { to: "/visitor/html" }
-                    },
-                    [_vm._v("View all")]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("hr"),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "row" },
-                [
-                  _vm.htmls.length === 0
-                    ? _c("div", { staticClass: "col-12" }, [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "alert alert-info text-center",
-                            attrs: { role: "alert" }
-                          },
-                          [
-                            _vm._v(
-                              "\n            There are currently no HTML resources.\n          "
-                            )
-                          ]
-                        )
-                      ])
-                    : _vm._l(_vm.htmls, function(html) {
-                        return _c(
-                          "div",
-                          { key: html.id, staticClass: "col-lg-4" },
-                          [
-                            _c("div", { staticClass: "card" }, [
-                              _c("div", { staticClass: "card-body" }, [
-                                _c("div", { staticClass: "card-title" }, [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "d-flex justify-content-between"
-                                    },
-                                    [
-                                      _c("strong", { staticClass: "mb-1" }, [
-                                        _vm._v(_vm._s(html.title))
-                                      ]),
-                                      _vm._v(" "),
-                                      _c(
-                                        "div",
-                                        { staticClass: "dropdown" },
-                                        [
-                                          _c("ion-icon", {
-                                            staticClass: "dropdown-toggle",
-                                            staticStyle: { cursor: "pointer" },
-                                            attrs: {
-                                              name:
-                                                "ellipsis-horizontal-outline",
-                                              "data-toggle": "dropdown"
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            { staticClass: "dropdown-menu" },
-                                            [
-                                              _c(
-                                                "a",
-                                                {
-                                                  staticClass: "dropdown-item",
-                                                  attrs: {
-                                                    href: "javascript:void(0)"
-                                                  },
-                                                  on: {
-                                                    click: function($event) {
-                                                      return _vm.copyHtml(html)
-                                                    }
-                                                  }
+    _c("main", { attrs: { role: "main" } }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm.loading
+        ? _c("div", { staticClass: "d-flex align-items-center mt-3" }, [
+            _c("strong", [_vm._v("Loading...")]),
+            _vm._v(" "),
+            _c("div", {
+              staticClass: "spinner-border ml-auto",
+              attrs: { role: "status", "aria-hidden": "true" }
+            })
+          ])
+        : _c("div", { staticClass: "mt-5" }, [
+            _c(
+              "div",
+              { staticClass: "d-flex justify-content-between" },
+              [
+                _c("h5", { staticClass: "mb-1" }, [
+                  _vm._v("PDF Resources (" + _vm._s(_vm.numPdf) + " total)")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  { staticClass: "card-link", attrs: { to: "/visitor/pdf" } },
+                  [_vm._v("View all")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row" },
+              [
+                _vm.pdfs.length === 0
+                  ? _c("div", { staticClass: "col-12" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "alert alert-info text-center",
+                          attrs: { role: "alert" }
+                        },
+                        [
+                          _vm._v(
+                            "\n            There are currently no PDF resources.\n          "
+                          )
+                        ]
+                      )
+                    ])
+                  : _vm._l(_vm.pdfs, function(pdf) {
+                      return _c(
+                        "div",
+                        { key: pdf.id, staticClass: "col-lg-4" },
+                        [_c("PDFResource", { attrs: { pdf: pdf } })],
+                        1
+                      )
+                    })
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "d-flex justify-content-between mt-5" },
+              [
+                _c("h5", { staticClass: "mb-1" }, [
+                  _vm._v("HTML Resources (" + _vm._s(_vm.numHtml) + " total)")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  { staticClass: "card-link", attrs: { to: "/visitor/html" } },
+                  [_vm._v("View all")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row" },
+              [
+                _vm.htmls.length === 0
+                  ? _c("div", { staticClass: "col-12" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "alert alert-info text-center",
+                          attrs: { role: "alert" }
+                        },
+                        [
+                          _vm._v(
+                            "\n            There are currently no HTML resources.\n          "
+                          )
+                        ]
+                      )
+                    ])
+                  : _vm._l(_vm.htmls, function(html) {
+                      return _c(
+                        "div",
+                        { key: html.id, staticClass: "col-lg-4" },
+                        [
+                          _c("div", { staticClass: "card" }, [
+                            _c("div", { staticClass: "card-body" }, [
+                              _c("div", { staticClass: "card-title" }, [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "d-flex justify-content-between"
+                                  },
+                                  [
+                                    _c("strong", { staticClass: "mb-1" }, [
+                                      _vm._v(_vm._s(html.title))
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "dropdown" },
+                                      [
+                                        _c("ion-icon", {
+                                          staticClass: "dropdown-toggle",
+                                          staticStyle: { cursor: "pointer" },
+                                          attrs: {
+                                            name: "ellipsis-horizontal-outline",
+                                            "data-toggle": "dropdown"
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "dropdown-menu" },
+                                          [
+                                            _c(
+                                              "a",
+                                              {
+                                                staticClass: "dropdown-item",
+                                                attrs: {
+                                                  href: "javascript:void(0)"
                                                 },
-                                                [
-                                                  _c("ion-icon", {
-                                                    staticClass: "mr-1",
-                                                    attrs: {
-                                                      name: "copy-outline",
-                                                      size: "small"
-                                                    }
-                                                  }),
-                                                  _vm._v(
-                                                    "\n                        Copy HTML Snippet\n                      "
-                                                  )
-                                                ],
-                                                1
-                                              )
-                                            ]
-                                          )
-                                        ],
-                                        1
-                                      )
-                                    ]
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("p", { staticClass: "mb-1" }, [
-                                  _vm._v(_vm._s(html.description))
-                                ]),
-                                _vm._v(" "),
-                                _c("small", [
-                                  _vm._v(
-                                    _vm._s(
-                                      new Date(html.created_at).toUTCString()
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.copyHtml(html)
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("ion-icon", {
+                                                  staticClass: "mr-1",
+                                                  attrs: {
+                                                    name: "copy-outline",
+                                                    size: "small"
+                                                  }
+                                                }),
+                                                _vm._v(
+                                                  "\n                        Copy HTML Snippet\n                      "
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
                                     )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "mb-1" }, [
+                                _vm._v(_vm._s(html.description))
+                              ]),
+                              _vm._v(" "),
+                              _c("small", [
+                                _vm._v(
+                                  _vm._s(
+                                    new Date(html.created_at).toUTCString()
                                   )
-                                ])
+                                )
                               ])
                             ])
-                          ]
-                        )
-                      })
-                ],
-                2
-              )
-            ])
-      ],
-      1
-    )
+                          ])
+                        ]
+                      )
+                    })
+              ],
+              2
+            )
+          ])
+    ])
   ])
 }
 var staticRenderFns = [

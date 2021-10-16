@@ -2377,7 +2377,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   meta: {
     title: 'Admin - RSRCS',
-    layout: 'AppAdminLayout'
+    layout: 'AppAdminLayout',
+    pageTitle: 'Dashboard',
+    crumbs: [{
+      id: 1,
+      name: 'Dashboard',
+      active: true,
+      path: ''
+    }]
   }
 }, {
   name: 'admin-pdf',
@@ -2387,7 +2394,19 @@ __webpack_require__.r(__webpack_exports__);
   },
   meta: {
     title: 'PDF Resource - RSRCS',
-    layout: 'AppAdminLayout'
+    layout: 'AppAdminLayout',
+    pageTitle: 'PDF Resource',
+    crumbs: [{
+      id: 1,
+      name: 'Dashboard',
+      active: false,
+      path: '/admin'
+    }, {
+      id: 2,
+      name: 'PDF Resource',
+      active: true,
+      path: ''
+    }]
   }
 }, {
   name: 'add-pdf',
@@ -2397,7 +2416,24 @@ __webpack_require__.r(__webpack_exports__);
   },
   meta: {
     title: 'Add PDF Resource - RSRCS',
-    layout: 'AppAdminLayout'
+    layout: 'AppAdminLayout',
+    pageTitle: 'Add PDF Resource',
+    crumbs: [{
+      id: 1,
+      name: 'Dashboard',
+      active: false,
+      path: '/admin'
+    }, {
+      id: 2,
+      name: 'PDF Resource',
+      active: false,
+      path: '/admin/pdf'
+    }, {
+      id: 3,
+      name: 'Add PDF Resource',
+      active: true,
+      path: ''
+    }]
   }
 }, {
   name: 'edit-pdf',
@@ -2407,7 +2443,24 @@ __webpack_require__.r(__webpack_exports__);
   },
   meta: {
     title: 'Edit PDF Resource - RSCRS',
-    layout: 'AppAdminLayout'
+    layout: 'AppAdminLayout',
+    pageTitle: 'Add PDF Resource',
+    crumbs: [{
+      id: 1,
+      name: 'Dashboard',
+      active: false,
+      path: '/admin'
+    }, {
+      id: 2,
+      name: 'PDF Resource',
+      active: false,
+      path: '/admin/pdf'
+    }, {
+      id: 3,
+      name: 'Edit PDF Resource',
+      active: true,
+      path: ''
+    }]
   }
 }, {
   name: 'admin-html',
@@ -2417,7 +2470,19 @@ __webpack_require__.r(__webpack_exports__);
   },
   meta: {
     title: 'HTML Resource - RSCRS',
-    layout: 'AppAdminLayout'
+    layout: 'AppAdminLayout',
+    pageTitle: 'HTML Resource',
+    crumbs: [{
+      id: 1,
+      name: 'Dashboard',
+      active: false,
+      path: '/admin'
+    }, {
+      id: 2,
+      name: 'HTML Resource',
+      active: true,
+      path: ''
+    }]
   }
 }, {
   name: 'add-html',
@@ -2427,7 +2492,24 @@ __webpack_require__.r(__webpack_exports__);
   },
   meta: {
     title: 'Add HTML Resource - RSCRS',
-    layout: 'AppAdminLayout'
+    layout: 'AppAdminLayout',
+    pageTitle: 'Add HTML Resource',
+    crumbs: [{
+      id: 1,
+      name: 'Dashboard',
+      active: false,
+      path: '/admin'
+    }, {
+      id: 2,
+      name: 'HTML Resource',
+      active: false,
+      path: '/admin/html'
+    }, {
+      id: 3,
+      name: 'Add HTML Resource',
+      active: true,
+      path: ''
+    }]
   }
 }, {
   name: 'edit-html',
@@ -2437,7 +2519,24 @@ __webpack_require__.r(__webpack_exports__);
   },
   meta: {
     title: 'Edit HTML Resource - RSCRS',
-    layout: 'AppAdminLayout'
+    layout: 'AppAdminLayout',
+    pageTitle: 'Edit HTML Resource',
+    crumbs: [{
+      id: 1,
+      name: 'Dashboard',
+      active: false,
+      path: '/admin'
+    }, {
+      id: 2,
+      name: 'HTML Resource',
+      active: false,
+      path: '/admin/html'
+    }, {
+      id: 3,
+      name: 'Edit HTML Resource',
+      active: true,
+      path: ''
+    }]
   }
 }, {
   name: 'admin-link',
@@ -2447,7 +2546,19 @@ __webpack_require__.r(__webpack_exports__);
   },
   meta: {
     title: 'Link Resource - RSCRS',
-    layout: 'AppAdminLayout'
+    layout: 'AppAdminLayout',
+    pageTitle: 'Link Resource',
+    crumbs: [{
+      id: 1,
+      name: 'Dashboard',
+      active: false,
+      path: '/admin'
+    }, {
+      id: 2,
+      name: 'Link Resource',
+      active: true,
+      path: ''
+    }]
   }
 }, {
   name: 'add-link',
@@ -2457,7 +2568,24 @@ __webpack_require__.r(__webpack_exports__);
   },
   meta: {
     title: 'Add Link Resource - RSCRS',
-    layout: 'AppAdminLayout'
+    layout: 'AppAdminLayout',
+    pageTitle: 'Add Link Resource',
+    crumbs: [{
+      id: 1,
+      name: 'Dashboard',
+      active: false,
+      path: '/admin'
+    }, {
+      id: 2,
+      name: 'Link Resource',
+      active: false,
+      path: '/admin/link'
+    }, {
+      id: 3,
+      name: 'Add Link Resource',
+      active: true,
+      path: ''
+    }]
   }
 }, {
   name: 'edit-link',
@@ -2467,7 +2595,24 @@ __webpack_require__.r(__webpack_exports__);
   },
   meta: {
     title: 'Edit Link Resource - RSCRS',
-    layout: 'AppAdminLayout'
+    layout: 'AppAdminLayout',
+    pageTitle: 'Edit Link Resource',
+    crumbs: [{
+      id: 1,
+      name: 'Dashboard',
+      active: false,
+      path: '/admin'
+    }, {
+      id: 2,
+      name: 'Link Resource',
+      active: false,
+      path: '/admin/link'
+    }, {
+      id: 3,
+      name: 'Edit Link Resource',
+      active: true,
+      path: ''
+    }]
   }
 }]);
 
@@ -2532,7 +2677,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   meta: {
     title: 'Admin - RSRCS',
-    layout: 'AppVisitorLayout'
+    layout: 'AppVisitorLayout',
+    pageTitle: 'Home',
+    crumbs: [{
+      id: 1,
+      name: 'Home',
+      active: true,
+      path: ''
+    }]
   }
 }, {
   name: 'visitor-pdf',
@@ -2542,7 +2694,41 @@ __webpack_require__.r(__webpack_exports__);
   },
   meta: {
     title: 'PDF Resource - RSRCS',
-    layout: 'AppVisitorLayout'
+    layout: 'AppVisitorLayout',
+    pageTitle: 'PDF Resource',
+    crumbs: [{
+      id: 1,
+      name: 'Home',
+      active: false,
+      path: '/visitor'
+    }, {
+      id: 2,
+      name: 'PDF Resource',
+      active: true,
+      path: ''
+    }]
+  }
+}, {
+  name: 'visitor-html',
+  path: '/visitor/html',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_views_visitor_VisitorHTML_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/visitor/VisitorHTML.vue */ "./resources/js/views/visitor/VisitorHTML.vue"));
+  },
+  meta: {
+    title: 'HTML Resource - RSRCS',
+    layout: 'AppVisitorLayout',
+    pageTitle: 'HTML Resource',
+    crumbs: [{
+      id: 1,
+      name: 'Home',
+      active: false,
+      path: '/visitor'
+    }, {
+      id: 2,
+      name: 'HTML Resource',
+      active: true,
+      path: ''
+    }]
   }
 }]);
 
@@ -66664,7 +66850,7 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_layouts_AppAdminLayout_vue":1,"resources_js_layouts_AppDefaultLayout_vue":1,"resources_js_layouts_AppVisitorLayout_vue":1,"resources_js_views_Index_vue":1,"resources_js_views_admin_Index_vue":1,"resources_js_views_admin_admin-pdf_Index_vue":1,"resources_js_views_admin_admin-pdf_AddPDF_vue":1,"resources_js_views_admin_admin-pdf_EditPDF_vue":1,"resources_js_views_admin_admin-html_Index_vue":1,"resources_js_views_admin_admin-html_AddHTML_vue":1,"resources_js_views_admin_admin-html_EditHTML_vue":1,"resources_js_views_admin_admin-link_Index_vue":1,"resources_js_views_admin_admin-link_AddLink_vue":1,"resources_js_views_admin_admin-link_EditLink_vue":1,"resources_js_views_visitor_Index_vue":1,"resources_js_views_visitor_VisitorPDF_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_layouts_AppAdminLayout_vue":1,"resources_js_layouts_AppDefaultLayout_vue":1,"resources_js_layouts_AppVisitorLayout_vue":1,"resources_js_views_Index_vue":1,"resources_js_views_admin_Index_vue":1,"resources_js_views_admin_admin-pdf_Index_vue":1,"resources_js_views_admin_admin-pdf_AddPDF_vue":1,"resources_js_views_admin_admin-pdf_EditPDF_vue":1,"resources_js_views_admin_admin-html_Index_vue":1,"resources_js_views_admin_admin-html_AddHTML_vue":1,"resources_js_views_admin_admin-html_EditHTML_vue":1,"resources_js_views_admin_admin-link_Index_vue":1,"resources_js_views_admin_admin-link_AddLink_vue":1,"resources_js_views_admin_admin-link_EditLink_vue":1,"resources_js_views_visitor_Index_vue":1,"resources_js_views_visitor_VisitorPDF_vue":1,"resources_js_views_visitor_VisitorHTML_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

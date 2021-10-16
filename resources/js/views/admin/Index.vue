@@ -1,7 +1,6 @@
 <template>
   <div>
     <main role="main">
-      <PageHeader page-title="Dashboard" :crumbs="crumbs" />
       <div class="jumbotron jumbotron-fluid mt-3">
         <div class="container px-5">
           <h5 class="display-4">Admin End</h5>
@@ -53,9 +52,6 @@ export default {
       pdfs: 0,
       htmls: 0,
       links: 0,
-      crumbs: [
-        { id: 1, name: 'Dashboard', active: true, path: '' }
-      ]
     }
   },
   created() {

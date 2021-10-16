@@ -1,7 +1,6 @@
 <template>
   <div>
     <main role="main">
-      <PageHeader page-title="Add Link Resource" :crumbs="crumbs" />
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2">
         <p class="text-muted">Here you can add a new Link resource</p>
         <button class="btn btn-secondary btn-sm" @click="$router.push({ name: 'admin-link'})">Go Back</button>
@@ -39,11 +38,6 @@ export default {
     return {
       loading: false,
       link: {},
-      crumbs: [
-        { id: 1, name: 'Dashboard', active: false, path: '/admin' },
-        { id: 2, name: 'Link Resource', active: false, path: '/admin/link' },
-        { id: 3, name: 'Add Link Resource', active: true, path: '' },
-      ],
     }
   },
   methods: {

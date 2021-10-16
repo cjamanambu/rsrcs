@@ -1,7 +1,6 @@
 <template>
   <div>
     <main role="main">
-      <PageHeader page-title="HTML Resource" :crumbs="crumbs" />
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2">
         <p class="text-muted">Here is the list of all your HTML resources to manage</p>
         <button class="btn btn-primary btn-sm" @click="$router.push({ name: 'add-html'})">Add HTML Resource</button>
@@ -60,10 +59,6 @@ export default {
   data() {
     return {
       loading: true,
-      crumbs: [
-        { id: 1, name: 'Dashboard', active: false, path: '/admin' },
-        { id: 2, name: 'HTML Resource', active: true, path: '' }
-      ],
       htmls: []
     }
   },

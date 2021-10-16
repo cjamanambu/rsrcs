@@ -1,7 +1,6 @@
 <template>
   <div>
     <main role="main">
-      <PageHeader page-title="Home" :crumbs="crumbs" />
       <div class="jumbotron jumbotron-fluid mt-3">
         <div class="container px-5">
           <h5 class="display-4">Visitor End</h5>

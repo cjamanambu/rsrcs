@@ -21,6 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'AppVisitorLayout'
 });
@@ -120,6 +121,13 @@ var render = function() {
         "div",
         { staticClass: "container", staticStyle: { "margin-top": "15vh" } },
         [
+          _c("PageHeader", {
+            attrs: {
+              "page-title": _vm.$route.meta.pageTitle,
+              crumbs: _vm.$route.meta.crumbs
+            }
+          }),
+          _vm._v(" "),
           _vm._t("default"),
           _vm._v(" "),
           _c("Footer", { staticStyle: { "margin-top": "30vh" } })

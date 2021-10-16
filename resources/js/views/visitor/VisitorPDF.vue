@@ -1,7 +1,6 @@
 <template>
   <div>
     <main role="main">
-      <PageHeader page-title="PDF Resource" :crumbs="crumbs" />
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2">
         <p class="text-muted">Here is the list of all your PDF resources to download</p>
         <button class="btn btn-secondary btn-sm" @click="$router.push({ name: 'visitor'})">Go Back</button>
@@ -37,10 +36,6 @@ export default {
     return {
       loading: true,
       pdfs: [],
-      crumbs: [
-        { id: 1, name: 'Home', active: false, path: '/visitor' },
-        { id: 2, name: 'PDF Resource', active: true, path: '' }
-      ]
     }
   },
   created() {

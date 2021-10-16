@@ -1,7 +1,6 @@
 <template>
   <div>
     <main role="main">
-      <PageHeader page-title="Add PDF Resource" :crumbs="crumbs" />
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2">
         <p class="text-muted">Here you can add a new PDF resource</p>
         <button class="btn btn-secondary btn-sm" @click="$router.push({ name: 'admin-pdf'})">Go Back</button>
@@ -43,11 +42,6 @@ export default {
       },
       fileUploaded: false,
       loading: false,
-      crumbs: [
-        { id: 1, name: 'Dashboard', active: false, path: '/admin' },
-        { id: 2, name: 'PDF Resource', active: false, path: '/admin/pdf' },
-        { id: 3, name: 'Add PDF Resource', active: true, path: '' },
-      ],
     }
   },
   methods: {
