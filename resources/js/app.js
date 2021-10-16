@@ -9,11 +9,13 @@ import axios from 'axios'
 import VueSweetalert2 from 'vue-sweetalert2'
 import VueClipboard from 'vue-clipboard2'
 import VueToast from 'vue-toast-notification'
+import VuePrism from 'vue-prism'
 
 import api from './api'
 
 import 'sweetalert2/dist/sweetalert2.min.css'
 import 'vue-toast-notification/dist/theme-default.css';
+import 'prismjs/themes/prism.css'
 
 import { routes } from './routes'
 import Header from './components/Header.vue'
@@ -26,6 +28,7 @@ Vue.prototype.$api = api
 Vue.use(VueSweetalert2)
 Vue.use(VueClipboard)
 Vue.use(VueToast)
+Vue.use(VuePrism)
 
 Vue.component('Header', Header)
 Vue.component('Footer', Footer)

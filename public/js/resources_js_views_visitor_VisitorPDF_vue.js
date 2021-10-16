@@ -372,7 +372,7 @@ var render = function() {
                 : _vm._l(_vm.pdfs, function(pdf) {
                     return _c(
                       "div",
-                      { key: pdf.id, staticClass: "col-12" },
+                      { key: pdf.id, staticClass: "col-12 mt-2" },
                       [_c("PDFResource", { attrs: { pdf: pdf } })],
                       1
                     )

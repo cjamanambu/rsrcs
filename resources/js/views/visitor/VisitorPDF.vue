@@ -19,7 +19,7 @@
           v-else
           v-for="pdf in pdfs"
           :key="pdf.id"
-          class="col-12"
+          class="col-12 mt-2"
         >
           <PDFResource :pdf="pdf" />
         </div>
