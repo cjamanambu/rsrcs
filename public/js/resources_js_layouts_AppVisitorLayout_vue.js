@@ -130,7 +130,7 @@ var render = function() {
           _vm._v(" "),
           _vm._t("default"),
           _vm._v(" "),
-          _c("Footer", { staticStyle: { "margin-top": "30vh" } })
+          _c("Footer", { staticStyle: { "margin-top": "25vh" } })
         ],
         2
       )

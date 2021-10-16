@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 use App\Models\Pdf;
 use App\Models\Html;
+use App\Models\Link;
 
 class VisitorController extends Controller
 {
@@ -27,5 +27,10 @@ class VisitorController extends Controller
 	public function htmls() {
 		$htmls = Html::all()->toArray();
 		return array_reverse($htmls);
+	}
+
+	public function links() {
+		$links = Link::all()->toArray();
+		return array_reverse($links);
 	}
 }

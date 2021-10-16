@@ -58,18 +58,10 @@ export default {
           formData.append('snippet', this.html.snippet)
           this.axios.post('http://localhost:8000/api/admin/html/add', formData).then(response => {
             this.$router.push({ name: 'admin-html'}).then(() => {
-              this.$swal({
-                title: 'Success',
-                text: response.data,
-                icon: 'success'
-              })
+              this.$toast.success(response.data)
             })
           }).catch(error => {
-            this.$swal({
-              title: 'Error',
-              text: error.response.data.message,
-              icon: 'error'
-            })
+            this.$toast.error(error.response.data.message)
           }).finally(() => this.loading = false)
         }
       })

@@ -86,18 +86,10 @@ export default {
           formData.append('file', this.pdf.file)
           this.axios.post('http://localhost:8000/api/admin/pdf/update', formData).then(response => {
             this.$router.push({ name: 'admin-pdf'}).then(() => {
-              this.$swal({
-                title: 'Success',
-                text: response.data,
-                icon: 'success'
-              })
+              this.$toast.success(response.data)
             })
           }).catch(error => {
-            this.$swal({
-              title: 'Error',
-              text: error.response.data.message,
-              icon: 'error'
-            })
+            this.$toast.error(error.response.data.message)
           }).finally(() => this.loading = false)
         }
       })

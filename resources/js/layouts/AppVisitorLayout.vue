@@ -4,7 +4,7 @@
     <div class="container" style="margin-top: 15vh;">
       <PageHeader :page-title="$route.meta.pageTitle" :crumbs="$route.meta.crumbs" />
       <slot />
-      <Footer style="margin-top: 30vh"/>
+      <Footer style="margin-top: 25vh"/>
     </div>
   </div>
 </template>

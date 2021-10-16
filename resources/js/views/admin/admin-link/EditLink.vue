@@ -76,18 +76,10 @@ export default {
           formData.append('new_tab', this.link.newTab ? '1' : '0')
           this.axios.post('http://localhost:8000/api/admin/link/update', formData).then(response => {
             this.$router.push({ name: 'admin-link'}).then(() => {
-              this.$swal({
-                title: 'Success',
-                text: response.data,
-                icon: 'success'
-              })
+              this.$toast.success(response.data)
             })
           }).catch(error => {
-            this.$swal({
-              title: 'Error',
-              text: error.response.data.message,
-              icon: 'error'
-            })
+            this.$toast.error(error.response.data.message)
           }).finally(() => this.saving = false)
         }
       })

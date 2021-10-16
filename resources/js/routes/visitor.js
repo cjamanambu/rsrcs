@@ -39,5 +39,19 @@ export default [
         { id: 2, name: 'HTML Resource', active: true, path: '' }
       ]
     }
+  },
+  {
+    name: 'visitor-link',
+    path: '/visitor/link',
+    component: () => import('../views/visitor/VisitorLink.vue'),
+    meta: {
+      title: 'Link Resource - RSRCS',
+      layout: 'AppVisitorLayout',
+      pageTitle: 'Link Resource',
+      crumbs: [
+        { id: 1, name: 'Home', active: false, path: '/visitor' },
+        { id: 2, name: 'Link Resource', active: true, path: '' }
+      ]
+    }
   }
 ]

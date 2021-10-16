@@ -52,6 +52,26 @@
             <HTMLResource :html="html" :is-full="false" />
           </div>
         </div>
+        <div class="d-flex justify-content-between mt-5">
+          <h5 class="mb-1">Link Resources ({{ numLink }} total)</h5>
+          <router-link to="/visitor/link" class="card-link">View all</router-link>
+        </div>
+        <hr>
+        <div class="row">
+          <div v-if="links.length === 0" class="col-12">
+            <div class="alert alert-info text-center" role="alert">
+              There are currently no Link resources.
+            </div>
+          </div>
+          <div
+            v-else
+            v-for="link in links"
+            :key="link.id"
+            class="col-lg-4"
+          >
+            <LinkResource :link="link" />
+          </div>
+        </div>
       </div>
     </main>
   </div>
@@ -60,8 +80,9 @@
 <script>
 import PDFResource from './components/PDFResource'
 import HTMLResource from './components/HTMLResource'
+import LinkResource from './components/LinkResource'
 export default {
-  components: { PDFResource, HTMLResource },
+  components: { PDFResource, HTMLResource, LinkResource },
   data() {
     return {
       loading: true,
@@ -70,6 +91,7 @@ export default {
       htmls: [],
       numHtml: 0,
       links: [],
+      numLink: 0,
     }
   },
   created() {
@@ -88,7 +110,16 @@ export default {
           this.htmls.splice(3, this.numHtml)
       })
       .catch(error => console.log(error))
-      .finally(() => this.loading = false)
+      .finally(() => {
+        this.axios.get(`${this.$api}visitor/link`).then(response => {
+          this.links = response.data
+          this.numLink = response.data.length
+          if (this.numLink > 3)
+            this.links.splice(3, this.numLink)
+        })
+        .catch(error => console.log(error))
+        .finally(() => this.loading = false)
+      })
     })
   },
   methods: {
