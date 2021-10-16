@@ -45,6 +45,7 @@
           </div>
         </div>
         <div class="col-lg-9">
+          <PageHeader :page-title="$route.meta.pageTitle" :crumbs="$route.meta.crumbs" />
           <slot />
           <Footer style="margin-top: 25vh"/>
         </div>

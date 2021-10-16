@@ -50,7 +50,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -60,23 +59,7 @@ __webpack_require__.r(__webpack_exports__);
         title: null,
         file: null
       },
-      fileUploaded: false,
-      crumbs: [{
-        id: 1,
-        name: 'Dashboard',
-        active: false,
-        path: '/admin'
-      }, {
-        id: 2,
-        name: 'PDF Resource',
-        active: false,
-        path: '/admin/pdf'
-      }, {
-        id: 3,
-        name: 'Edit PDF Resource',
-        active: true,
-        path: ''
-      }]
+      fileUploaded: false
     };
   },
   created: function created() {
@@ -236,197 +219,184 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "main",
-      { attrs: { role: "main" } },
-      [
-        _c("PageHeader", {
-          attrs: { "page-title": "Edit PDF Resource", crumbs: _vm.crumbs }
-        }),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2"
-          },
-          [
-            _c("p", { staticClass: "text-muted" }, [
-              _vm._v("Here you can edit your PDF resource")
-            ]),
+    _c("main", { attrs: { role: "main" } }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2"
+        },
+        [
+          _c("p", { staticClass: "text-muted" }, [
+            _vm._v("Here you can edit your PDF resource")
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-secondary btn-sm",
+              on: {
+                click: function($event) {
+                  return _vm.$router.push({ name: "admin-pdf" })
+                }
+              }
+            },
+            [_vm._v("Go Back")]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _vm.loading
+        ? _c("div", { staticClass: "d-flex align-items-center mt-3" }, [
+            _c("strong", [_vm._v("Loading...")]),
             _vm._v(" "),
+            _c("div", {
+              staticClass: "spinner-border ml-auto",
+              attrs: { role: "status", "aria-hidden": "true" }
+            })
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      !_vm.loading
+        ? _c("div", { staticClass: "card" }, [
             _c(
-              "button",
+              "form",
               {
-                staticClass: "btn btn-secondary btn-sm",
+                attrs: { enctype: "multipart/form-data" },
                 on: {
-                  click: function($event) {
-                    return _vm.$router.push({ name: "admin-pdf" })
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.editPDF.apply(null, arguments)
                   }
                 }
               },
-              [_vm._v("Go Back")]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _vm.loading
-          ? _c("div", { staticClass: "d-flex align-items-center mt-3" }, [
-              _c("strong", [_vm._v("Loading...")]),
-              _vm._v(" "),
-              _c("div", {
-                staticClass: "spinner-border ml-auto",
-                attrs: { role: "status", "aria-hidden": "true" }
-              })
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        !_vm.loading
-          ? _c("div", { staticClass: "card" }, [
-              _c(
-                "form",
-                {
-                  attrs: { enctype: "multipart/form-data" },
-                  on: {
-                    submit: function($event) {
-                      $event.preventDefault()
-                      return _vm.editPDF.apply(null, arguments)
-                    }
-                  }
-                },
-                [
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("h5", { staticClass: "card-title mb-4" }, [
-                      _vm._v("Edit PDF Form")
+              [
+                _c("div", { staticClass: "card-body" }, [
+                  _c("h5", { staticClass: "card-title mb-4" }, [
+                    _vm._v("Edit PDF Form")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group mb-4" }, [
+                    _c("label", { attrs: { for: "title" } }, [
+                      _vm._v("PDF Title")
                     ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group mb-4" }, [
-                      _c("label", { attrs: { for: "title" } }, [
-                        _vm._v("PDF Title")
-                      ]),
-                      _c("span", { staticClass: "text-danger" }, [
-                        _vm._v(" *")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.pdf.title,
-                            expression: "pdf.title"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          id: "title",
-                          name: "title",
-                          required: ""
-                        },
-                        domProps: { value: _vm.pdf.title },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.pdf, "title", $event.target.value)
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group mb-4" }, [
-                      _c("label", {}, [_vm._v("PDF File")]),
-                      _c("span", { staticClass: "text-danger" }, [
-                        _vm._v(" *")
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "custom-file" }, [
-                        _c("input", {
-                          staticClass: "custom-file-input",
-                          attrs: {
-                            type: "file",
-                            id: "file",
-                            accept: "application/pdf",
-                            required: ""
-                          },
-                          on: { change: _vm.getFile }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "custom-file-label",
-                            attrs: { for: "file" }
-                          },
-                          [_vm._v("Choose pdf file")]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _vm.fileUploaded
-                        ? _c(
-                            "div",
-                            {
-                              staticClass: "alert alert-info mt-2",
-                              attrs: { role: "alert" }
-                            },
-                            [
-                              _vm._v(
-                                "\n              You have chosen " +
-                                  _vm._s(_vm.pdf.file.name) +
-                                  " to upload.\n            "
-                              )
-                            ]
-                          )
-                        : _vm._e()
-                    ]),
+                    _c("span", { staticClass: "text-danger" }, [_vm._v(" *")]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.pdfID,
-                          expression: "pdfID"
+                          value: _vm.pdf.title,
+                          expression: "pdf.title"
                         }
                       ],
-                      attrs: { type: "hidden", name: "id", id: "id" },
-                      domProps: { value: _vm.pdfID },
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        id: "title",
+                        name: "title",
+                        required: ""
+                      },
+                      domProps: { value: _vm.pdf.title },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
-                          _vm.pdfID = $event.target.value
+                          _vm.$set(_vm.pdf, "title", $event.target.value)
                         }
                       }
-                    }),
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group mb-4" }, [
+                    _c("label", {}, [_vm._v("PDF File")]),
+                    _c("span", { staticClass: "text-danger" }, [_vm._v(" *")]),
                     _vm._v(" "),
-                    !_vm.loading
-                      ? _c("button", { staticClass: "btn btn-primary" }, [
-                          _vm._v("Save Changes")
-                        ])
-                      : _vm._e(),
+                    _c("div", { staticClass: "custom-file" }, [
+                      _c("input", {
+                        staticClass: "custom-file-input",
+                        attrs: {
+                          type: "file",
+                          id: "file",
+                          accept: "application/pdf",
+                          required: ""
+                        },
+                        on: { change: _vm.getFile }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "custom-file-label",
+                          attrs: { for: "file" }
+                        },
+                        [_vm._v("Choose pdf file")]
+                      )
+                    ]),
                     _vm._v(" "),
-                    _vm.loading
+                    _vm.fileUploaded
                       ? _c(
-                          "button",
+                          "div",
                           {
-                            staticClass: "btn btn-primary",
-                            attrs: { disabled: "" }
+                            staticClass: "alert alert-info mt-2",
+                            attrs: { role: "alert" }
                           },
-                          [_vm._v("Saving... ")]
+                          [
+                            _vm._v(
+                              "\n              You have chosen " +
+                                _vm._s(_vm.pdf.file.name) +
+                                " to upload.\n            "
+                            )
+                          ]
                         )
                       : _vm._e()
-                  ])
-                ]
-              )
-            ])
-          : _vm._e()
-      ],
-      1
-    )
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.pdfID,
+                        expression: "pdfID"
+                      }
+                    ],
+                    attrs: { type: "hidden", name: "id", id: "id" },
+                    domProps: { value: _vm.pdfID },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.pdfID = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  !_vm.loading
+                    ? _c("button", { staticClass: "btn btn-primary" }, [
+                        _vm._v("Save Changes")
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.loading
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: { disabled: "" }
+                        },
+                        [_vm._v("Saving... ")]
+                      )
+                    : _vm._e()
+                ])
+              ]
+            )
+          ])
+        : _vm._e()
+    ])
   ])
 }
 var staticRenderFns = []

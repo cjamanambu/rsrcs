@@ -67,22 +67,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       loading: true,
-      crumbs: [{
-        id: 1,
-        name: 'Dashboard',
-        active: false,
-        path: '/admin'
-      }, {
-        id: 2,
-        name: 'PDF Resource',
-        active: true,
-        path: ''
-      }],
       pdfs: []
     };
   },
@@ -239,174 +227,164 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "main",
-      { attrs: { role: "main" } },
-      [
-        _c("PageHeader", {
-          attrs: { "page-title": "PDF Resource", crumbs: _vm.crumbs }
-        }),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2"
-          },
-          [
-            _c("p", { staticClass: "text-muted" }, [
-              _vm._v("Here is the list of all your PDF resources to manage")
-            ]),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary btn-sm",
-                on: {
-                  click: function($event) {
-                    return _vm.$router.push({ name: "add-pdf" })
-                  }
+    _c("main", { attrs: { role: "main" } }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2"
+        },
+        [
+          _c("p", { staticClass: "text-muted" }, [
+            _vm._v("Here is the list of all your PDF resources to manage")
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary btn-sm",
+              on: {
+                click: function($event) {
+                  return _vm.$router.push({ name: "add-pdf" })
                 }
-              },
-              [_vm._v("Add PDF Resource")]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _vm.loading
-          ? _c("div", { staticClass: "d-flex align-items-center mt-3" }, [
-              _c("strong", [_vm._v("Loading...")]),
+              }
+            },
+            [_vm._v("Add PDF Resource")]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _vm.loading
+        ? _c("div", { staticClass: "d-flex align-items-center mt-3" }, [
+            _c("strong", [_vm._v("Loading...")]),
+            _vm._v(" "),
+            _c("div", {
+              staticClass: "spinner-border ml-auto",
+              attrs: { role: "status", "aria-hidden": "true" }
+            })
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      !_vm.loading
+        ? _c(
+            "table",
+            {
+              staticClass:
+                "table table-bordered table-responsive-sm table-striped"
+            },
+            [
+              _vm._m(0),
               _vm._v(" "),
-              _c("div", {
-                staticClass: "spinner-border ml-auto",
-                attrs: { role: "status", "aria-hidden": "true" }
-              })
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        !_vm.loading
-          ? _c(
-              "table",
-              {
-                staticClass:
-                  "table table-bordered table-responsive-sm table-striped"
-              },
-              [
-                _vm._m(0),
-                _vm._v(" "),
-                _c(
-                  "tbody",
-                  [
-                    this.pdfs.length === 0
-                      ? _c("tr", [
-                          _c(
-                            "td",
-                            {
-                              staticClass: "font-weight-bolder text-center",
-                              attrs: { colspan: "5" }
-                            },
-                            [_vm._v("No PDF Resource exists")]
-                          )
-                        ])
-                      : _vm._l(_vm.pdfs, function(pdf, key) {
-                          return _c("tr", { key: pdf.id }, [
-                            _c("td", { staticClass: "text-center" }, [
-                              _vm._v(_vm._s(++key))
-                            ]),
-                            _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(pdf.title))]),
-                            _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(pdf.file_name))]),
-                            _vm._v(" "),
-                            _c("td", [
-                              _vm._v(
-                                _vm._s(new Date(pdf.created_at).toDateString())
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("td", { staticClass: "text-center" }, [
-                              _c(
-                                "div",
-                                { staticClass: "dropdown" },
-                                [
-                                  _c("ion-icon", {
-                                    staticClass: "dropdown-toggle",
-                                    staticStyle: { cursor: "pointer" },
-                                    attrs: {
-                                      name: "ellipsis-horizontal-outline",
-                                      "data-toggle": "dropdown"
-                                    }
-                                  }),
+              _c(
+                "tbody",
+                [
+                  this.pdfs.length === 0
+                    ? _c("tr", [
+                        _c(
+                          "td",
+                          {
+                            staticClass: "font-weight-bolder text-center",
+                            attrs: { colspan: "5" }
+                          },
+                          [_vm._v("No PDF Resource exists")]
+                        )
+                      ])
+                    : _vm._l(_vm.pdfs, function(pdf, key) {
+                        return _c("tr", { key: pdf.id }, [
+                          _c("td", { staticClass: "text-center" }, [
+                            _vm._v(_vm._s(++key))
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(pdf.title))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(pdf.file_name))]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              _vm._s(new Date(pdf.created_at).toDateString())
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "text-center" }, [
+                            _c(
+                              "div",
+                              { staticClass: "dropdown" },
+                              [
+                                _c("ion-icon", {
+                                  staticClass: "dropdown-toggle",
+                                  staticStyle: { cursor: "pointer" },
+                                  attrs: {
+                                    name: "ellipsis-horizontal-outline",
+                                    "data-toggle": "dropdown"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "dropdown-menu" }, [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "dropdown-item",
+                                      attrs: { href: "javascript:void(0)" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.editPDF(pdf)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c("ion-icon", {
+                                        staticClass: "mr-1",
+                                        attrs: {
+                                          name: "create-outline",
+                                          size: "small"
+                                        }
+                                      }),
+                                      _vm._v(
+                                        "\n                  Edit PDF\n                "
+                                      )
+                                    ],
+                                    1
+                                  ),
                                   _vm._v(" "),
-                                  _c("div", { staticClass: "dropdown-menu" }, [
-                                    _c(
-                                      "a",
-                                      {
-                                        staticClass: "dropdown-item",
-                                        attrs: { href: "javascript:void(0)" },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.editPDF(pdf)
-                                          }
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "dropdown-item text-danger",
+                                      attrs: { href: "javascript:void(0)" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.deletePDF(pdf)
                                         }
-                                      },
-                                      [
-                                        _c("ion-icon", {
-                                          staticClass: "mr-1",
-                                          attrs: {
-                                            name: "create-outline",
-                                            size: "small"
-                                          }
-                                        }),
-                                        _vm._v(
-                                          "\n                  Edit PDF\n                "
-                                        )
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "a",
-                                      {
-                                        staticClass:
-                                          "dropdown-item text-danger",
-                                        attrs: { href: "javascript:void(0)" },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.deletePDF(pdf)
-                                          }
+                                      }
+                                    },
+                                    [
+                                      _c("ion-icon", {
+                                        staticClass: "mr-1",
+                                        attrs: {
+                                          name: "trash-outline",
+                                          size: "small"
                                         }
-                                      },
-                                      [
-                                        _c("ion-icon", {
-                                          staticClass: "mr-1",
-                                          attrs: {
-                                            name: "trash-outline",
-                                            size: "small"
-                                          }
-                                        }),
-                                        _vm._v(
-                                          "\n                  Delete PDF\n                "
-                                        )
-                                      ],
-                                      1
-                                    )
-                                  ])
-                                ],
-                                1
-                              )
-                            ])
+                                      }),
+                                      _vm._v(
+                                        "\n                  Delete PDF\n                "
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ])
+                              ],
+                              1
+                            )
                           ])
-                        })
-                  ],
-                  2
-                )
-              ]
-            )
-          : _vm._e()
-      ],
-      1
-    )
+                        ])
+                      })
+                ],
+                2
+              )
+            ]
+          )
+        : _vm._e()
+    ])
   ])
 }
 var staticRenderFns = [

@@ -1,7 +1,6 @@
 <template>
   <div>
     <main role="main">
-      <PageHeader page-title="Edit HTML Resource" :crumbs="crumbs" />
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2">
         <p class="text-muted">Here you can edit your HTML resource</p>
         <button class="btn btn-secondary btn-sm" @click="$router.push({ name: 'admin-html'})">Go Back</button>
@@ -42,11 +41,6 @@ export default {
       loading: true,
       htmlID: this.$route.params.id || localStorage.getItem('htmlID'),
       html: {},
-      crumbs: [
-        { id: 1, name: 'Dashboard', active: false, path: '/admin' },
-        { id: 2, name: 'HTML Resource', active: false, path: '/admin/html' },
-        { id: 3, name: 'Edit HTML Resource', active: true, path: '' },
-      ],
     }
   },
   created() {

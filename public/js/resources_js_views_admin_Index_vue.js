@@ -57,20 +57,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       loading: true,
       pdfs: 0,
       htmls: 0,
-      links: 0,
-      crumbs: [{
-        id: 1,
-        name: 'Dashboard',
-        active: true,
-        path: ''
-      }]
+      links: 0
     };
   },
   created: function created() {
@@ -185,125 +178,113 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "main",
-      { attrs: { role: "main" } },
-      [
-        _c("PageHeader", {
-          attrs: { "page-title": "Dashboard", crumbs: _vm.crumbs }
-        }),
-        _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
-        _vm.loading
-          ? _c("div", { staticClass: "d-flex align-items-center mt-3" }, [
-              _c("strong", [_vm._v("Loading...")]),
-              _vm._v(" "),
-              _c("div", {
-                staticClass: "spinner-border ml-auto",
-                attrs: { role: "status", "aria-hidden": "true" }
-              })
-            ])
-          : _c("div", { staticClass: "row mt-3" }, [
-              _c("div", { staticClass: "col-lg-4" }, [
-                _c("div", { staticClass: "card" }, [
-                  _c(
-                    "div",
-                    { staticClass: "card-body" },
-                    [
-                      _c("h5", { staticClass: "card-title" }, [
-                        _vm._v("PDF Resources")
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "card-text" }, [
-                        _vm._v(
-                          "There are currently " +
-                            _vm._s(_vm.pdfs) +
-                            " PDF Resources in RSRCS."
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "card-link",
-                          attrs: { to: "/admin/pdf" }
-                        },
-                        [_vm._v("View more")]
+    _c("main", { attrs: { role: "main" } }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm.loading
+        ? _c("div", { staticClass: "d-flex align-items-center mt-3" }, [
+            _c("strong", [_vm._v("Loading...")]),
+            _vm._v(" "),
+            _c("div", {
+              staticClass: "spinner-border ml-auto",
+              attrs: { role: "status", "aria-hidden": "true" }
+            })
+          ])
+        : _c("div", { staticClass: "row mt-3" }, [
+            _c("div", { staticClass: "col-lg-4" }, [
+              _c("div", { staticClass: "card" }, [
+                _c(
+                  "div",
+                  { staticClass: "card-body" },
+                  [
+                    _c("h5", { staticClass: "card-title" }, [
+                      _vm._v("PDF Resources")
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "card-text" }, [
+                      _vm._v(
+                        "There are currently " +
+                          _vm._s(_vm.pdfs) +
+                          " PDF Resources in RSRCS."
                       )
-                    ],
-                    1
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-lg-4" }, [
-                _c("div", { staticClass: "card" }, [
-                  _c(
-                    "div",
-                    { staticClass: "card-body" },
-                    [
-                      _c("h5", { staticClass: "card-title" }, [
-                        _vm._v("HTML Resources")
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "card-text" }, [
-                        _vm._v(
-                          "There are currently " +
-                            _vm._s(_vm.htmls) +
-                            " HTML Resources in RSRCS."
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "card-link",
-                          attrs: { to: "/admin/html" }
-                        },
-                        [_vm._v("View more")]
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      { staticClass: "card-link", attrs: { to: "/admin/pdf" } },
+                      [_vm._v("View more")]
+                    )
+                  ],
+                  1
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-4" }, [
+              _c("div", { staticClass: "card" }, [
+                _c(
+                  "div",
+                  { staticClass: "card-body" },
+                  [
+                    _c("h5", { staticClass: "card-title" }, [
+                      _vm._v("HTML Resources")
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "card-text" }, [
+                      _vm._v(
+                        "There are currently " +
+                          _vm._s(_vm.htmls) +
+                          " HTML Resources in RSRCS."
                       )
-                    ],
-                    1
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-lg-4" }, [
-                _c("div", { staticClass: "card" }, [
-                  _c(
-                    "div",
-                    { staticClass: "card-body" },
-                    [
-                      _c("h5", { staticClass: "card-title" }, [
-                        _vm._v("Link Resources")
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "card-text" }, [
-                        _vm._v(
-                          "There are currently " +
-                            _vm._s(_vm.links) +
-                            " Link Resources in RSRCS."
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "card-link",
-                          attrs: { to: "/admin/link" }
-                        },
-                        [_vm._v("View more")]
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "card-link",
+                        attrs: { to: "/admin/html" }
+                      },
+                      [_vm._v("View more")]
+                    )
+                  ],
+                  1
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-4" }, [
+              _c("div", { staticClass: "card" }, [
+                _c(
+                  "div",
+                  { staticClass: "card-body" },
+                  [
+                    _c("h5", { staticClass: "card-title" }, [
+                      _vm._v("Link Resources")
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "card-text" }, [
+                      _vm._v(
+                        "There are currently " +
+                          _vm._s(_vm.links) +
+                          " Link Resources in RSRCS."
                       )
-                    ],
-                    1
-                  )
-                ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "card-link",
+                        attrs: { to: "/admin/link" }
+                      },
+                      [_vm._v("View more")]
+                    )
+                  ],
+                  1
+                )
               ])
             ])
-      ],
-      1
-    )
+          ])
+    ])
   ])
 }
 var staticRenderFns = [

@@ -1,7 +1,6 @@
 <template>
   <div>
     <main role="main">
-      <PageHeader page-title="Add HTML Resource" :crumbs="crumbs" />
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2">
         <p class="text-muted">Here you can add a new HTML resource</p>
         <button class="btn btn-secondary btn-sm" @click="$router.push({ name: 'admin-html'})">Go Back</button>
@@ -37,11 +36,6 @@ export default {
     return {
       loading: false,
       html: {},
-      crumbs: [
-        { id: 1, name: 'Dashboard', active: false, path: '/admin' },
-        { id: 2, name: 'HTML Resource', active: false, path: '/admin/html' },
-        { id: 3, name: 'Add HTML Resource', active: true, path: '' },
-      ],
     }
   },
   methods: {

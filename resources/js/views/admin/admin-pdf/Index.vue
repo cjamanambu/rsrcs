@@ -1,7 +1,6 @@
 <template>
   <div>
     <main role="main">
-      <PageHeader page-title="PDF Resource" :crumbs="crumbs" />
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2">
         <p class="text-muted">Here is the list of all your PDF resources to manage</p>
         <button class="btn btn-primary btn-sm" @click="$router.push({ name: 'add-pdf'})">Add PDF Resource</button>
@@ -60,10 +59,6 @@ export default {
   data() {
     return {
       loading: true,
-      crumbs: [
-        { id: 1, name: 'Dashboard', active: false, path: '/admin' },
-        { id: 2, name: 'PDF Resource', active: true, path: '' }
-      ],
       pdfs: []
     }
   },

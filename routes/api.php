@@ -47,4 +47,6 @@ Route::group(['prefix' => 'visitor'], function () {
 	// pdf routes
 	Route::get('pdf', [VisitorController::class, 'pdfs']);
 	Route::get('pdf/{id}', [VisitorController::class, 'pdf']);
+	// html routes
+	Route::get('html', [VisitorController::class, 'htmls']);
 });

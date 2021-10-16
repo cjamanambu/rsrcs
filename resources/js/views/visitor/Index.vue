@@ -1,7 +1,6 @@
 <template>
   <div>
     <main role="main">
-      <PageHeader page-title="Home" :crumbs="crumbs" />
       <div class="jumbotron jumbotron-fluid mt-3">
         <div class="container px-5">
           <h5 class="display-4">Visitor End</h5>
@@ -33,6 +32,26 @@
             <PDFResource :pdf="pdf" />
           </div>
         </div>
+        <div class="d-flex justify-content-between mt-5">
+          <h5 class="mb-1">HTML Resources ({{ numHtml }} total)</h5>
+          <router-link to="/visitor/html" class="card-link">View all</router-link>
+        </div>
+        <hr>
+        <div class="row">
+          <div v-if="htmls.length === 0" class="col-12">
+            <div class="alert alert-info text-center" role="alert">
+              There are currently no HTML resources.
+            </div>
+          </div>
+          <div
+            v-else
+            v-for="html in htmls"
+            :key="html.id"
+            class="col-lg-4"
+          >
+            <HTMLResource :html="html" :is-full="false" />
+          </div>
+        </div>
       </div>
     </main>
   </div>
@@ -40,18 +59,17 @@
 
 <script>
 import PDFResource from './components/PDFResource'
+import HTMLResource from './components/HTMLResource'
 export default {
-  components: { PDFResource },
+  components: { PDFResource, HTMLResource },
   data() {
     return {
       loading: true,
       pdfs: [],
       numPdf: 0,
       htmls: [],
+      numHtml: 0,
       links: [],
-      crumbs: [
-        { id: 1, name: 'Home', active: true, path: '' }
-      ]
     }
   },
   created() {
@@ -62,7 +80,16 @@ export default {
         this.pdfs.splice(3, this.numPdf)
     })
     .catch(error => console.log(error))
-    .finally(() => this.loading = false)
+    .finally(() => {
+      this.axios.get(`${this.$api}visitor/html`).then(response => {
+        this.htmls = response.data
+        this.numHtml = response.data.length
+        if (this.numHtml > 3)
+          this.htmls.splice(3, this.numHtml)
+      })
+      .catch(error => console.log(error))
+      .finally(() => this.loading = false)
+    })
   },
   methods: {
   }

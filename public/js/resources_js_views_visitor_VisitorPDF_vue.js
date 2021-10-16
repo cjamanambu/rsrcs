@@ -42,7 +42,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -51,18 +50,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       loading: true,
-      pdfs: [],
-      crumbs: [{
-        id: 1,
-        name: 'Home',
-        active: false,
-        path: '/visitor'
-      }, {
-        id: 2,
-        name: 'PDF Resource',
-        active: true,
-        path: ''
-      }]
+      pdfs: []
     };
   },
   created: function created() {
@@ -326,82 +314,73 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "main",
-      { attrs: { role: "main" } },
-      [
-        _c("PageHeader", {
-          attrs: { "page-title": "PDF Resource", crumbs: _vm.crumbs }
-        }),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2"
-          },
-          [
-            _c("p", { staticClass: "text-muted" }, [
-              _vm._v("Here is the list of all your PDF resources to download")
-            ]),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-secondary btn-sm",
-                on: {
-                  click: function($event) {
-                    return _vm.$router.push({ name: "visitor" })
-                  }
+    _c("main", { attrs: { role: "main" } }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2"
+        },
+        [
+          _c("p", { staticClass: "text-muted" }, [
+            _vm._v("Here is the list of all your PDF resources to download")
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-secondary btn-sm",
+              on: {
+                click: function($event) {
+                  return _vm.$router.push({ name: "visitor" })
                 }
-              },
-              [_vm._v("Go Back")]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _vm.loading
-          ? _c("div", { staticClass: "d-flex align-items-center mt-3" }, [
-              _c("strong", [_vm._v("Loading...")]),
-              _vm._v(" "),
-              _c("div", {
-                staticClass: "spinner-border ml-auto",
-                attrs: { role: "status", "aria-hidden": "true" }
-              })
-            ])
-          : _c(
-              "div",
-              { staticClass: "row mt-2" },
-              [
-                _vm.pdfs.length === 0
-                  ? _c("div", { staticClass: "col-12" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "alert alert-info text-center",
-                          attrs: { role: "alert" }
-                        },
-                        [
-                          _vm._v(
-                            "\n          There are currently no PDF resources.\n        "
-                          )
-                        ]
-                      )
-                    ])
-                  : _vm._l(_vm.pdfs, function(pdf) {
-                      return _c(
-                        "div",
-                        { key: pdf.id, staticClass: "col-12" },
-                        [_c("PDFResource", { attrs: { pdf: pdf } })],
-                        1
-                      )
-                    })
-              ],
-              2
-            )
-      ],
-      1
-    )
+              }
+            },
+            [_vm._v("Go Back")]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _vm.loading
+        ? _c("div", { staticClass: "d-flex align-items-center mt-3" }, [
+            _c("strong", [_vm._v("Loading...")]),
+            _vm._v(" "),
+            _c("div", {
+              staticClass: "spinner-border ml-auto",
+              attrs: { role: "status", "aria-hidden": "true" }
+            })
+          ])
+        : _c(
+            "div",
+            { staticClass: "row mt-2" },
+            [
+              _vm.pdfs.length === 0
+                ? _c("div", { staticClass: "col-12" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "alert alert-info text-center",
+                        attrs: { role: "alert" }
+                      },
+                      [
+                        _vm._v(
+                          "\n          There are currently no PDF resources.\n        "
+                        )
+                      ]
+                    )
+                  ])
+                : _vm._l(_vm.pdfs, function(pdf) {
+                    return _c(
+                      "div",
+                      { key: pdf.id, staticClass: "col-12 mt-2" },
+                      [_c("PDFResource", { attrs: { pdf: pdf } })],
+                      1
+                    )
+                  })
+            ],
+            2
+          )
+    ])
   ])
 }
 var staticRenderFns = []
