@@ -80,7 +80,7 @@ The development server will be run on `http://127.0.0.1:8000` or `http://localho
 ```js
 export default 'http://localhost:8000/api/'
 ```
-with the correct url.
+with the correct url. Access the app from `http://localhost:8000` in your browser.
 
 ### Feature Tests
 The project has feature tests for both `ManagementController` and `VisitorController`. As of the time of the final commit, all tests are passing. You can run all test cases with:
