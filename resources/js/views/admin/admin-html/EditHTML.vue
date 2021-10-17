@@ -3,7 +3,7 @@
     <main role="main">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2">
         <p class="text-muted">Here you can edit your HTML resource</p>
-        <button class="btn btn-secondary btn-sm" @click="$router.push({ name: 'admin-html'})">Go Back</button>
+        <button class="btn btn-secondary btn-sm" @click="$router.push({ name: 'admin-html' })">Go Back</button>
       </div>
       <div v-if="loading" class="d-flex align-items-center mt-3">
         <strong>Loading...</strong>
@@ -49,7 +49,7 @@ export default {
       this.html.description = response.data.description
       this.html.snippet = response.data.snippet
     })
-    .catch(error => console.log(error))
+    .catch(error => this.$toast.error(error.response.data.message))
     .finally(() => this.loading = false)
   },
   methods: {
@@ -72,12 +72,12 @@ export default {
           formData.append('description', this.html.description)
           formData.append('snippet', this.html.snippet)
           this.axios.post(`${this.$api}admin/html/update`, formData).then(response => {
-            this.$router.push({ name: 'admin-html'}).then(() => {
+            this.$router.push({ name: 'admin-html' }).then(() => {
               this.$toast.success(response.data)
             })
-          }).catch(error => {
-            this.$toast.error(error.response.data.message)
-          }).finally(() => this.loading = false)
+          })
+          .catch(error => this.$toast.error(error.response.data.message))
+          .finally(() => this.loading = false)
         }
       })
     }

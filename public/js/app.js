@@ -2257,14 +2257,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_toast_notification__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-toast-notification */ "./node_modules/vue-toast-notification/dist/index.min.js");
 /* harmony import */ var vue_toast_notification__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_toast_notification__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var vue_prism__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-prism */ "./node_modules/vue-prism/src/index.js");
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./api */ "./resources/js/api.js");
-/* harmony import */ var sweetalert2_dist_sweetalert2_min_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! sweetalert2/dist/sweetalert2.min.css */ "./node_modules/sweetalert2/dist/sweetalert2.min.css");
-/* harmony import */ var vue_toast_notification_dist_theme_default_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vue-toast-notification/dist/theme-default.css */ "./node_modules/vue-toast-notification/dist/theme-default.css");
-/* harmony import */ var prismjs_themes_prism_css__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! prismjs/themes/prism.css */ "./node_modules/prismjs/themes/prism.css");
+/* harmony import */ var sweetalert2_dist_sweetalert2_min_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! sweetalert2/dist/sweetalert2.min.css */ "./node_modules/sweetalert2/dist/sweetalert2.min.css");
+/* harmony import */ var vue_toast_notification_dist_theme_default_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-toast-notification/dist/theme-default.css */ "./node_modules/vue-toast-notification/dist/theme-default.css");
+/* harmony import */ var prismjs_themes_prism_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! prismjs/themes/prism.css */ "./node_modules/prismjs/themes/prism.css");
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./api */ "./resources/js/api.js");
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./routes */ "./resources/js/routes/index.js");
 /* harmony import */ var _components_Header_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/Header.vue */ "./resources/js/components/Header.vue");
 /* harmony import */ var _components_Footer_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/Footer.vue */ "./resources/js/components/Footer.vue");
 /* harmony import */ var _components_PageHeader_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/PageHeader.vue */ "./resources/js/components/PageHeader.vue");
+// Vue App
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
@@ -2287,7 +2288,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js"
 
 vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_15___default().use(vue_router__WEBPACK_IMPORTED_MODULE_16__["default"]);
 vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_15___default().use(vue_axios__WEBPACK_IMPORTED_MODULE_1__["default"], (axios__WEBPACK_IMPORTED_MODULE_2___default()));
-(vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_15___default().prototype.$api) = _api__WEBPACK_IMPORTED_MODULE_7__["default"];
+(vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_15___default().prototype.$api) = _api__WEBPACK_IMPORTED_MODULE_10__["default"];
 vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_15___default().use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_3___default()));
 vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_15___default().use((vue_clipboard2__WEBPACK_IMPORTED_MODULE_4___default()));
 vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_15___default().use((vue_toast_notification__WEBPACK_IMPORTED_MODULE_5___default()));
@@ -2449,7 +2450,7 @@ __webpack_require__.r(__webpack_exports__);
   meta: {
     title: 'Edit PDF Resource - RSCRS',
     layout: 'AppAdminLayout',
-    pageTitle: 'Add PDF Resource',
+    pageTitle: 'Edit PDF Resource',
     crumbs: [{
       id: 1,
       name: 'Dashboard',
@@ -41003,7 +41004,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("footer", { staticClass: "container border-top pt-3" }, [
       _c("small", { staticClass: "text-muted float-right" }, [
-        _c("strong", [_vm._v("RSCRS")]),
+        _c("strong", [_vm._v("RSRCS")]),
         _vm._v(" by CJ Amanambu 2021")
       ])
     ])
@@ -68621,6 +68622,10 @@ var map = {
 	"./AppVisitorLayout.vue": [
 		"./resources/js/layouts/AppVisitorLayout.vue",
 		"resources_js_layouts_AppVisitorLayout_vue"
+	],
+	"./components/Sidebar.vue": [
+		"./resources/js/layouts/components/Sidebar.vue",
+		"resources_js_layouts_components_Sidebar_vue"
 	]
 };
 function webpackAsyncContext(req) {
@@ -68766,7 +68771,7 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_layouts_AppAdminLayout_vue":1,"resources_js_layouts_AppDefaultLayout_vue":1,"resources_js_layouts_AppVisitorLayout_vue":1,"resources_js_views_Index_vue":1,"resources_js_views_admin_Index_vue":1,"resources_js_views_admin_admin-pdf_Index_vue":1,"resources_js_views_admin_admin-pdf_AddPDF_vue":1,"resources_js_views_admin_admin-pdf_EditPDF_vue":1,"resources_js_views_admin_admin-html_Index_vue":1,"resources_js_views_admin_admin-html_AddHTML_vue":1,"resources_js_views_admin_admin-html_EditHTML_vue":1,"resources_js_views_admin_admin-link_Index_vue":1,"resources_js_views_admin_admin-link_AddLink_vue":1,"resources_js_views_admin_admin-link_EditLink_vue":1,"resources_js_views_visitor_Index_vue":1,"resources_js_views_visitor_VisitorPDF_vue":1,"resources_js_views_visitor_VisitorHTML_vue":1,"resources_js_views_visitor_VisitorLink_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_layouts_AppAdminLayout_vue":1,"resources_js_layouts_AppDefaultLayout_vue":1,"resources_js_layouts_AppVisitorLayout_vue":1,"resources_js_layouts_components_Sidebar_vue":1,"resources_js_views_Index_vue":1,"resources_js_views_admin_Index_vue":1,"resources_js_views_admin_admin-pdf_Index_vue":1,"resources_js_views_admin_admin-pdf_AddPDF_vue":1,"resources_js_views_admin_admin-pdf_EditPDF_vue":1,"resources_js_views_admin_admin-html_Index_vue":1,"resources_js_views_admin_admin-html_AddHTML_vue":1,"resources_js_views_admin_admin-html_EditHTML_vue":1,"resources_js_views_admin_admin-link_Index_vue":1,"resources_js_views_admin_admin-link_AddLink_vue":1,"resources_js_views_admin_admin-link_EditLink_vue":1,"resources_js_views_visitor_Index_vue":1,"resources_js_views_visitor_VisitorPDF_vue":1,"resources_js_views_visitor_VisitorHTML_vue":1,"resources_js_views_visitor_VisitorLink_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

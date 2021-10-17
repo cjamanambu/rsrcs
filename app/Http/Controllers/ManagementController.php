@@ -52,7 +52,6 @@ class ManagementController extends Controller
 			$request->validate([
 				'id' => 'required',
 				'title' => 'required',
-				'file' => 'required|mimes:pdf',
 			]);
 		} catch (\Exception $e) {
 			return response()->json($e->getMessage(), 403);
@@ -61,17 +60,19 @@ class ManagementController extends Controller
 		if(!$pdf) {
 			return response()->json('PDF not found', 404);
 		}
-		if (Storage::exists($pdf->file_path)) {
-			Storage::delete($pdf->file_path);
-		}
+		$pdf->title = $request->input('title');
+
+		// Only update the file if a new file is chosen
 		if ($request->file('file')) {
+			if (Storage::exists($pdf->file_path)) {
+				Storage::delete($pdf->file_path);
+			}
 			$file_name = $request->file('file')->getClientOriginalName();
 			$file_path = $request->file('file')->store('public/pdf-files');
-			$pdf->title = $request->input('title');
 			$pdf->file_name = $file_name;
 			$pdf->file_path = $file_path;
-			$pdf->save();
 		}
+		$pdf->save();
 		return response()->json('The pdf file was successfully updated.');
 	}
 

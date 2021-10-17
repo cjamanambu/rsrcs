@@ -48,7 +48,7 @@ export default [
     meta: {
       title: 'Edit PDF Resource - RSCRS',
       layout: 'AppAdminLayout',
-      pageTitle: 'Add PDF Resource',
+      pageTitle: 'Edit PDF Resource',
       crumbs: [
         { id: 1, name: 'Dashboard', active: false, path: '/admin' },
         { id: 2, name: 'PDF Resource', active: false, path: '/admin/pdf' },

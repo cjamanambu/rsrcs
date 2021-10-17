@@ -40,12 +40,10 @@ export default {
   },
   methods: {
     copyHtml(html) {
-      this.$copyText(html.snippet).then(e => {
+      this.$copyText(html.snippet).then(() => {
         this.$toast.info(`Copied ${html.title}!`)
-        console.log(e)
-      }).catch(e => {
+      }).catch(() => {
         this.$toast.error('Not Copied')
-        console.log(e)
       })
     }
   }

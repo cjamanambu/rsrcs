@@ -112,7 +112,7 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("Header", { attrs: { title: "RSCRS" } }),
+      _c("Header", { attrs: { title: "RSRCS" } }),
       _vm._v(" "),
       _vm._t("default"),
       _vm._v(" "),

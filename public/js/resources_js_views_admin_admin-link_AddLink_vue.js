@@ -73,14 +73,14 @@ __webpack_require__.r(__webpack_exports__);
           formData.append('link', _this.link.url);
           formData.append('new_tab', _this.link.newTab ? '1' : '0');
 
-          _this.axios.post('http://localhost:8000/api/admin/link/add', formData).then(function (response) {
+          _this.axios.post("".concat(_this.$api, "admin/link/add"), formData).then(function (response) {
             _this.$router.push({
               name: 'admin-link'
             }).then(function () {
               _this.$toast.success(response.data);
             });
           })["catch"](function (error) {
-            _this.$toast.error(error.response.data.message);
+            return _this.$toast.error(error.response.data.message);
           })["finally"](function () {
             return _this.loading = false;
           });
@@ -267,7 +267,7 @@ var render = function() {
                   attrs: {
                     type: "url",
                     id: "url",
-                    placeholder: "http://localhost.com",
+                    placeholder: "https://localhost.com",
                     required: ""
                   },
                   domProps: { value: _vm.link.url },

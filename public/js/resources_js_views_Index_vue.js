@@ -24,6 +24,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -122,20 +124,16 @@ var render = function() {
     [
       _c("div", { staticClass: "jumbotron" }, [
         _c("h1", { staticClass: "display-4" }, [
-          _vm._v("Hello, welcome to RSCRS!")
+          _vm._v("Hello, welcome to RSRCS!")
         ]),
         _vm._v(" "),
-        _c("p", { staticClass: "lead" }, [
-          _vm._v(
-            "This is a simple resources management application built with Laravel 8 and VueJS 2."
-          )
-        ]),
+        _vm._m(0),
         _vm._v(" "),
         _c("hr", { staticClass: "my-4" }),
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "There is currently no authentication included in this project so feel free to access whichever end of the app you like."
+            "There is currently no authentication included in this project. Feel free to access whichever end of the app you like."
           )
         ]),
         _vm._v(" "),
@@ -168,7 +166,28 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "lead" }, [
+      _vm._v(
+        "\n      This is a simple resource management application built with Laravel 8 and VueJS 2. "
+      ),
+      _c(
+        "a",
+        {
+          attrs: {
+            href: "https://github.com/cjamanambu/rsrcs/blob/main/README.md",
+            target: "_blank"
+          }
+        },
+        [_vm._v("Learn more here.")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 

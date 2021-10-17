@@ -65,10 +65,10 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    this.axios.get("http://localhost:8000/api/admin/pdf/".concat(this.pdfID)).then(function (response) {
+    this.axios.get("".concat(this.$api, "admin/pdf/").concat(this.pdfID)).then(function (response) {
       _this.pdf.title = response.data.title;
     })["catch"](function (error) {
-      return console.log(error);
+      return _this.$toast.error(error.response.data.message);
     })["finally"](function () {
       return _this.loading = false;
     });
@@ -102,16 +102,19 @@ __webpack_require__.r(__webpack_exports__);
           var formData = new FormData();
           formData.append('id', _this2.pdfID);
           formData.append('title', _this2.pdf.title);
-          formData.append('file', _this2.pdf.file);
 
-          _this2.axios.post('http://localhost:8000/api/admin/pdf/update', formData).then(function (response) {
+          if (_this2.pdf.file) {
+            formData.append('file', _this2.pdf.file);
+          }
+
+          _this2.axios.post("".concat(_this2.$api, "admin/pdf/update"), formData).then(function (response) {
             _this2.$router.push({
               name: 'admin-pdf'
             }).then(function () {
-              _this2.$toast.success(response.data);
+              return _this2.$toast.success(response.data);
             });
           })["catch"](function (error) {
-            _this2.$toast.error(error.response.data.message);
+            return _this2.$toast.error(error.response.data.message);
           })["finally"](function () {
             return _this2.loading = false;
           });
@@ -312,8 +315,7 @@ var render = function() {
                         attrs: {
                           type: "file",
                           id: "file",
-                          accept: "application/pdf",
-                          required: ""
+                          accept: "application/pdf"
                         },
                         on: { change: _vm.getFile }
                       }),

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header title="RSCRS - Visitor"/>
+    <Header title="RSRCS - Visitor"/>
     <div class="container" style="margin-top: 15vh;">
       <PageHeader :page-title="$route.meta.pageTitle" :crumbs="$route.meta.crumbs" />
       <slot />

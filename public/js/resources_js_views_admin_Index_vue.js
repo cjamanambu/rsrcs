@@ -72,17 +72,17 @@ __webpack_require__.r(__webpack_exports__);
     this.axios.get("".concat(this.$api, "admin/pdf")).then(function (response) {
       _this.pdfs = response.data.length;
     })["catch"](function (error) {
-      return console.log(error);
+      return _this.$toast.error(error.response.data.message);
     })["finally"](function () {
       _this.axios.get("".concat(_this.$api, "admin/html")).then(function (response) {
         _this.htmls = response.data.length;
       })["catch"](function (error) {
-        return console.log(error);
+        return _this.$toast.error(error.response.data.message);
       })["finally"](function () {
         _this.axios.get("".concat(_this.$api, "admin/link")).then(function (response) {
           _this.links = response.data.length;
         })["catch"](function (error) {
-          return console.log(error);
+          return _this.$toast.error(error.response.data.message);
         })["finally"](function () {
           return _this.loading = false;
         });

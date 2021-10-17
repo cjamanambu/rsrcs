@@ -63,7 +63,7 @@ __webpack_require__.r(__webpack_exports__);
       _this.html.description = response.data.description;
       _this.html.snippet = response.data.snippet;
     })["catch"](function (error) {
-      return console.log(error);
+      return _this.$toast.error(error.response.data.message);
     })["finally"](function () {
       return _this.loading = false;
     });
@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
               _this2.$toast.success(response.data);
             });
           })["catch"](function (error) {
-            _this2.$toast.error(error.response.data.message);
+            return _this2.$toast.error(error.response.data.message);
           })["finally"](function () {
             return _this2.loading = false;
           });

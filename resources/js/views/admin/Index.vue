@@ -58,17 +58,17 @@ export default {
     this.axios.get(`${this.$api}admin/pdf`).then(response => {
       this.pdfs = response.data.length
     })
-    .catch(error => console.log(error))
+    .catch(error => this.$toast.error(error.response.data.message))
     .finally(() => {
       this.axios.get(`${this.$api}admin/html`).then(response => {
         this.htmls = response.data.length
       })
-      .catch(error => console.log(error))
+      .catch(error => this.$toast.error(error.response.data.message))
       .finally(() => {
         this.axios.get(`${this.$api}admin/link`).then(response => {
           this.links = response.data.length
         })
-        .catch(error => console.log(error))
+        .catch(error => this.$toast.error(error.response.data.message))
         .finally(() => this.loading = false)
       })
     })

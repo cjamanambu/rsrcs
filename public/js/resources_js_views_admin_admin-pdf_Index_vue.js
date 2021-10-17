@@ -77,10 +77,11 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    this.axios.get('http://localhost:8000/api/admin/pdf').then(function (response) {
+    this.axios.get("".concat(this.$api, "admin/pdf")).then(function (response) {
+      console.log(response.data);
       _this.pdfs = response.data;
     })["catch"](function (error) {
-      return console.log(error);
+      return _this.$toast.error(error.response.data.message);
     })["finally"](function () {
       return _this.loading = false;
     });
@@ -113,15 +114,15 @@ __webpack_require__.r(__webpack_exports__);
           var formData = new FormData();
           formData.append('id', pdf.id);
 
-          _this2.axios.post('http://localhost:8000/api/admin/pdf/delete', formData).then(function (response) {
-            _this2.$toast.success(response.data);
+          _this2.axios.post("".concat(_this2.$api, "admin/pdf/delete"), formData).then(function (response) {
+            return _this2.$toast.success(response.data);
           })["catch"](function (error) {
-            _this2.$toast.error(error.response.data.message);
+            return _this2.$toast.error(error.response.data.message);
           })["finally"](function () {
-            _this2.axios.get('http://localhost:8000/api/admin/pdf').then(function (response) {
+            _this2.axios.get("".concat(_this2.$api, "admin/pdf")).then(function (response) {
               _this2.pdfs = response.data;
             })["catch"](function (error) {
-              return console.log(error);
+              return _this2.$toast.error(error.response.data.message);
             })["finally"](function () {
               return _this2.loading = false;
             });
@@ -278,7 +279,7 @@ var render = function() {
                             staticClass: "font-weight-bolder text-center",
                             attrs: { colspan: "5" }
                           },
-                          [_vm._v("No PDF Resource exists")]
+                          [_vm._v("No PDF Resource found")]
                         )
                       ])
                     : _vm._l(_vm.pdfs, function(pdf, key) {
@@ -293,7 +294,7 @@ var render = function() {
                           _vm._v(" "),
                           _c("td", [
                             _vm._v(
-                              _vm._s(new Date(pdf.created_at).toDateString())
+                              _vm._s(new Date(pdf.created_at).toUTCString())
                             )
                           ]),
                           _vm._v(" "),
