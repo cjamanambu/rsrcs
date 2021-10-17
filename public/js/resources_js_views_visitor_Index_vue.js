@@ -121,21 +121,21 @@ __webpack_require__.r(__webpack_exports__);
       _this.numPdf = response.data.length;
       if (_this.numPdf > 3) _this.pdfs.splice(3, _this.numPdf);
     })["catch"](function (error) {
-      return console.log(error);
+      return _this.$toast.error(error.response.data.message);
     })["finally"](function () {
       _this.axios.get("".concat(_this.$api, "visitor/html")).then(function (response) {
         _this.htmls = response.data;
         _this.numHtml = response.data.length;
         if (_this.numHtml > 3) _this.htmls.splice(3, _this.numHtml);
       })["catch"](function (error) {
-        return console.log(error);
+        return _this.$toast.error(error.response.data.message);
       })["finally"](function () {
         _this.axios.get("".concat(_this.$api, "visitor/link")).then(function (response) {
           _this.links = response.data;
           _this.numLink = response.data.length;
           if (_this.numLink > 3) _this.links.splice(3, _this.numLink);
         })["catch"](function (error) {
-          return console.log(error);
+          return _this.$toast.error(error.response.data.message);
         })["finally"](function () {
           return _this.loading = false;
         });
@@ -200,14 +200,10 @@ __webpack_require__.r(__webpack_exports__);
     copyHtml: function copyHtml(html) {
       var _this = this;
 
-      this.$copyText(html.snippet).then(function (e) {
+      this.$copyText(html.snippet).then(function () {
         _this.$toast.info("Copied ".concat(html.title, "!"));
-
-        console.log(e);
-      })["catch"](function (e) {
+      })["catch"](function () {
         _this.$toast.error('Not Copied');
-
-        console.log(e);
       });
     }
   }
@@ -312,6 +308,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     viewPDF: function viewPDF(pdf) {
+      var _this = this;
+
       this.axios.get("".concat(this.$api, "visitor/pdf/").concat(pdf.id), {
         responseType: 'arraybuffer'
       }).then(function (response) {
@@ -323,18 +321,18 @@ __webpack_require__.r(__webpack_exports__);
         link.target = '_blank';
         link.click();
       })["catch"](function (error) {
-        return console.log(error);
+        return _this.$toast.error(error.response.data.message);
       });
     },
     downloadPDF: function downloadPDF(pdf) {
-      var _this = this;
+      var _this2 = this;
 
       this.axios.get("".concat(this.$api, "visitor/pdf/").concat(pdf.id), {
         responseType: 'arraybuffer'
       }).then(function (response) {
         var newBlob = new Blob([response.data], {
           type: 'application/pdf'
-        }); // IE
+        }); // For IE
 
         if (window.navigator && window.navigator.msSaveOrOpenBlob) {
           window.navigator.msSaveOrOpenBlob(newBlob);
@@ -348,13 +346,13 @@ __webpack_require__.r(__webpack_exports__);
         link.download = pdf.file_name;
         link.click();
         setTimeout(function () {
-          // Firefox
+          // for Firefox
           window.URL.revokeObjectURL(data);
         }, 100);
 
-        _this.$toast.success('File downloaded successfully');
+        _this2.$toast.info('File download started');
       })["catch"](function (error) {
-        return console.log(error);
+        return _this2.$toast.error(error.response.data.message);
       });
     }
   }

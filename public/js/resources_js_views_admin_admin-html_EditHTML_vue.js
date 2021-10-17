@@ -58,12 +58,12 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    this.axios.get("http://localhost:8000/api/admin/html/".concat(this.htmlID)).then(function (response) {
+    this.axios.get("".concat(this.$api, "admin/html/").concat(this.htmlID)).then(function (response) {
       _this.html.title = response.data.title;
       _this.html.description = response.data.description;
       _this.html.snippet = response.data.snippet;
     })["catch"](function (error) {
-      return console.log(error);
+      return _this.$toast.error(error.response.data.message);
     })["finally"](function () {
       return _this.loading = false;
     });
@@ -90,14 +90,14 @@ __webpack_require__.r(__webpack_exports__);
           formData.append('description', _this2.html.description);
           formData.append('snippet', _this2.html.snippet);
 
-          _this2.axios.post('http://localhost:8000/api/admin/html/update', formData).then(function (response) {
+          _this2.axios.post("".concat(_this2.$api, "admin/html/update"), formData).then(function (response) {
             _this2.$router.push({
               name: 'admin-html'
             }).then(function () {
               _this2.$toast.success(response.data);
             });
           })["catch"](function (error) {
-            _this2.$toast.error(error.response.data.message);
+            return _this2.$toast.error(error.response.data.message);
           })["finally"](function () {
             return _this2.loading = false;
           });

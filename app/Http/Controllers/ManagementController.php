@@ -11,21 +11,29 @@ use App\Models\Link;
 
 class ManagementController extends Controller
 {
-	public function pdfs() {
+	public function get_pdfs() {
 		$pdfs = Pdf::all()->toArray();
-		return array_reverse($pdfs);
+		$pdfs = array_reverse($pdfs);
+		return response()->json($pdfs);
 	}
 
-	public function pdf($id) {
-		$pdf = Pdf::findOrFail($id);
+	public function get_pdf($id) {
+		$pdf = Pdf::find($id);
+		if(!$pdf) {
+			return response()->json('PDF not found', 404);
+		}
 		return response()->json($pdf);
 	}
 
-	public function addPdf(Request $request) {
-		$request->validate([
-			'title' => 'required',
-			'file' => 'required|mimes:pdf',
-		]);
+	public function add_pdf(Request $request) {
+		try {
+			$request->validate([
+				'title' => 'required',
+				'file' => 'required|mimes:pdf',
+			]);
+		} catch (\Exception $e) {
+			return response()->json($e->getMessage(), 403);
+		}
 		if ($request->file('file')) {
 			$file_name = $request->file('file')->getClientOriginalName();
 			$file_path = $request->file('file')->store('public/pdf-files');
@@ -36,35 +44,50 @@ class ManagementController extends Controller
 			]);
 			$new_pdf->save();
 		}
-		return response()->json('The pdf file was successfully added.');
+		return response()->json('The pdf file was successfully added.', 201);
 	}
 
-	public function updatePdf(Request $request) {
-		$request->validate([
-			'id' => 'required',
-			'title' => 'required',
-			'file' => 'required|mimes:pdf',
-		]);
-		$pdf = Pdf::findOrFail($request->input('id'));
-		if (Storage::exists($pdf->file_path)) {
-			Storage::delete($pdf->file_path);
+	public function update_pdf(Request $request) {
+		try {
+			$request->validate([
+				'id' => 'required',
+				'title' => 'required',
+			]);
+		} catch (\Exception $e) {
+			return response()->json($e->getMessage(), 403);
 		}
+		$pdf = Pdf::find($request->input('id'));
+		if(!$pdf) {
+			return response()->json('PDF not found', 404);
+		}
+		$pdf->title = $request->input('title');
+
+		// Only update the file if a new file is chosen
 		if ($request->file('file')) {
+			if (Storage::exists($pdf->file_path)) {
+				Storage::delete($pdf->file_path);
+			}
 			$file_name = $request->file('file')->getClientOriginalName();
 			$file_path = $request->file('file')->store('public/pdf-files');
-			$pdf->title = $request->input('title');
 			$pdf->file_name = $file_name;
 			$pdf->file_path = $file_path;
-			$pdf->save();
 		}
+		$pdf->save();
 		return response()->json('The pdf file was successfully updated.');
 	}
 
-	public function deletePdf(Request $request) {
-		$request->validate([
-			'id' => 'required',
-		]);
-		$pdf = Pdf::findOrFail($request->input('id'));
+	public function delete_pdf(Request $request) {
+		try {
+			$request->validate([
+				'id' => 'required',
+			]);
+		} catch (\Exception $e) {
+			return response()->json($e->getMessage(), 403);
+		}
+		$pdf = Pdf::find($request->input('id'));
+		if(!$pdf) {
+			return response()->json('PDF not found', 404);
+		}
 		if (Storage::exists($pdf->file_path)) {
 			Storage::delete($pdf->file_path);
 		}
@@ -72,37 +95,52 @@ class ManagementController extends Controller
 		return response()->json('The pdf file was successfully deleted.');
 	}
 
-	public function htmls() {
+	public function get_htmls() {
 		$htmls = Html::all()->toArray();
-		return array_reverse($htmls);
+		$htmls = array_reverse($htmls);
+		return response()->json($htmls);
 	}
 
-	public function html($id) {
-		$html = Html::findOrFail($id);
+	public function get_html($id) {
+		$html = Html::find($id);
+		if(!$html) {
+			return response()->json('HTML not found', 404);
+		}
 		return response()->json($html);
 	}
 
-	public function addHtml(Request $request) {
-		$request->validate([
-			'title' => 'required',
-			'snippet' => 'required',
-		]);
+	public function add_html(Request $request) {
+		try {
+			$request->validate([
+				'title' => 'required',
+				'snippet' => 'required',
+			]);
+		} catch (\Exception $e) {
+			return response()->json($e->getMessage(), 403);
+		}
 		$new_html = new Html([
 			'title' => $request->input('title'),
 			'description' => $request->input('description'),
 			'snippet' => $request->input('snippet')
 		]);
 		$new_html->save();
-		return response()->json('The html snippet was successfully added.');
+		return response()->json('The html snippet was successfully added.', 201);
 	}
 
-	public function updateHtml(Request $request) {
-		$request->validate([
-			'id' => 'required',
-			'title' => 'required',
-			'snippet' => 'required',
-		]);
-		$html = Html::findOrFail($request->input('id'));
+	public function update_html(Request $request) {
+		try {
+			$request->validate([
+				'id' => 'required',
+				'title' => 'required',
+				'snippet' => 'required',
+			]);
+		} catch (\Exception $e) {
+			return response()->json($e->getMessage(), 403);
+		}
+		$html = Html::find($request->input('id'));
+		if(!$html) {
+			return response()->json('HTML not found', 404);
+		}
 		$html->title = $request->input('title');
 		$html->description = $request->input('description');
 		$html->snippet = $request->input('snippet');
@@ -110,48 +148,70 @@ class ManagementController extends Controller
 		return response()->json('The html snippet was successfully updated');
 	}
 
-	public function deleteHtml(Request $request) {
-		$request->validate([
-			'id' => 'required'
-		]);
-		$html = Html::findOrFail($request->input('id'));
+	public function delete_html(Request $request) {
+		try {
+			$request->validate([
+				'id' => 'required'
+			]);
+		} catch (\Exception $e) {
+			return response()->json($e->getMessage(), 403);
+		}
+		$html = Html::find($request->input('id'));
+		if(!$html) {
+			return response()->json('HTML not found', 404);
+		}
 		$html->delete();
 		return response()->json('The html snippet was successfully deleted.');
 	}
 
-	public function links() {
+	public function get_links() {
 		$links = Link::all()->toArray();
-		return array_reverse($links);
+		$links = array_reverse($links);
+		return response()->json($links);
 	}
 
-	public function link($id) {
-		$link = Link::findOrFail($id);
+	public function get_link($id) {
+		$link = Link::find($id);
+		if(!$link) {
+			return response()->json('Link not found', 404);
+		}
 		return response()->json($link);
 	}
 
-	public function addLink(Request $request) {
-		$request->validate([
-			'title' => 'required',
-			'link' => 'required',
-			'new_tab' => 'required',
-		]);
+	public function add_link(Request $request) {
+		try {
+			$request->validate([
+				'title' => 'required',
+				'link' => 'required',
+				'new_tab' => 'required',
+			]);
+		} catch (\Exception $e) {
+			return response()->json($e->getMessage(), 403);
+		}
 		$new_link = new Link([
 			'title' => $request->input('title'),
 			'link' => $request->input('link'),
 			'new_tab' => $request->input('new_tab')
 		]);
 		$new_link->save();
-		return response()->json('The link was successfully added.');
+		return response()->json('The link was successfully added.', 201);
 	}
 
-	public function updateLink(Request $request) {
-		$request->validate([
-			'id' => 'required',
-			'title' => 'required',
-			'link' => 'required',
-			'new_tab' => 'required',
-		]);
-		$link = Link::findOrFail($request->input('id'));
+	public function update_link(Request $request) {
+		try {
+			$request->validate([
+				'id' => 'required',
+				'title' => 'required',
+				'link' => 'required',
+				'new_tab' => 'required',
+			]);
+		} catch (\Exception $e) {
+			return response()->json($e->getMessage(), 403);
+		}
+		$link = Link::find($request->input('id'));
+		if(!$link) {
+			return response()->json('Link not found', 404);
+		}
 		$link->title = $request->input('title');
 		$link->link = $request->input('link');
 		$link->new_tab = $request->input('new_tab');
@@ -159,11 +219,18 @@ class ManagementController extends Controller
 		return response()->json('The link was successfully updated');
 	}
 
-	public function deleteLink(Request $request) {
-		$request->validate([
-			'id' => 'required'
-		]);
-		$link = Link::findOrFail($request->input('id'));
+	public function delete_link(Request $request) {
+		try {
+			$request->validate([
+				'id' => 'required'
+			]);
+		} catch (\Exception $e) {
+			return response()->json($e->getMessage(), 403);
+		}
+		$link = Link::find($request->input('id'));
+		if(!$link) {
+			return response()->json('Link not found', 404);
+		}
 		$link->delete();
 		return response()->json('The link was successfully deleted.');
 	}

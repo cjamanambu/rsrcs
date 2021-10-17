@@ -3,7 +3,7 @@
     <main role="main">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2">
         <p class="text-muted">Here is the list of all your Link resources to open</p>
-        <button class="btn btn-secondary btn-sm" @click="$router.push({ name: 'visitor'})">Go Back</button>
+        <button class="btn btn-secondary btn-sm" @click="$router.push({ name: 'visitor' })">Go Back</button>
       </div>
       <div v-if="loading" class="d-flex align-items-center mt-3">
         <strong>Loading...</strong>
@@ -42,7 +42,7 @@ export default {
     this.axios.get(`${this.$api}visitor/link`).then(response => {
       this.links = response.data
     })
-    .catch(error => console.log(error))
+    .catch(error => this.$toast.error(error.response.data.message))
     .finally(() => this.loading = false)
   },
 }

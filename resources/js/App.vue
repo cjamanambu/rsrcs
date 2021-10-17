@@ -10,8 +10,6 @@
 import AppLayout from './layouts/AppLayout.vue'
 
 export default {
-  components: {
-    AppLayout
-  }
+  components: { AppLayout }
 }
 </script>

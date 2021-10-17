@@ -3,7 +3,7 @@
     <main role="main">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2">
         <p class="text-muted">Here you can add a new HTML resource</p>
-        <button class="btn btn-secondary btn-sm" @click="$router.push({ name: 'admin-html'})">Go Back</button>
+        <button class="btn btn-secondary btn-sm" @click="$router.push({ name: 'admin-html' })">Go Back</button>
       </div>
       <div class="card">
         <form @submit.prevent="addHTML">
@@ -56,13 +56,13 @@ export default {
           formData.append('title', this.html.title)
           formData.append('description', this.html.description)
           formData.append('snippet', this.html.snippet)
-          this.axios.post('http://localhost:8000/api/admin/html/add', formData).then(response => {
-            this.$router.push({ name: 'admin-html'}).then(() => {
+          this.axios.post(`${this.$api}admin/html/add`, formData).then(response => {
+            this.$router.push({ name: 'admin-html' }).then(() => {
               this.$toast.success(response.data)
             })
-          }).catch(error => {
-            this.$toast.error(error.response.data.message)
-          }).finally(() => this.loading = false)
+          })
+          .catch(error => this.$toast.error(error.response.data.message))
+          .finally(() => this.loading = false)
         }
       })
     }

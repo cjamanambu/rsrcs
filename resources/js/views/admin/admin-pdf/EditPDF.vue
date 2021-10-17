@@ -3,7 +3,7 @@
     <main role="main">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2">
         <p class="text-muted">Here you can edit your PDF resource</p>
-        <button class="btn btn-secondary btn-sm" @click="$router.push({ name: 'admin-pdf'})">Go Back</button>
+        <button class="btn btn-secondary btn-sm" @click="$router.push({ name: 'admin-pdf' })">Go Back</button>
       </div>
       <div v-if="loading" class="d-flex align-items-center mt-3">
         <strong>Loading...</strong>
@@ -20,7 +20,7 @@
             <div class="form-group mb-4">
               <label class="">PDF File</label><span class="text-danger"> *</span>
               <div class="custom-file">
-                <input type="file" class="custom-file-input" id="file" @change="getFile" accept="application/pdf" required>
+                <input type="file" class="custom-file-input" id="file" @change="getFile" accept="application/pdf">
                 <label class="custom-file-label" for="file">Choose pdf file</label>
               </div>
               <div v-if="fileUploaded" class="alert alert-info mt-2" role="alert">
@@ -51,10 +51,10 @@ export default {
     }
   },
   created() {
-    this.axios.get(`http://localhost:8000/api/admin/pdf/${this.pdfID}`).then(response => {
+    this.axios.get(`${this.$api}admin/pdf/${this.pdfID}`).then(response => {
       this.pdf.title = response.data.title
     })
-    .catch(error => console.log(error))
+    .catch(error => this.$toast.error(error.response.data.message))
     .finally(() => this.loading = false)
   },
   methods: {
@@ -64,8 +64,7 @@ export default {
       if (fileList.length > 0) {
         this.pdf.file = fileList[0]
       }
-      this.fileUploaded = fileList.length > 0;
-
+      this.fileUploaded = fileList.length > 0
     },
     editPDF() {
       this.$swal({
@@ -83,14 +82,14 @@ export default {
           const formData = new FormData()
           formData.append('id', this.pdfID)
           formData.append('title', this.pdf.title)
-          formData.append('file', this.pdf.file)
-          this.axios.post('http://localhost:8000/api/admin/pdf/update', formData).then(response => {
-            this.$router.push({ name: 'admin-pdf'}).then(() => {
-              this.$toast.success(response.data)
-            })
-          }).catch(error => {
-            this.$toast.error(error.response.data.message)
-          }).finally(() => this.loading = false)
+          if (this.pdf.file) {
+            formData.append('file', this.pdf.file)
+          }
+          this.axios.post(`${this.$api}admin/pdf/update`, formData).then(response => {
+            this.$router.push({ name: 'admin-pdf' }).then(() => this.$toast.success(response.data))
+          })
+          .catch(error => this.$toast.error(error.response.data.message))
+          .finally(() => this.loading = false)
         }
       })
     }

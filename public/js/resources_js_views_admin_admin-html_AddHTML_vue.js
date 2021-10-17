@@ -71,14 +71,14 @@ __webpack_require__.r(__webpack_exports__);
           formData.append('description', _this.html.description);
           formData.append('snippet', _this.html.snippet);
 
-          _this.axios.post('http://localhost:8000/api/admin/html/add', formData).then(function (response) {
+          _this.axios.post("".concat(_this.$api, "admin/html/add"), formData).then(function (response) {
             _this.$router.push({
               name: 'admin-html'
             }).then(function () {
               _this.$toast.success(response.data);
             });
           })["catch"](function (error) {
-            _this.$toast.error(error.response.data.message);
+            return _this.$toast.error(error.response.data.message);
           })["finally"](function () {
             return _this.loading = false;
           });

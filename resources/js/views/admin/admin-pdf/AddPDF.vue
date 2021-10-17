@@ -3,7 +3,7 @@
     <main role="main">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2">
         <p class="text-muted">Here you can add a new PDF resource</p>
-        <button class="btn btn-secondary btn-sm" @click="$router.push({ name: 'admin-pdf'})">Go Back</button>
+        <button class="btn btn-secondary btn-sm" @click="$router.push({ name: 'admin-pdf' })">Go Back</button>
       </div>
       <div class="card">
         <form @submit.prevent="addPdf" enctype="multipart/form-data">
@@ -70,13 +70,11 @@ export default {
           const formData = new FormData()
           formData.append('title', this.pdf.title)
           formData.append('file', this.pdf.file)
-          this.axios.post('http://localhost:8000/api/admin/pdf/add', formData).then(response => {
-            this.$router.push({ name: 'admin-pdf'}).then(() => {
-              this.$toast.success(response.data)
-            })
-          }).catch(error => {
-            this.$toast.error(error.response.data.message)
-          }).finally(() => this.loading = false)
+          this.axios.post(`${this.$api}admin/pdf/add`, formData).then(response => {
+            this.$router.push({ name: 'admin-pdf' }).then(() => this.$toast.success(response.data))
+          })
+          .catch(error => this.$toast.error(error.response.data.message))
+          .finally(() => this.loading = false)
         }
       })
     }

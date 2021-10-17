@@ -47,12 +47,12 @@ export default {
     }
   },
   created() {
-    this.axios.get(`http://localhost:8000/api/admin/link/${this.linkID}`).then(response => {
+    this.axios.get(`${this.$api}admin/link/${this.linkID}`).then(response => {
       this.link.title = response.data.title
       this.link.url = response.data.link
       this.link.newTab = response.data.new_tab === 1
     })
-    .catch(error => console.log(error))
+    .catch(error => this.$toast.error(error.response.data.message))
     .finally(() => this.loading = false)
   },
   methods: {
@@ -74,13 +74,13 @@ export default {
           formData.append('title', this.link.title)
           formData.append('link', this.link.url)
           formData.append('new_tab', this.link.newTab ? '1' : '0')
-          this.axios.post('http://localhost:8000/api/admin/link/update', formData).then(response => {
-            this.$router.push({ name: 'admin-link'}).then(() => {
+          this.axios.post(`${this.$api}admin/link/update`, formData).then(response => {
+            this.$router.push({ name: 'admin-link' }).then(() => {
               this.$toast.success(response.data)
             })
-          }).catch(error => {
-            this.$toast.error(error.response.data.message)
-          }).finally(() => this.saving = false)
+          })
+          .catch(error => this.$toast.error(error.response.data.message))
+          .finally(() => this.saving = false)
         }
       })
     }

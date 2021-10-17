@@ -42,12 +42,12 @@ export default {
         link.target = '_blank'
         link.click()
       })
-      .catch(error => console.log(error))
+      .catch(error => this.$toast.error(error.response.data.message))
     },
     downloadPDF(pdf) {
       this.axios.get(`${this.$api}visitor/pdf/${pdf.id}`, { responseType: 'arraybuffer' }).then(response => {
         let newBlob = new Blob([response.data], { type: 'application/pdf' })
-        // IE
+        // For IE
         if (window.navigator && window.navigator.msSaveOrOpenBlob) {
           window.navigator.msSaveOrOpenBlob(newBlob)
           return
@@ -59,12 +59,12 @@ export default {
         link.download = pdf.file_name
         link.click()
         setTimeout(function () {
-          // Firefox
+          // for Firefox
           window.URL.revokeObjectURL(data)
         }, 100)
-        this.$toast.success('File downloaded successfully')
+        this.$toast.info('File download started')
       })
-      .catch(error => console.log(error))
+      .catch(error => this.$toast.error(error.response.data.message))
     },
   }
 }

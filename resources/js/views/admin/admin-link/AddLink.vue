@@ -3,7 +3,7 @@
     <main role="main">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2">
         <p class="text-muted">Here you can add a new Link resource</p>
-        <button class="btn btn-secondary btn-sm" @click="$router.push({ name: 'admin-link'})">Go Back</button>
+        <button class="btn btn-secondary btn-sm" @click="$router.push({ name: 'admin-link' })">Go Back</button>
       </div>
       <div class="card">
         <form @submit.prevent="addLink">
@@ -15,7 +15,7 @@
             </div>
             <div class="form-group mb-4">
               <label for="url">Link URL</label><span class="text-danger"> *</span>
-              <input type="url" class="form-control" id="url" v-model="link.url" placeholder="http://localhost.com" required>
+              <input type="url" class="form-control" id="url" v-model="link.url" placeholder="https://localhost.com" required>
             </div>
             <div class="form-group mb-4">
               <div class="custom-control custom-checkbox">
@@ -58,13 +58,13 @@ export default {
           formData.append('title', this.link.title)
           formData.append('link', this.link.url)
           formData.append('new_tab', this.link.newTab ? '1' : '0')
-          this.axios.post('http://localhost:8000/api/admin/link/add', formData).then(response => {
-            this.$router.push({ name: 'admin-link'}).then(() => {
+          this.axios.post(`${this.$api}admin/link/add`, formData).then(response => {
+            this.$router.push({ name: 'admin-link' }).then(() => {
               this.$toast.success(response.data)
             })
-          }).catch(error => {
-            this.$toast.error(error.response.data.message)
-          }).finally(() => this.loading = false)
+          })
+          .catch(error => this.$toast.error(error.response.data.message))
+          .finally(() => this.loading = false)
         }
       })
     }

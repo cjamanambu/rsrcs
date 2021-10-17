@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header title="RSCRS" />
+    <Header title="RSRCS" />
     <slot />
     <Footer style="margin-top: 30vh"/>
   </div>

@@ -59,7 +59,7 @@ __webpack_require__.r(__webpack_exports__);
     this.axios.get("".concat(this.$api, "visitor/link")).then(function (response) {
       _this.links = response.data;
     })["catch"](function (error) {
-      return console.log(error);
+      return _this.$toast.error(error.response.data.message);
     })["finally"](function () {
       return _this.loading = false;
     });

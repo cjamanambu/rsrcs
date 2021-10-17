@@ -59,7 +59,7 @@ __webpack_require__.r(__webpack_exports__);
     this.axios.get("".concat(this.$api, "visitor/html")).then(function (response) {
       _this.htmls = response.data;
     })["catch"](function (error) {
-      return console.log(error);
+      return _this.$toast.error(error.response.data.message);
     })["finally"](function () {
       return _this.loading = false;
     });
@@ -122,14 +122,10 @@ __webpack_require__.r(__webpack_exports__);
     copyHtml: function copyHtml(html) {
       var _this = this;
 
-      this.$copyText(html.snippet).then(function (e) {
+      this.$copyText(html.snippet).then(function () {
         _this.$toast.info("Copied ".concat(html.title, "!"));
-
-        console.log(e);
-      })["catch"](function (e) {
+      })["catch"](function () {
         _this.$toast.error('Not Copied');
-
-        console.log(e);
       });
     }
   }

@@ -101,7 +101,7 @@ export default {
       if (this.numPdf > 3)
         this.pdfs.splice(3, this.numPdf)
     })
-    .catch(error => console.log(error))
+    .catch(error => this.$toast.error(error.response.data.message))
     .finally(() => {
       this.axios.get(`${this.$api}visitor/html`).then(response => {
         this.htmls = response.data
@@ -109,7 +109,7 @@ export default {
         if (this.numHtml > 3)
           this.htmls.splice(3, this.numHtml)
       })
-      .catch(error => console.log(error))
+      .catch(error => this.$toast.error(error.response.data.message))
       .finally(() => {
         this.axios.get(`${this.$api}visitor/link`).then(response => {
           this.links = response.data
@@ -117,7 +117,7 @@ export default {
           if (this.numLink > 3)
             this.links.splice(3, this.numLink)
         })
-        .catch(error => console.log(error))
+        .catch(error => this.$toast.error(error.response.data.message))
         .finally(() => this.loading = false)
       })
     })

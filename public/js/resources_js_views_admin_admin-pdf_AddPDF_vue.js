@@ -86,14 +86,14 @@ __webpack_require__.r(__webpack_exports__);
           formData.append('title', _this.pdf.title);
           formData.append('file', _this.pdf.file);
 
-          _this.axios.post('http://localhost:8000/api/admin/pdf/add', formData).then(function (response) {
+          _this.axios.post("".concat(_this.$api, "admin/pdf/add"), formData).then(function (response) {
             _this.$router.push({
               name: 'admin-pdf'
             }).then(function () {
-              _this.$toast.success(response.data);
+              return _this.$toast.success(response.data);
             });
           })["catch"](function (error) {
-            _this.$toast.error(error.response.data.message);
+            return _this.$toast.error(error.response.data.message);
           })["finally"](function () {
             return _this.loading = false;
           });
