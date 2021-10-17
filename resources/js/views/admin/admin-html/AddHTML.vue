@@ -56,7 +56,7 @@ export default {
           formData.append('title', this.html.title)
           formData.append('description', this.html.description)
           formData.append('snippet', this.html.snippet)
-          this.axios.post('http://localhost:8000/api/admin/html/add', formData).then(response => {
+          this.axios.post(`${this.$api}admin/html/add`, formData).then(response => {
             this.$router.push({ name: 'admin-html'}).then(() => {
               this.$toast.success(response.data)
             })

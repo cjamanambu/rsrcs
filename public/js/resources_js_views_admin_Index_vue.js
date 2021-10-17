@@ -69,17 +69,17 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    this.axios.get('http://localhost:8000/api/admin/pdf').then(function (response) {
+    this.axios.get("".concat(this.$api, "admin/pdf")).then(function (response) {
       _this.pdfs = response.data.length;
     })["catch"](function (error) {
       return console.log(error);
     })["finally"](function () {
-      _this.axios.get('http://localhost:8000/api/admin/html').then(function (response) {
+      _this.axios.get("".concat(_this.$api, "admin/html")).then(function (response) {
         _this.htmls = response.data.length;
       })["catch"](function (error) {
         return console.log(error);
       })["finally"](function () {
-        _this.axios.get('http://localhost:8000/api/admin/link').then(function (response) {
+        _this.axios.get("".concat(_this.$api, "admin/link")).then(function (response) {
           _this.links = response.data.length;
         })["catch"](function (error) {
           return console.log(error);

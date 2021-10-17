@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    this.axios.get("http://localhost:8000/api/admin/html/".concat(this.htmlID)).then(function (response) {
+    this.axios.get("".concat(this.$api, "admin/html/").concat(this.htmlID)).then(function (response) {
       _this.html.title = response.data.title;
       _this.html.description = response.data.description;
       _this.html.snippet = response.data.snippet;
@@ -90,7 +90,7 @@ __webpack_require__.r(__webpack_exports__);
           formData.append('description', _this2.html.description);
           formData.append('snippet', _this2.html.snippet);
 
-          _this2.axios.post('http://localhost:8000/api/admin/html/update', formData).then(function (response) {
+          _this2.axios.post("".concat(_this2.$api, "admin/html/update"), formData).then(function (response) {
             _this2.$router.push({
               name: 'admin-html'
             }).then(function () {

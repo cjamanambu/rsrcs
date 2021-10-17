@@ -44,7 +44,7 @@ export default {
     }
   },
   created() {
-    this.axios.get(`http://localhost:8000/api/admin/html/${this.htmlID}`).then(response => {
+    this.axios.get(`${this.$api}admin/html/${this.htmlID}`).then(response => {
       this.html.title = response.data.title
       this.html.description = response.data.description
       this.html.snippet = response.data.snippet
@@ -71,7 +71,7 @@ export default {
           formData.append('title', this.html.title)
           formData.append('description', this.html.description)
           formData.append('snippet', this.html.snippet)
-          this.axios.post('http://localhost:8000/api/admin/html/update', formData).then(response => {
+          this.axios.post(`${this.$api}admin/html/update`, formData).then(response => {
             this.$router.push({ name: 'admin-html'}).then(() => {
               this.$toast.success(response.data)
             })

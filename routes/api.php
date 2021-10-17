@@ -24,31 +24,31 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['prefix' => 'admin'], function () {
 	// pdf routes
-	Route::get('pdf', [ManagementController::class, 'pdfs']);
-	Route::get('pdf/{id}', [ManagementController::class, 'pdf']);
-	Route::post('pdf/add', [ManagementController::class, 'addPdf']);
-	Route::post('pdf/update', [ManagementController::class, 'updatePdf']);
-	Route::post('pdf/delete', [ManagementController::class, 'deletePdf']);
+	Route::get('pdf', [ManagementController::class, 'get_pdfs']);
+	Route::get('pdf/{id}', [ManagementController::class, 'get_pdf']);
+	Route::post('pdf/add', [ManagementController::class, 'add_pdf']);
+	Route::post('pdf/update', [ManagementController::class, 'update_pdf']);
+	Route::post('pdf/delete', [ManagementController::class, 'delete_pdf']);
 	// html routes
-	Route::get('html', [ManagementController::class, 'htmls']);
-	Route::get('html/{id}', [ManagementController::class, 'html']);
-	Route::post('html/add', [ManagementController::class, 'addHtml']);
-	Route::post('html/update', [ManagementController::class, 'updateHtml']);
-	Route::post('html/delete', [ManagementController::class, 'deleteHtml']);
+	Route::get('html', [ManagementController::class, 'get_htmls']);
+	Route::get('html/{id}', [ManagementController::class, 'get_html']);
+	Route::post('html/add', [ManagementController::class, 'add_html']);
+	Route::post('html/update', [ManagementController::class, 'update_html']);
+	Route::post('html/delete', [ManagementController::class, 'delete_html']);
 	// link routes
-	Route::get('link', [ManagementController::class, 'links']);
-	Route::get('link/{id}', [ManagementController::class, 'link']);
-	Route::post('link/add', [ManagementController::class, 'addLink']);
-	Route::post('link/update', [ManagementController::class, 'updateLink']);
-	Route::post('link/delete', [ManagementController::class, 'deleteLink']);
+	Route::get('link', [ManagementController::class, 'get_links']);
+	Route::get('link/{id}', [ManagementController::class, 'get_link']);
+	Route::post('link/add', [ManagementController::class, 'add_link']);
+	Route::post('link/update', [ManagementController::class, 'update_link']);
+	Route::post('link/delete', [ManagementController::class, 'delete_link']);
 });
 
 Route::group(['prefix' => 'visitor'], function () {
 	// pdf routes
-	Route::get('pdf', [VisitorController::class, 'pdfs']);
-	Route::get('pdf/{id}', [VisitorController::class, 'pdf']);
+	Route::get('pdf', [VisitorController::class, 'get_pdfs']);
+	Route::get('pdf/{id}', [VisitorController::class, 'get_pdf']);
 	// html routes
-	Route::get('html', [VisitorController::class, 'htmls']);
+	Route::get('html', [VisitorController::class, 'get_htmls']);
 	// link routes
-	Route::get('link', [VisitorController::class, 'links']);
+	Route::get('link', [VisitorController::class, 'get_links']);
 });

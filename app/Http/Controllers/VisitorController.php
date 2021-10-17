@@ -10,13 +10,17 @@ use App\Models\Link;
 
 class VisitorController extends Controller
 {
-	public function pdfs() {
+	public function get_pdfs() {
 		$pdfs = Pdf::all()->toArray();
-		return array_reverse($pdfs);
+		$pdfs = array_reverse($pdfs);
+		return response()->json($pdfs);
 	}
 
-	public function pdf($id) {
-		$pdf = Pdf::findOrFail($id);
+	public function get_pdf($id) {
+		$pdf = Pdf::find($id);
+		if(!$pdf) {
+			return response()->json('PDF not found', 404);
+		}
 		if (!Storage::exists($pdf->file_path)) {
 			return response()->json('File does not exist', 404);
 		}
@@ -24,13 +28,15 @@ class VisitorController extends Controller
 		return Storage::download($pdf->file_path, $pdf->file_name, $headers);
 	}
 
-	public function htmls() {
+	public function get_htmls() {
 		$htmls = Html::all()->toArray();
-		return array_reverse($htmls);
+		$htmls = array_reverse($htmls);
+		return response()->json($htmls);
 	}
 
-	public function links() {
+	public function get_links() {
 		$links = Link::all()->toArray();
-		return array_reverse($links);
+		$links = array_reverse($links);
+		return response()->json($links);
 	}
 }
